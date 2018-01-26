@@ -26,6 +26,7 @@ public class JointAnimation : MonoBehaviour
     // Bad code, will be restruct later
     public void Animate(int paceState, bool leftForward)
     {
+        Debug.Log("Here!");
         foreach (var animInfo in m_animations)
         {
             Vector3 a = Vector3.zero;

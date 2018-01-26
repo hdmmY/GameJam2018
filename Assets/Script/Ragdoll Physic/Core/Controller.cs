@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Sirenix.OdinInspector;
 
 public class Controller : MonoBehaviour
 {
@@ -8,8 +9,10 @@ public class Controller : MonoBehaviour
         None = 0,
         Left = 1,
         Right = 2,
-        WallJump = 4,
-        GroundJump = 8
+        Up = 4,
+        Down = 8,
+        WallJump = 16,
+        GroundJump = 32
     }
 
     private Movement _movement;
@@ -24,6 +27,7 @@ public class Controller : MonoBehaviour
 
     public GrabHandler grabHandler { get; private set; }
 
+    [ShowInInspector, ReadOnly]
     public MovementState movementState { get; private set; }
 
     private void Start()
@@ -38,31 +42,45 @@ public class Controller : MonoBehaviour
 
     private void FixedUpdate()
     {
+        movementState = MovementState.None;
+
+
+        float horizontalInput = Input.GetAxis("Horizontal");
+        if (horizontalInput < -0.05f)
+        {
+            MoveLeft();
+            movementState |= MovementState.Left;
+        }
+        else if (horizontalInput > 0.05f)
+        {
+            MoveRight();
+            movementState |= MovementState.Right;
+        }
+
+        float verticalInput = Input.GetAxis("Vertical");
+        if (verticalInput < -0.05f)
+        {
+            MoveDown();
+            movementState |= MovementState.Down;
+        }
+        else if (verticalInput > 0.05f)
+        {
+            MoveUp();
+            movementState |= MovementState.Up;
+        }
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Jump(false, false);
         }
-
-        float moveInput = Input.GetAxis("Horizontal");
-        if (moveInput < -0.05f)
-        {
-            Left();
-            movementState |= MovementState.Left;
-        }
-        else if (moveInput > 0.05f)
-        {
-            Right();
-            movementState |= MovementState.Right;
-        }
-
-
     }
 
 
+    #region Movement
 
     public void Jump(bool force = false, bool forceWallJump = false)
     {
-        if ((_characterInfo.m_sinceGrounded< 0.2f || _characterInfo.m_sinceWall < 0.2f || grabHandler.m_isHoldSomethingAnchored) &&
+        if ((_characterInfo.m_sinceGrounded < 0.2f || _characterInfo.m_sinceWall < 0.2f || grabHandler.m_isHoldSomethingAnchored) &&
            _characterInfo.m_sinceFallen > 0f &&
            _characterInfo.m_sinceJumped > 0.3f)
         {
@@ -95,23 +113,34 @@ public class Controller : MonoBehaviour
             _characterInfo.m_sinceWall = 1f;
             _characterInfo.m_sinceJumped = 0f;
             movementState = _movement.Jump(force, forceWallJump) ? MovementState.WallJump : MovementState.GroundJump;
-        }                                                                                                 
+        }
     }
 
-    public void Left()
+    private void MoveLeft()
     {
         _rotation.m_lookingRight = false;
         _movement.MoveLeft();
-        _animation.Run();
+        //_animation.Run();
         _characterInfo.m_paceState = 1;
     }
 
-    public void Right()
+    private void MoveRight()
     {
         _rotation.m_lookingRight = true;
         _movement.MoveRight();
-        _animation.Run();
+        //_animation.Run();
         _characterInfo.m_paceState = 1;
     }
 
+    private void MoveUp()
+    {
+        _movement.MoveUp();
+    }
+
+    private void MoveDown()
+    {
+        _movement.MoveDown();
+    }
+
+    #endregion
 }

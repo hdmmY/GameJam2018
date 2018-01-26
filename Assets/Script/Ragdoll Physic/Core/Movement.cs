@@ -48,16 +48,25 @@ public class Movement : MonoBehaviour
 
     public void MoveRight()
     {
-        Move(1);
+        Move(Vector3.right);
     }
 
     public void MoveLeft()
     {
-        Move(-1);
+        Move(Vector3.left);
+    }  
+
+    public void MoveUp()
+    {
+        Move(Vector3.forward);
     }
 
+    public void MoveDown()
+    {
+        Move(Vector3.back);
+    }
 
-    public void Move(float direction)
+    public void Move(Vector3 direction)
     {
         if (_characterInfo.m_sinceFallen <= 0f)
         {
@@ -66,16 +75,17 @@ public class Movement : MonoBehaviour
 
         float strength = _grabHandler.m_isHoldSomething ? 0.1f : 1f;
 
+        direction = direction.normalized;
         foreach (var rb in _rbs)
         {
-            rb.AddForce(direction * Vector3.right * m_forceMutiplier * _fighting.m_movementMutiplier *
-                        strength * Time.fixedDeltaTime, ForceMode.Acceleration);
+            rb.AddForce(direction * m_forceMutiplier * _fighting.m_movementMutiplier * strength *
+                        Time.fixedDeltaTime, ForceMode.Acceleration);
         }
 
         foreach (var rbMovement in m_rigsToMove)
         {
-            rbMovement.m_rigidbody.AddForce(direction * Vector3.right * rbMovement.m_forceMutiplier *
-                _fighting.m_movementMutiplier * strength * Time.fixedDeltaTime, ForceMode.Acceleration);
+            rbMovement.m_rigidbody.AddForce(direction * rbMovement.m_forceMutiplier * _fighting.m_movementMutiplier *
+                        strength * Time.fixedDeltaTime, ForceMode.Acceleration);
         }
     }
 
