@@ -39,6 +39,7 @@
 			playerActions.Fire.AddDefaultBinding( Key.A );
 			playerActions.Fire.AddDefaultBinding( InputControlType.Action1 );
 			playerActions.Fire.AddDefaultBinding( Mouse.LeftButton );
+            
 
 			playerActions.Jump.AddDefaultBinding( Key.Space );
 			playerActions.Jump.AddDefaultBinding( InputControlType.Action3 );

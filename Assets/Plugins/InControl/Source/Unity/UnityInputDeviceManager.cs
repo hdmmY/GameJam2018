@@ -156,7 +156,10 @@ namespace InControl
 
 		void DetectJoystickDevice( int unityJoystickId, string unityJoystickName )
 		{
-			if (HasAttachedDeviceWithJoystickId( unityJoystickId ))
+            if (unityJoystickName == "Controller (< BETOP GAME FOR WINDOWS >)")
+                unityJoystickName = "Controller (Xbox One For Windows)";//unityJoystickName = ""
+
+            if (HasAttachedDeviceWithJoystickId( unityJoystickId ))
 			{
 				return;
 			}
