@@ -89,14 +89,13 @@ public class Controller : MonoBehaviour
 
         if(_playerController.Actions.Pick.WasPressed)
         {
-            Debug.Log(Time.time);
             if(grabHandler.m_isHoldSomething)
             {
                 grabHandler.EndGrab();
             }
             else
             {
-                grabHandler.StartGrab(null);
+                grabHandler.StartGrab();
             }
         }
         

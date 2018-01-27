@@ -262,7 +262,6 @@ GameObject:
   - component: {fileID: 54726272659147526}
   - component: {fileID: 65667581895771202}
   - component: {fileID: 144829131398507556}
-  - component: {fileID: 114044615980490494}
   - component: {fileID: 114308274552216374}
   - component: {fileID: 114036297998936846}
   - component: {fileID: 114402600826386428}
@@ -466,6 +465,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4109583977733132}
   - component: {fileID: 65159232372063994}
+  - component: {fileID: 114770525961480356}
   m_Layer: 8
   m_Name: Item Detector
   m_TagString: Untagged
@@ -851,7 +851,6 @@ GameObject:
   - component: {fileID: 114899639003691684}
   - component: {fileID: 114860441822428664}
   - component: {fileID: 114442840424898002}
-  - component: {fileID: 114877209270753650}
   m_Layer: 0
   m_Name: Hand_Right
   m_TagString: Untagged
@@ -962,7 +961,7 @@ Transform:
   m_GameObject: {fileID: 1560766966191494}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.4, y: 4.8, z: 4}
+  m_LocalScale: {x: 3, y: 4.8, z: 6}
   m_Children: []
   m_Father: {fileID: 4731442245181040}
   m_RootOrder: 2
@@ -1999,18 +1998,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cf3df9106af46b41a54882d229c5f4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114044615980490494
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1274988032208424}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c381b70522ae9c843b556104b9d37d6b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_joint: {fileID: 0}
 --- !u!114 &114053775318405922
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2692,6 +2679,7 @@ MonoBehaviour:
   m_itemPosition: {fileID: 4340705590288666}
   m_liftForce: 300
   m_dropForce: 800
+  _items: []
 --- !u!114 &114758881528215052
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2717,6 +2705,18 @@ MonoBehaviour:
   m_sinceGrabbed: 13.431341
   m_sinceThrown: 13.431341
   m_paceState: 1
+--- !u!114 &114770525961480356
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1560766966191494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c381b70522ae9c843b556104b9d37d6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_grabItem: {fileID: 0}
 --- !u!114 &114799228530190020
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2832,18 +2832,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1767c06c628bee9408fae79f223dc2a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114877209270753650
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1935709617906552}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c381b70522ae9c843b556104b9d37d6b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_joint: {fileID: 0}
 --- !u!114 &114899639003691684
 MonoBehaviour:
   m_ObjectHideFlags: 1

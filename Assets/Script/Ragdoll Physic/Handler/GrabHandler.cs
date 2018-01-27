@@ -16,6 +16,9 @@ public class GrabHandler : MonoBehaviour
 
     public float m_dropForce;
 
+    [SerializeField, ReadOnly]
+    private List<ItemProperty> _items = new List<ItemProperty>();
+
     private Rigidbody _rightHand;
     private Rigidbody _leftHand;
 
@@ -46,39 +49,69 @@ public class GrabHandler : MonoBehaviour
         }
     }
 
-    public void StartGrab(Rigidbody rigidbody)
+    public void StartGrab()
     {
-        if (rigidbody)
-        {
-            m_isHoldSomething = true;
+        _items.Clear();
 
-            if (Vector3.Dot(_torso.velocity, m_itemPosition.localPosition) < 0)
+        foreach (var grabber in m_grabbers)
+        {
+            var item = grabber.m_grabItem;
+
+            if (item != null)
             {
-                m_itemPosition.localPosition = new Vector3(0, m_itemPosition.localPosition.y, -m_itemPosition.localPosition.z);
+                if (Vector3.Dot(_torso.velocity, m_itemPosition.localPosition) < 0)
+                {
+                    m_itemPosition.localPosition = new Vector3(0, m_itemPosition.localPosition.y, -m_itemPosition.localPosition.z);
+                }
+
+                item.m_rigidBody.useGravity = false;
+                item.m_rigidBody.detectCollisions = false;
+                item.m_rigidBody.freezeRotation = true;
+
+                Vector3 itemWorldScale = item.transform.lossyScale;
+                item.transform.SetParent(m_itemPosition);
+                item.transform.localPosition = item.m_grabOffset;
+                item.transform.localRotation = item.m_presetRotation;
+                item.transform.localScale = new Vector3(itemWorldScale.x / m_itemPosition.lossyScale.x,
+                                    itemWorldScale.y / m_itemPosition.lossyScale.y,
+                                    itemWorldScale.z / m_itemPosition.lossyScale.z);
+
+                item.m_followTarget = m_itemPosition;
+
+                _items.Add(item);
             }
         }
-        else
-        {
-            m_isHoldSomething = false;
-        }
 
-        //Just for test
-        m_isHoldSomething = true;
+        m_isHoldSomething = _items.Count > 0;
     }
 
     public void EndGrab()
     {
-        foreach (var grabber in m_grabbers)
+        // Push items
+        foreach (var item in _items)
         {
-            if (grabber.m_joint)
-            {
-                Debug.Log(grabber.gameObject.name);
-                Destroy(grabber.m_joint);
-            }
+            Vector3 itemWorldScale = item.transform.lossyScale;
+            Vector3 forceDir = m_itemPosition.position - _torso.position;
+            forceDir = new Vector3(forceDir.x, 0, forceDir.z);
+            forceDir = forceDir.normalized + Vector3.up * 0.1f;
+
+            float force = item.m_pushForce;
+            force *= _torso.velocity.magnitude < 1 ? 1 : _torso.velocity.magnitude;
+            Debug.Log(force * forceDir);
+
+            item.transform.SetParent(null);
+            item.transform.localScale = itemWorldScale;
+            item.m_rigidBody.AddForce(forceDir * force, ForceMode.VelocityChange);
+            item.m_rigidBody.useGravity = true;
+            item.m_rigidBody.detectCollisions = true;
+            item.m_rigidBody.freezeRotation = false;
+            item.m_followTarget = null;
         }
 
         m_isHoldSomething = false;
 
+
+        // Hands motion
         var bodyTrans = GetComponentInChildren<Torso>().transform;
         Vector3 bodyRight = bodyTrans.right;
         Vector3 bodyUp = bodyTrans.up;

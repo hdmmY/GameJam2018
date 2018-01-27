@@ -4,68 +4,51 @@ using Sirenix.OdinInspector;
 
 public class Grabber : MonoBehaviour
 {
-    [ReadOnly]
-    public ConfigurableJoint m_joint;
+    public ItemProperty m_grabItem;
 
     private GrabHandler _grabHander;
-
-    private Rigidbody _torso;
 
     private void Start()
     {
         _grabHander = transform.root.GetComponent<GrabHandler>();
-        _torso = transform.root.GetComponentInChildren<Rigidbody>();
     }
 
-
-    private void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        if (!_grabHander.m_isHoldSomething && !m_joint)
+        if (_grabHander == null)
         {
-            Destroy(m_joint);
+            _grabHander = transform.root.GetComponent<GrabHandler>();
         }
-    }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        _grabHander = transform.root.GetComponent<GrabHandler>();
-
-        if (!_grabHander.m_isHoldSomething && 
-            m_joint != null && 
-            collision.rigidbody)
+        if (_grabHander.m_isHoldSomething || other.GetComponent<Rigidbody>() == null)
         {
-            foreach (var grabber in _grabHander.m_grabbers)
+            return;
+        }        
+
+        m_grabItem = other.transform.GetComponent<ItemProperty>();
+
+        // In case repeat m_grabItem
+        foreach (var grabber in _grabHander.m_grabbers)
+        {
+            if(grabber != this && grabber.m_grabItem == m_grabItem)
             {
-                if (grabber.m_joint && grabber.m_joint.connectedBody)
-                {
-                    return;
-                }
+                m_grabItem = null;
+                return;
             }
-
-            collision.rigidbody.detectCollisions = false;
-            collision.rigidbody.useGravity = false;
-
-            m_joint = _torso.gameObject.AddComponent<ConfigurableJoint>();
-            m_joint.xMotion = ConfigurableJointMotion.Locked;
-            m_joint.yMotion = ConfigurableJointMotion.Locked;
-            m_joint.zMotion = ConfigurableJointMotion.Locked;
-            m_joint.angularXMotion = ConfigurableJointMotion.Locked;
-            m_joint.angularYMotion = ConfigurableJointMotion.Locked;
-            m_joint.angularZMotion = ConfigurableJointMotion.Locked;
-            m_joint.projectionMode = JointProjectionMode.PositionAndRotation;
-            m_joint.anchor = transform.InverseTransformPoint(collision.contacts[0].point);
-            if (collision.rigidbody) m_joint.connectedBody = collision.rigidbody;
-
-            _grabHander.StartGrab(collision.rigidbody);
         }
+
     }
 
-
-    public void RealseGrab()
+    private void OnTriggerExit(Collider other)
     {
-        if (m_joint)
+        if (_grabHander == null)
         {
-            Destroy(m_joint);
+            _grabHander = transform.root.GetComponent<GrabHandler>();
+        }
+
+        if(m_grabItem == other.transform.GetComponent<ItemProperty>())
+        {
+            m_grabItem = null;
         }
     }
 }
