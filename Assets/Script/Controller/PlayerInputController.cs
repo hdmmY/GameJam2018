@@ -5,7 +5,7 @@ using System.Text;
 using UnityEngine;
 using InControl;
 
-public class PlayerController:MonoBehaviour
+public class PlayerInputController : MonoBehaviour
 {
     public InputDevice Device;
     public PlayerActions Actions;
@@ -41,13 +41,8 @@ public class PlayerController:MonoBehaviour
         }
     }
 
-    private void Start()
+    public bool GetPickDown()
     {
-        
-    }
-
-    private void Update()
-    {
-        
+        return Actions.Pick.WasPressed;
     }
 }

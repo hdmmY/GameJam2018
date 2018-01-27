@@ -17,7 +17,7 @@ public class SetPlayerLayer : MonoBehaviour
         }
         else
         {
-            int layer = LayerMask.GetMask("Player" + (players.Length + 1));
+            int layer = LayerMask.NameToLayer("Player" + players.Length);
             foreach(var rig in GetComponentsInChildren<Rigidbody>())
             {
                 rig.gameObject.layer = layer;

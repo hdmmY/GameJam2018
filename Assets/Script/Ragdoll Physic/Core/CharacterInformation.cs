@@ -57,7 +57,6 @@ public class CharacterInformation : MonoBehaviour
     [ShowInInspector, ReadOnly]
     public Vector3 LandPosition { get; private set; }
 
-    [ShowInInspector, ReadOnly]
     private CheckForGroundCollision[] _groundCheckers;
 
     private void Start()

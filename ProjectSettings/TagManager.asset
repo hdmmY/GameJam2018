@@ -6,6 +6,7 @@ TagManager:
   tags:
   - IgnoreRigidbody
   - IgnoreDrag
+  - Item
   layers:
   - Default
   - TransparentFX

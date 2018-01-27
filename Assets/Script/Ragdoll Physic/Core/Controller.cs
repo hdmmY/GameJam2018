@@ -27,7 +27,7 @@ public class Controller : MonoBehaviour
 
     public GrabHandler grabHandler { get; private set; }
 
-    private PlayerController _playerController;
+    private PlayerInputController _playerController;
 
     [ShowInInspector, ReadOnly]
     public MovementState movementState { get; private set; }
@@ -40,7 +40,7 @@ public class Controller : MonoBehaviour
         _hip = GetComponentInChildren<Hip>().GetComponent<Rigidbody>();
         _animation = GetComponent<Animations>();
         _rotation = GetComponent<Rotation>();
-        _playerController = GetComponent<PlayerController>();
+        _playerController = GetComponent<PlayerInputController>();
     }
 
     private void FixedUpdate()
@@ -86,6 +86,20 @@ public class Controller : MonoBehaviour
         {
             Jump(false, false);
         }
+
+        if(_playerController.Actions.Pick.WasPressed)
+        {
+            Debug.Log(Time.time);
+            if(grabHandler.m_isHoldSomething)
+            {
+                grabHandler.EndGrab();
+            }
+            else
+            {
+                grabHandler.StartGrab(null);
+            }
+        }
+        
     }
 
 
@@ -93,18 +107,14 @@ public class Controller : MonoBehaviour
 
     public void Jump(bool force = false, bool forceWallJump = false)
     {
-        if ((_characterInfo.m_sinceGrounded < 0.2f || _characterInfo.m_sinceWall < 0.2f || grabHandler.m_isHoldSomethingAnchored) &&
+        if ((_characterInfo.m_sinceGrounded < 0.2f || _characterInfo.m_sinceWall < 0.2f) &&
            _characterInfo.m_sinceFallen > 0f &&
            _characterInfo.m_sinceJumped > 0.3f)
         {
             if (_characterInfo.m_sinceWall > _characterInfo.m_sinceGrounded)
             {
                 _characterInfo.WallNormal = Vector3.zero;
-            }
-            if (grabHandler.m_isHoldSomething)
-            {
-                grabHandler.EndGrab();
-            }
+            }  
 
             _characterInfo.m_sinceGrounded = 1f;
             _characterInfo.m_sinceWall = 1f;
@@ -116,11 +126,7 @@ public class Controller : MonoBehaviour
             if (_characterInfo.m_sinceWall > _characterInfo.m_sinceGrabbed)
             {
                 _characterInfo.WallNormal = Vector3.zero;
-            }
-            if (grabHandler.m_isHoldSomething)
-            {
-                grabHandler.EndGrab();
-            }
+            }  
 
             _characterInfo.m_sinceGrounded = 1f;
             _characterInfo.m_sinceWall = 1f;

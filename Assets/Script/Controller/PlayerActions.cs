@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using InControl;
 
-public class PlayerActions : PlayerActionSet {
+public class PlayerActions : PlayerActionSet
+{
     public PlayerAction Attack;
     public PlayerAction Jump;
     public PlayerAction Pick;
@@ -29,14 +30,23 @@ public class PlayerActions : PlayerActionSet {
     {
         var actions = new PlayerActions();
 
-        actions.Attack.AddDefaultBinding(InputControlType.Action3);
-        actions.Jump.AddDefaultBinding(InputControlType.Action1);
-        actions.Pick.AddDefaultBinding(InputControlType.Action2);
+        //actions.Attack.AddDefaultBinding(InputControlType.Action3);
+        //actions.Jump.AddDefaultBinding(InputControlType.Action1);
+        //actions.Pick.AddDefaultBinding(InputControlType.Action2);
 
-        actions.Forward.AddDefaultBinding(InputControlType.LeftStickUp);
-        actions.Back.AddDefaultBinding(InputControlType.LeftStickDown);
-        actions.Left.AddDefaultBinding(InputControlType.LeftStickLeft);
-        actions.Right.AddDefaultBinding(InputControlType.LeftStickRight);
+        //actions.Forward.AddDefaultBinding(InputControlType.LeftStickUp);
+        //actions.Back.AddDefaultBinding(InputControlType.LeftStickDown);
+        //actions.Left.AddDefaultBinding(InputControlType.LeftStickLeft);
+        //actions.Right.AddDefaultBinding(InputControlType.LeftStickRight);
+
+        actions.Attack.AddDefaultBinding(new KeyCombo(Key.Q));
+        actions.Jump.AddDefaultBinding(new KeyCombo(Key.Space));
+        actions.Pick.AddDefaultBinding(new KeyCombo(Key.E));
+
+        actions.Forward.AddDefaultBinding(new KeyCombo(Key.UpArrow));
+        actions.Back.AddDefaultBinding(new KeyCombo(Key.DownArrow));
+        actions.Left.AddDefaultBinding(new KeyCombo(Key.LeftArrow));
+        actions.Right.AddDefaultBinding(new KeyCombo(Key.RightArrow));
 
         return actions;
     }

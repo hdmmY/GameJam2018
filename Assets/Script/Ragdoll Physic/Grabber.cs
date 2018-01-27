@@ -9,18 +9,18 @@ public class Grabber : MonoBehaviour
 
     private GrabHandler _grabHander;
 
-    private Rigidbody _rb;
+    private Rigidbody _torso;
 
     private void Start()
     {
         _grabHander = transform.root.GetComponent<GrabHandler>();
-        _rb = GetComponent<Rigidbody>();
+        _torso = transform.root.GetComponentInChildren<Rigidbody>();
     }
 
 
     private void Update()
     {
-        if (!_grabHander.m_isGrabbing && !m_joint)
+        if (!_grabHander.m_isHoldSomething && !m_joint)
         {
             Destroy(m_joint);
         }
@@ -28,25 +28,24 @@ public class Grabber : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (_grabHander && _grabHander.m_grabStrength >= 0.5f && _grabHander.m_isGrabbing && 
-            !m_joint &&
-            collision.gameObject.layer != LayerMask.NameToLayer("ThinBarrier") &&
-            collision.gameObject.layer != LayerMask.NameToLayer("Barrier"))
-        {
-            if (collision.rigidbody)
-            {
-                foreach (var grabber in _grabHander.m_grabbers)
-                {
-                    if (grabber.m_joint && grabber.m_joint.connectedBody != null)
-                    {
-                        return;
-                    }
-                }
+        _grabHander = transform.root.GetComponent<GrabHandler>();
 
-                _grabHander.StartGrab(collision.rigidbody);
+        if (!_grabHander.m_isHoldSomething && 
+            m_joint != null && 
+            collision.rigidbody)
+        {
+            foreach (var grabber in _grabHander.m_grabbers)
+            {
+                if (grabber.m_joint && grabber.m_joint.connectedBody)
+                {
+                    return;
+                }
             }
 
-            m_joint = _rb.gameObject.AddComponent<ConfigurableJoint>();
+            collision.rigidbody.detectCollisions = false;
+            collision.rigidbody.useGravity = false;
+
+            m_joint = _torso.gameObject.AddComponent<ConfigurableJoint>();
             m_joint.xMotion = ConfigurableJointMotion.Locked;
             m_joint.yMotion = ConfigurableJointMotion.Locked;
             m_joint.zMotion = ConfigurableJointMotion.Locked;
@@ -56,13 +55,15 @@ public class Grabber : MonoBehaviour
             m_joint.projectionMode = JointProjectionMode.PositionAndRotation;
             m_joint.anchor = transform.InverseTransformPoint(collision.contacts[0].point);
             if (collision.rigidbody) m_joint.connectedBody = collision.rigidbody;
+
+            _grabHander.StartGrab(collision.rigidbody);
         }
     }
 
 
     public void RealseGrab()
     {
-        if(m_joint)
+        if (m_joint)
         {
             Destroy(m_joint);
         }

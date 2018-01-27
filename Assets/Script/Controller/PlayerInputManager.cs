@@ -4,15 +4,17 @@ using UnityEngine;
 using System.Linq;
 using InControl;
 
-public class PlayerManager : MonoBehaviour {
+public class PlayerInputManager : MonoBehaviour
+{
     public GameObject PlayerPrefab;
     public PlayerActions ControllerActions;
-    public List<PlayerController> PlayerList = new List<PlayerController>();
+    public List<PlayerInputController> PlayerList = new List<PlayerInputController>();
 
-	// Use this for initialization
-	void Start () {
-		
-	}
+    // Use this for initialization
+    void Start()
+    {
+
+    }
 
     void OnEnable()
     {
@@ -33,23 +35,24 @@ public class PlayerManager : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update () {
+    void Update()
+    {
         if (ControllerActions.Attack.WasPressed)
         {
             var inputDevice = InputManager.ActiveDevice;
 
             // Check whether there is a player using this device
-            if(PlayerList.Where(player=>player.Device == inputDevice).Count() == 0)
+            if (PlayerList.Where(player => player.Device == inputDevice).Count() == 0)
             {
                 CreatePlayer(inputDevice);
             }
         }
-	}
+    }
 
-    public PlayerController CreatePlayer(InputDevice inputDevice)
+    public PlayerInputController CreatePlayer(InputDevice inputDevice)
     {
         var obj = Instantiate(PlayerPrefab);
-        var player = obj.GetComponent<PlayerController>();
+        var player = obj.GetComponent<PlayerInputController>();
         PlayerList.Add(player);
         player.Actions = PlayerActions.CreateController();
 
