@@ -36,7 +36,7 @@ public class StepController : MonoBehaviour
 
         if (Vector3.Angle(_leftLeg.up, _rightLeg.up) > m_legAngle &&
            _timer > m_switchTime &&
-           _characterInfo.m_sinceGrounded < 0.1f && 
+           _characterInfo.m_sinceFallen > 0.1f && 
            _characterInfo.m_paceState != 0)
         {
             _characterInfo.m_leftSideForward = !_characterInfo.m_leftSideForward;

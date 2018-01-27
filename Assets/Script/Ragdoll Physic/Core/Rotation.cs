@@ -4,37 +4,24 @@ using Sirenix.OdinInspector;
 
 public class Rotation : MonoBehaviour
 {
-    public float m_rotationForce;
+    public Vector2 m_lookDirection;
 
-    [ReadOnly]
-    public bool m_lookingRight;
+    [Range(0, 1)]
+    public float m_rotateFactor;
 
-    private CharacterInformation _characterInfo;
-
-    private Rigidbody _hip;
+    private Rigidbody _torso;
 
     private void Start()
     {
-        _characterInfo = GetComponent<CharacterInformation>();
-        _hip = GetComponentInChildren<Hip>().GetComponent<Rigidbody>();
+        _torso = GetComponentInChildren<Torso>().GetComponent<Rigidbody>();
     }
-
 
     private void FixedUpdate()
     {
-        Vector3 target;
-
-        if (m_lookingRight)
+        if (!Mathf.Approximately(m_lookDirection.x, 0) && !Mathf.Approximately(m_lookDirection.y, 0))
         {
-            target = _hip.position + Vector3.right * 10f;
+            
         }
-        else
-        {
-            target = _hip.position - Vector3.right * 10f;
-        }
-        target = _hip.transform.InverseTransformPoint(target);
-
-        _hip.AddTorque(Vector3.up * Time.fixedDeltaTime * m_rotationForce * (-target.x), ForceMode.Acceleration);
     }
 
 }

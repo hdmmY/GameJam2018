@@ -46,7 +46,7 @@ public class RigidbodySetting : MonoBehaviour
 
     private void Update()
     {
-        if(_characterInfo.m_sinceFallen < 0f && !_fallen)
+        if(_characterInfo.m_sinceFallen <= 0.01f && !_fallen)
         {
             Fall();    
         }

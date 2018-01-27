@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Sirenix.OdinInspector;
 
 public class Controller : MonoBehaviour
 {
@@ -8,8 +9,10 @@ public class Controller : MonoBehaviour
         None = 0,
         Left = 1,
         Right = 2,
-        WallJump = 4,
-        GroundJump = 8
+        Up = 4,
+        Down = 8,
+        WallJump = 16,
+        GroundJump = 32
     }
 
     private Movement _movement;
@@ -20,49 +23,77 @@ public class Controller : MonoBehaviour
 
     private CharacterInformation _characterInfo;
 
-    private Transform _torso;
+    private Rigidbody _hip;
 
     public GrabHandler grabHandler { get; private set; }
 
+    private PlayerController _playerController;
+
+    [ShowInInspector, ReadOnly]
     public MovementState movementState { get; private set; }
 
     private void Start()
     {
-        _rotation = GetComponent<Rotation>();
         _movement = GetComponent<Movement>();
         _characterInfo = GetComponent<CharacterInformation>();
         grabHandler = GetComponent<GrabHandler>();
-        _torso = GetComponentInChildren<Torso>().transform;
+        _hip = GetComponentInChildren<Hip>().GetComponent<Rigidbody>();
         _animation = GetComponent<Animations>();
+        _rotation = GetComponent<Rotation>();
+        _playerController = GetComponent<PlayerController>();
     }
 
     private void FixedUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        movementState = MovementState.None;
+
+
+        Vector3 movement = Vector3.zero;
+        float horizontalInput = _playerController.Move.x; ;
+        if (horizontalInput < -0.05f)
+        {
+            movementState |= MovementState.Left;
+            movement.x = horizontalInput;
+        }
+        else if (horizontalInput > 0.05f)
+        {
+            movementState |= MovementState.Right;
+            movement.x = horizontalInput;
+        }
+
+        float verticalInput = _playerController.Move.y;
+        if (verticalInput < -0.05f)
+        {
+            movementState |= MovementState.Down;
+            movement.y = verticalInput;
+        }
+        else if (verticalInput > 0.05f)
+        {
+            movementState |= MovementState.Up;
+            movement.y = verticalInput;
+        }
+        _movement.Move(new Vector3(horizontalInput, 0, verticalInput));
+
+        if (_playerController.Actions.Forward ||
+            _playerController.Actions.Back ||
+            _playerController.Actions.Left ||
+            _playerController.Actions.Right)
+        {
+            _animation.Run();
+        }
+
+        if (_playerController.Actions.Jump)
         {
             Jump(false, false);
         }
-
-        float moveInput = Input.GetAxis("Horizontal");
-        if (moveInput < -0.05f)
-        {
-            Left();
-            movementState |= MovementState.Left;
-        }
-        else if (moveInput > 0.05f)
-        {
-            Right();
-            movementState |= MovementState.Right;
-        }
-
-
     }
 
 
+    #region Movement
 
     public void Jump(bool force = false, bool forceWallJump = false)
     {
-        if ((_characterInfo.m_sinceGrounded< 0.2f || _characterInfo.m_sinceWall < 0.2f || grabHandler.m_isHoldSomethingAnchored) &&
+        if ((_characterInfo.m_sinceGrounded < 0.2f || _characterInfo.m_sinceWall < 0.2f || grabHandler.m_isHoldSomethingAnchored) &&
            _characterInfo.m_sinceFallen > 0f &&
            _characterInfo.m_sinceJumped > 0.3f)
         {
@@ -95,23 +126,8 @@ public class Controller : MonoBehaviour
             _characterInfo.m_sinceWall = 1f;
             _characterInfo.m_sinceJumped = 0f;
             movementState = _movement.Jump(force, forceWallJump) ? MovementState.WallJump : MovementState.GroundJump;
-        }                                                                                                 
+        }
     }
 
-    public void Left()
-    {
-        _rotation.m_lookingRight = false;
-        _movement.MoveLeft();
-        _animation.Run();
-        _characterInfo.m_paceState = 1;
-    }
-
-    public void Right()
-    {
-        _rotation.m_lookingRight = true;
-        _movement.MoveRight();
-        _animation.Run();
-        _characterInfo.m_paceState = 1;
-    }
-
+    #endregion
 }

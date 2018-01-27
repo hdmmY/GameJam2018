@@ -14,7 +14,6 @@
 		public PlayerAction Down;
 		public PlayerTwoAxisAction Move;
 
-        
 
 		public PlayerActions()
 		{
