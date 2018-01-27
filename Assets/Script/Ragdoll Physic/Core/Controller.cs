@@ -23,21 +23,24 @@ public class Controller : MonoBehaviour
 
     private CharacterInformation _characterInfo;
 
-    private Transform _torso;
+    private Rigidbody _hip;
 
     public GrabHandler grabHandler { get; private set; }
+
+    private PlayerController _playerController;
 
     [ShowInInspector, ReadOnly]
     public MovementState movementState { get; private set; }
 
     private void Start()
     {
-        _rotation = GetComponent<Rotation>();
         _movement = GetComponent<Movement>();
         _characterInfo = GetComponent<CharacterInformation>();
         grabHandler = GetComponent<GrabHandler>();
-        _torso = GetComponentInChildren<Torso>().transform;
+        _hip = GetComponentInChildren<Hip>().GetComponent<Rigidbody>();
         _animation = GetComponent<Animations>();
+        _rotation = GetComponent<Rotation>();
+        _playerController = GetComponent<PlayerController>();
     }
 
     private void FixedUpdate()
@@ -45,31 +48,41 @@ public class Controller : MonoBehaviour
         movementState = MovementState.None;
 
 
-        float horizontalInput = Input.GetAxis("Horizontal");
+        Vector3 movement = Vector3.zero;
+        float horizontalInput = _playerController.Move.x; ;
         if (horizontalInput < -0.05f)
         {
-            MoveLeft();
             movementState |= MovementState.Left;
+            movement.x = horizontalInput;
         }
         else if (horizontalInput > 0.05f)
         {
-            MoveRight();
             movementState |= MovementState.Right;
+            movement.x = horizontalInput;
         }
 
-        float verticalInput = Input.GetAxis("Vertical");
+        float verticalInput = _playerController.Move.y;
         if (verticalInput < -0.05f)
         {
-            MoveDown();
             movementState |= MovementState.Down;
+            movement.y = verticalInput;
         }
         else if (verticalInput > 0.05f)
         {
-            MoveUp();
             movementState |= MovementState.Up;
+            movement.y = verticalInput;
+        }
+        _movement.Move(new Vector3(horizontalInput, 0, verticalInput));
+
+        if (_playerController.Actions.Forward ||
+            _playerController.Actions.Back ||
+            _playerController.Actions.Left ||
+            _playerController.Actions.Right)
+        {
+            _animation.Run();
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (_playerController.Actions.Jump)
         {
             Jump(false, false);
         }
@@ -114,32 +127,6 @@ public class Controller : MonoBehaviour
             _characterInfo.m_sinceJumped = 0f;
             movementState = _movement.Jump(force, forceWallJump) ? MovementState.WallJump : MovementState.GroundJump;
         }
-    }
-
-    private void MoveLeft()
-    {
-        _rotation.m_lookingRight = false;
-        _movement.MoveLeft();
-        //_animation.Run();
-        _characterInfo.m_paceState = 1;
-    }
-
-    private void MoveRight()
-    {
-        _rotation.m_lookingRight = true;
-        _movement.MoveRight();
-        //_animation.Run();
-        _characterInfo.m_paceState = 1;
-    }
-
-    private void MoveUp()
-    {
-        _movement.MoveUp();
-    }
-
-    private void MoveDown()
-    {
-        _movement.MoveDown();
     }
 
     #endregion

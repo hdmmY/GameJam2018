@@ -26,43 +26,57 @@ public class JointAnimation : MonoBehaviour
     // Bad code, will be restruct later
     public void Animate(int paceState, bool leftForward)
     {
-        Debug.Log("Here!");
         foreach (var animInfo in m_animations)
         {
-            Vector3 a = Vector3.zero;
-            if (animInfo.m_direction == AnimationInfo.Direction.SelfRight)
+            Vector3 dir = Vector3.zero;
+            switch (animInfo.m_direction)
             {
-                a = transform.right;
-            }
-            else if (animInfo.m_direction == AnimationInfo.Direction.MainBodyVelocity)
-            {
-                a = _hip.velocity.normalized;
+                case AnimationInfo.Direction.CharacterForward:
+                    dir = _hip.transform.forward; break;
+                case AnimationInfo.Direction.CharacterRight:
+                    dir = _hip.transform.right; break;
+                case AnimationInfo.Direction.CharacterUp:
+                    dir = _hip.transform.up; break;
+                case AnimationInfo.Direction.SelfRight:
+                    dir = transform.right; break;
+                case AnimationInfo.Direction.SelfForward:
+                    dir = transform.forward; break;
+                case AnimationInfo.Direction.SelfUp:
+                    dir = transform.up; break;
+                case AnimationInfo.Direction.WorldRight:
+                    dir = Vector3.right; break;
+                case AnimationInfo.Direction.WorldUp:
+                    dir = Vector3.up; break;
+                case AnimationInfo.Direction.WorldForward:
+                    dir = Vector3.forward; break;
+                default:
+                    dir = _hip.velocity.normalized; break;
             }
 
-            float magnitude = Mathf.Abs(Input.GetAxis("Horizontal"));
+            Debug.DrawLine(transform.position, transform.position + dir * 10f);
+
             if (animInfo.m_type == AnimationInfo.AnimationType.Torque)
-            {    
+            {
                 if (leftForward == animInfo.m_isLeftSide)
                 {
-                    _rb.AddTorque(a * magnitude * Time.deltaTime * (-animInfo.m_backForceMutiplier), ForceMode.Acceleration);
+                    _rb.AddTorque(dir * Time.fixedDeltaTime * animInfo.m_backForceMutiplier, ForceMode.VelocityChange);
                 }
                 else
                 {
-                    _rb.AddTorque(a * magnitude * Time.deltaTime * (-animInfo.m_forwardForceMultiplier), ForceMode.Acceleration);
+                    _rb.AddTorque(dir * Time.fixedDeltaTime * animInfo.m_forwardForceMultiplier, ForceMode.VelocityChange);
                 }
             }
             else
             {
-                if(leftForward == animInfo.m_isLeftSide)
+                if (leftForward == animInfo.m_isLeftSide)
                 {
-                    _rb.AddForce(a * magnitude * Time.deltaTime * (-animInfo.m_backForceMutiplier), ForceMode.Acceleration);
+                    _rb.AddForce(dir * Time.fixedDeltaTime * animInfo.m_backForceMutiplier, ForceMode.VelocityChange);
                 }
                 else
                 {
-                    _rb.AddForce(a * magnitude * Time.deltaTime * (-animInfo.m_forwardForceMultiplier), ForceMode.Acceleration);
+                    _rb.AddForce(dir * Time.fixedDeltaTime * animInfo.m_forwardForceMultiplier, ForceMode.VelocityChange);
                 }
-            }
-
+            }                    
         }
     }
 
