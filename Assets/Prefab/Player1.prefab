@@ -2038,8 +2038,8 @@ MonoBehaviour:
   m_animations:
   - m_type: 0
     m_direction: 0
-    m_forwardForceMultiplier: 2000
-    m_backForceMutiplier: -2000
+    m_forwardForceMultiplier: 4000
+    m_backForceMutiplier: -4000
     m_smoothing: 0
     m_isLeftSide: 0
     m_walkMutiplier: 0
@@ -2370,7 +2370,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_legAngle: 5
-  m_switchTime: 0.3
+  m_switchTime: 0.15
 --- !u!114 &114345816187807820
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2418,8 +2418,8 @@ MonoBehaviour:
   m_animations:
   - m_type: 0
     m_direction: 0
-    m_forwardForceMultiplier: 2000
-    m_backForceMutiplier: -2000
+    m_forwardForceMultiplier: 4000
+    m_backForceMutiplier: -4000
     m_smoothing: 0
     m_isLeftSide: 1
     m_walkMutiplier: 0
@@ -2677,7 +2677,7 @@ MonoBehaviour:
   m_grabbers: []
   m_isHoldSomething: 0
   m_itemPosition: {fileID: 4340705590288666}
-  m_liftForce: 300
+  m_liftForce: 600
   m_dropForce: 800
   _items: []
 --- !u!114 &114758881528215052
