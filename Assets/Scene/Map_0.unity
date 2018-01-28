@@ -9913,9 +9913,14 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114162701129503646, guid: d639fa08092cc824b9792073ce9a9203,
+        type: 2}
+      propertyPath: PlayerList.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4328106994921392, guid: d639fa08092cc824b9792073ce9a9203, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -2.9248314
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 4328106994921392, guid: d639fa08092cc824b9792073ce9a9203, type: 2}
       propertyPath: m_LocalPosition.y
@@ -9945,19 +9950,24 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 224033189568310094, guid: d639fa08092cc824b9792073ce9a9203,
+    - target: {fileID: 114291725264636576, guid: d639fa08092cc824b9792073ce9a9203,
         type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 415.92484
+      propertyPath: m_havePropertiesChanged
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 224033189568310094, guid: d639fa08092cc824b9792073ce9a9203,
+    - target: {fileID: 114291725264636576, guid: d639fa08092cc824b9792073ce9a9203,
         type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 201.71368
+      propertyPath: m_isInputParsingRequired
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 23812374910964216, guid: d639fa08092cc824b9792073ce9a9203,
+    - target: {fileID: 114483986914650160, guid: d639fa08092cc824b9792073ce9a9203,
         type: 2}
-      propertyPath: m_Enabled
+      propertyPath: m_havePropertiesChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114483986914650160, guid: d639fa08092cc824b9792073ce9a9203,
+        type: 2}
+      propertyPath: m_isInputParsingRequired
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
