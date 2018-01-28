@@ -68,13 +68,9 @@ public class GrabHandler : MonoBehaviour
                 item.m_rigidBody.detectCollisions = false;
                 item.m_rigidBody.freezeRotation = true;
 
-                Vector3 itemWorldScale = item.transform.lossyScale;
                 item.transform.SetParent(m_itemPosition);
                 item.transform.localPosition = item.m_grabOffset;
                 item.transform.localRotation = item.m_presetRotation;
-                item.transform.localScale = new Vector3(itemWorldScale.x / m_itemPosition.lossyScale.x,
-                                    itemWorldScale.y / m_itemPosition.lossyScale.y,
-                                    itemWorldScale.z / m_itemPosition.lossyScale.z);
 
                 item.m_followTarget = m_itemPosition;
 
@@ -90,7 +86,6 @@ public class GrabHandler : MonoBehaviour
         // Push items
         foreach (var item in _items)
         {
-            Vector3 itemWorldScale = item.transform.lossyScale;
             Vector3 forceDir = m_itemPosition.position - _torso.position;
             forceDir = new Vector3(forceDir.x, 0, forceDir.z);
             forceDir = forceDir.normalized + Vector3.up * 0.1f;
@@ -100,7 +95,6 @@ public class GrabHandler : MonoBehaviour
             Debug.Log(force * forceDir);
 
             item.transform.SetParent(null);
-            item.transform.localScale = itemWorldScale;
             item.m_rigidBody.AddForce(forceDir * force, ForceMode.VelocityChange);
             item.m_rigidBody.useGravity = true;
             item.m_rigidBody.detectCollisions = true;

@@ -42,7 +42,7 @@ public class Movement : MonoBehaviour
             return;
         }
 
-        float strength = _grabHandler.m_isHoldSomething ? 0.5f : 1f;
+        float strength = _grabHandler.m_isHoldSomething ? 1f : 2f;
 
         direction = direction.normalized;
         foreach (var rbMovement in m_rigsToMove)

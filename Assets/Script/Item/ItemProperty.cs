@@ -27,6 +27,7 @@ public class ItemProperty : MonoBehaviour
         set
         {
             transform.rotation = value;
+            _presetRotation = value;
         }
     }
 

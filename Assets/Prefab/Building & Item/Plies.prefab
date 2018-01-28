@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 4404715246659260}
   - component: {fileID: 33416367401377386}
   - component: {fileID: 23852612227704376}
-  - component: {fileID: 95633707332733046}
   - component: {fileID: 54350176588891666}
   m_Layer: 0
   m_Name: Pile (1)
@@ -56,7 +55,6 @@ GameObject:
   - component: {fileID: 4323257654196152}
   - component: {fileID: 33527646122845292}
   - component: {fileID: 23946215565697400}
-  - component: {fileID: 95168338840330866}
   - component: {fileID: 54280856894819478}
   m_Layer: 0
   m_Name: Pile (4)
@@ -75,7 +73,6 @@ GameObject:
   - component: {fileID: 4651939200794210}
   - component: {fileID: 33278232390038526}
   - component: {fileID: 23252653279670324}
-  - component: {fileID: 95490860515455602}
   - component: {fileID: 54779022019838202}
   m_Layer: 0
   m_Name: Pile (6)
@@ -94,7 +91,6 @@ GameObject:
   - component: {fileID: 4900814683999000}
   - component: {fileID: 33942221354491910}
   - component: {fileID: 23756868694797354}
-  - component: {fileID: 95699868560109246}
   - component: {fileID: 54996073832506920}
   m_Layer: 0
   m_Name: Pile (2)
@@ -113,7 +109,6 @@ GameObject:
   - component: {fileID: 4884524123210878}
   - component: {fileID: 33050465945800948}
   - component: {fileID: 23973714796837520}
-  - component: {fileID: 95056735367621078}
   - component: {fileID: 54260040495843864}
   m_Layer: 0
   m_Name: Pile (3)
@@ -132,7 +127,6 @@ GameObject:
   - component: {fileID: 4887859486971534}
   - component: {fileID: 33469569793598392}
   - component: {fileID: 23195293786444532}
-  - component: {fileID: 95575421385427108}
   - component: {fileID: 54049448863315770}
   m_Layer: 0
   m_Name: Pile
@@ -151,7 +145,6 @@ GameObject:
   - component: {fileID: 4180910632343914}
   - component: {fileID: 33283522173596200}
   - component: {fileID: 23233987613535036}
-  - component: {fileID: 95683600908354448}
   - component: {fileID: 54598395389263344}
   m_Layer: 0
   m_Name: Pile (5)
@@ -167,7 +160,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1130427044419870}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.229, y: -0, z: -1.481}
+  m_LocalPosition: {x: 0, y: -0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4887859486971534}
@@ -682,122 +675,3 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.15790898, y: 0.556232, z: 1.0683007}
   m_Center: {x: -0.008909434, y: 0.22985005, z: 0.0021384954}
---- !u!95 &95056735367621078
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1454984654230778}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 8f6fc835ea327ff45ba00f995dc924a8, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
---- !u!95 &95168338840330866
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1170281638728398}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 8f6fc835ea327ff45ba00f995dc924a8, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
---- !u!95 &95490860515455602
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1276971589333612}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 8f6fc835ea327ff45ba00f995dc924a8, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
---- !u!95 &95575421385427108
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1774917021067324}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 8f6fc835ea327ff45ba00f995dc924a8, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
---- !u!95 &95633707332733046
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1079118715282390}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 8f6fc835ea327ff45ba00f995dc924a8, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
---- !u!95 &95683600908354448
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1816104745164136}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 8f6fc835ea327ff45ba00f995dc924a8, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
---- !u!95 &95699868560109246
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1315644318837294}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 8f6fc835ea327ff45ba00f995dc924a8, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
