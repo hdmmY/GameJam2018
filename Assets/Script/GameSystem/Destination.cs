@@ -7,6 +7,7 @@ using UnityEngine;
 public class Destination : MonoBehaviour
 {
     public int Score = 1;
+    public AudioSource SoundEffect;
     private void Start()
     {
 
@@ -16,6 +17,7 @@ public class Destination : MonoBehaviour
     {
         if(other.GetComponent<Ball>() && other.GetComponent<Ball>().LastController)
         {
+            SoundEffect.Play();
             var ball = other.GetComponent<Ball>();
             ball.LastController.Score += Score;
             ball.GetComponent<MeshRenderer>().material = ball.LastController.GetComponentInChildren<SkinnedMeshRenderer>().material;

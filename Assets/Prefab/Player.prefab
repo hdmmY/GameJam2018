@@ -2952,7 +2952,7 @@ MonoBehaviour:
   - m_rigidbody: {fileID: 54119321714958766}
     m_forceMutiplier: -2500
   - m_rigidbody: {fileID: 54786024921724456}
-    m_forceMutiplier: 2500
+    m_forceMutiplier: -2500
   - m_rigidbody: {fileID: 54754206097629990}
     m_forceMutiplier: 6000
   - m_rigidbody: {fileID: 54908602875590894}
