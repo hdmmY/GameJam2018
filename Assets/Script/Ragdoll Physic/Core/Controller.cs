@@ -27,7 +27,7 @@ public class Controller : MonoBehaviour
 
     public GrabHandler grabHandler { get; private set; }
 
-    private PlayerController _playerController;
+    private PlayerInputController _playerController;
 
     [ShowInInspector, ReadOnly]
     public MovementState movementState { get; private set; }
@@ -40,7 +40,7 @@ public class Controller : MonoBehaviour
         _hip = GetComponentInChildren<Hip>().GetComponent<Rigidbody>();
         _animation = GetComponent<Animations>();
         _rotation = GetComponent<Rotation>();
-        _playerController = GetComponent<PlayerController>();
+        _playerController = GetComponent<PlayerInputController>();
     }
 
     private void FixedUpdate()

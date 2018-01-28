@@ -8,7 +8,9 @@ using TMPro;
 public class Team:MonoBehaviour
 {
     public List<Player> Players = new List<Player>();
-    public TextMeshPro ScoreBoard;
+    public Material[] PlayerSkins = new Material[0];
+    public GameObject[] PlayerUI = new GameObject[0];
+    public GameObject ScoreBoard;
     
     public string Name;
     public int Score
@@ -25,10 +27,19 @@ public class Team:MonoBehaviour
         }
     }
 
+    public Material AvailableSkin
+    {
+        get
+        {
+            return PlayerSkins[(Players.Count - 1) % PlayerSkins.Length];
+        }
+    }
+
     public Spawner Spawner;
 
     private void Update()
     {
-        ScoreBoard.text = "Total: " + Score.ToString();
+        if(ScoreBoard)
+            ScoreBoard.GetComponent<TextMeshProUGUI>().text = "Total: " + Score.ToString();
     }
 }

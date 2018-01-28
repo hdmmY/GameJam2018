@@ -16,8 +16,10 @@ public class Destination : MonoBehaviour
     {
         if(other.GetComponent<Ball>() && other.GetComponent<Ball>().LastController)
         {
-
-            other.GetComponent<Ball>().LastController.Score += Score;
+            var ball = other.GetComponent<Ball>();
+            ball.LastController.Score += Score;
+            ball.GetComponent<MeshRenderer>().material = ball.LastController.GetComponentInChildren<SkinnedMeshRenderer>().material;
+            Destroy(ball);
         }
     }
 }

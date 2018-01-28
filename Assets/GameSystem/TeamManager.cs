@@ -12,6 +12,8 @@ public class TeamManager:MonoBehaviour
     {
         player.Team = team;
         team.Players.Add(player);
+        team.PlayerUI[team.Players.Count - 1].SetActive(true);
+        team.PlayerUI[team.Players.Count - 1].GetComponent<PlayerUI>().player = player;
     }
     public Team JoinTeam(Player player)
     {

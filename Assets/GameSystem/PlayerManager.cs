@@ -55,10 +55,12 @@ public class PlayerManager : MonoBehaviour {
         PlayerList.Add(player);
         playerInput.Actions = PlayerActions.CreateController();
 
+
         playerInput.Actions.Device = inputDevice;
         playerInput.Device = inputDevice;
-
         var team = GameObject.Find("GameSystem").GetComponent<TeamManager>().JoinTeam(player);
+        player.GetComponentInChildren<SkinnedMeshRenderer>().material = team.AvailableSkin;
+
         player.transform.position = team.Spawner.SpawnPosition();
         return playerInput;
     }

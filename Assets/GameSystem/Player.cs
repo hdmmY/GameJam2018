@@ -10,5 +10,4 @@ public class Player:MonoBehaviour
     public string Name;
     public int Score;
 
-
 }
