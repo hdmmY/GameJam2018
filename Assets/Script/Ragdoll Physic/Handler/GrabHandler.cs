@@ -31,23 +31,7 @@ public class GrabHandler : MonoBehaviour
         _rightHand = GetComponentInChildren<RightHand>().GetComponent<Rigidbody>();
         _leftHand = GetComponentInChildren<LeftHand>().GetComponent<Rigidbody>();
         _torso = GetComponentInChildren<Torso>().GetComponent<Rigidbody>();
-    }
-
-    private void FixedUpdate()
-    {
-        if (m_isHoldSomething)
-        {
-            Vector3 force;
-
-            force = m_liftForce * (m_itemPosition.position - _rightHand.transform.position);
-            _rightHand.AddForce(force, ForceMode.Force);
-            _torso.AddForce(-force, ForceMode.Force);
-
-            force = m_liftForce * (m_itemPosition.position - _leftHand.transform.position);
-            _leftHand.AddForce(force, ForceMode.Force);
-            _torso.AddForce(-force, ForceMode.Force);
-        }
-    }
+    } 
 
     public void StartGrab()
     {
@@ -65,12 +49,13 @@ public class GrabHandler : MonoBehaviour
                 }
 
                 item.m_rigidBody.useGravity = false;
-                item.m_rigidBody.detectCollisions = false;
                 item.m_rigidBody.freezeRotation = true;
 
                 item.transform.SetParent(m_itemPosition);
                 item.transform.localPosition = item.m_grabOffset;
                 item.transform.localRotation = item.m_presetRotation;
+
+                item.gameObject.layer = _torso.gameObject.layer;
 
                 item.m_followTarget = m_itemPosition;
 
@@ -96,8 +81,8 @@ public class GrabHandler : MonoBehaviour
             item.transform.SetParent(null);
             item.m_rigidBody.AddForce(forceDir * force, ForceMode.VelocityChange);
             item.m_rigidBody.useGravity = true;
-            item.m_rigidBody.detectCollisions = true;
             item.m_rigidBody.freezeRotation = false;
+            item.gameObject.layer = LayerMask.NameToLayer("Default");
             item.m_followTarget = null;
         }
 
