@@ -2753,11 +2753,11 @@ MonoBehaviour:
   m_leftSideForward: 0
   m_sleep: 0
   m_sinceGrounded: 0
-  m_sinceWall: 0
-  m_sinceJumped: 0
-  m_sinceFallen: 0
-  m_sinceGrabbed: 0
-  m_sinceThrown: 0
+  m_sinceWall: 6.0626
+  m_sinceJumped: 5.0626
+  m_sinceFallen: 13.43134
+  m_sinceGrabbed: 13.43134
+  m_sinceThrown: 13.43134
   m_paceState: 1
 --- !u!114 &114770525961480356
 MonoBehaviour:

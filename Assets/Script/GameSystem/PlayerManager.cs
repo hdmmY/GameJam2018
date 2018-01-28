@@ -20,9 +20,15 @@ public class PlayerManager : MonoBehaviour {
         ControllerActions = PlayerActions.CreateController();
     }
 
-    private void InputManager_OnDeviceDetached(InputDevice obj)
+    private void InputManager_OnDeviceDetached(InputDevice device)
     {
-        throw new System.NotImplementedException();
+        var player = PlayerList.Where(p => p.GetComponent<PlayerInputController>().Device == device).FirstOrDefault();
+        if (player)
+        {
+            GetComponent<TeamManager>().LeaveTeam(player);
+            PlayerList.Remove(player);
+            Destroy(player);
+        }
     }
 
     void OnDisable()
@@ -34,7 +40,7 @@ public class PlayerManager : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        if (ControllerActions.Attack.WasPressed)
+        if (ControllerActions.Attack.WasPressed || ControllerActions.Jump.WasPressed)
         {
             var inputDevice = InputManager.ActiveDevice;
 
