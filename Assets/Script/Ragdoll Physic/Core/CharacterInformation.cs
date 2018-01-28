@@ -24,6 +24,8 @@ public class CharacterInformation : MonoBehaviour
     [BoxGroup("Bools"), DisableInPlayMode]
     public bool m_leftSideForward;
 
+    [BoxGroup("Bools"), ReadOnly]
+    public bool m_sleep = false;
 
     [BoxGroup("Times"), DisableInPlayMode]
     public float m_sinceGrounded;
