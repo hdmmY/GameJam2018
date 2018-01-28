@@ -92,7 +92,6 @@ public class GrabHandler : MonoBehaviour
 
             float force = item.m_pushForce;
             force *= _torso.velocity.magnitude < 1 ? 1 : _torso.velocity.magnitude;
-            Debug.Log(force * forceDir);
 
             item.transform.SetParent(null);
             item.m_rigidBody.AddForce(forceDir * force, ForceMode.VelocityChange);
