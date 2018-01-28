@@ -44,6 +44,11 @@ public class ItemProperty : MonoBehaviour
         {
             transform.localPosition = m_grabOffset;
         }
+
+        if(transform.position.y < -30f)
+        {
+            Destroy(transform.root.gameObject);
+        }
     }
 
     private void OnDrawGizmosSelected()

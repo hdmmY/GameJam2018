@@ -2044,8 +2044,8 @@ MonoBehaviour:
   m_animations:
   - m_type: 0
     m_direction: 0
-    m_forwardForceMultiplier: 4000
-    m_backForceMutiplier: -4000
+    m_forwardForceMultiplier: 6000
+    m_backForceMutiplier: -6000
     m_smoothing: 0
     m_isLeftSide: 0
     m_walkMutiplier: 0
@@ -2396,7 +2396,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_legAngle: 5
-  m_switchTime: 0.15
+  m_switchTime: 0.5
 --- !u!114 &114345816187807820
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2447,8 +2447,8 @@ MonoBehaviour:
   m_animations:
   - m_type: 0
     m_direction: 0
-    m_forwardForceMultiplier: 4000
-    m_backForceMutiplier: -4000
+    m_forwardForceMultiplier: 6000
+    m_backForceMutiplier: -6000
     m_smoothing: 0
     m_isLeftSide: 1
     m_walkMutiplier: 0
@@ -2947,12 +2947,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_rigsToMove:
-  - m_rigidbody: {fileID: 54010583713977252}
-    m_forceMutiplier: 8000
   - m_rigidbody: {fileID: 54119321714958766}
+    m_forceMutiplier: 8000
+  - m_rigidbody: {fileID: 54010583713977252}
     m_forceMutiplier: -2500
   - m_rigidbody: {fileID: 54786024921724456}
-    m_forceMutiplier: 2500
+    m_forceMutiplier: -2500
   - m_rigidbody: {fileID: 54754206097629990}
     m_forceMutiplier: 6000
   - m_rigidbody: {fileID: 54908602875590894}
@@ -3526,11 +3526,11 @@ CharacterJoint:
     spring: 0
     damper: 0
   m_LowTwistLimit:
-    limit: -30
+    limit: -45
     bounciness: 0
     contactDistance: 0
   m_HighTwistLimit:
-    limit: 30
+    limit: 45
     bounciness: 0
     contactDistance: 0
   m_SwingLimitSpring:
@@ -3702,11 +3702,11 @@ CharacterJoint:
     spring: 0
     damper: 0
   m_LowTwistLimit:
-    limit: -30
+    limit: -45
     bounciness: 0
     contactDistance: 0
   m_HighTwistLimit:
-    limit: 30
+    limit: 45
     bounciness: 0
     contactDistance: 0
   m_SwingLimitSpring:

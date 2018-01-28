@@ -1527,6 +1527,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 278623494}
+  - component: {fileID: 278623496}
   m_Layer: 0
   m_Name: Items
   m_TagString: Untagged
@@ -1606,6 +1607,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &278623496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 278623493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 468bae64abc1c4a4592ee15dbe8220b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_itemPrefabs:
+  - {fileID: 1205363955188376, guid: 129dc43f422014544b187190b956b08e, type: 2}
+  - {fileID: 1579526517868716, guid: 3f3ab1b89673f76499daec744e830d38, type: 2}
+  - {fileID: 1791111605599946, guid: c3ca46632f1aa6546beca58cfd66613b, type: 2}
+  m_minCout: 30
+  m_maxCount: 40
+  m_spawner: {fileID: 545134466}
+  m_coolDown: 5
 --- !u!1001 &281653606
 Prefab:
   m_ObjectHideFlags: 0
@@ -3040,6 +3060,47 @@ Prefab:
     - {fileID: 54049448863315770, guid: 5f6af4db1a6cba44893ea6537f579c93, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 5f6af4db1a6cba44893ea6537f579c93, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &545134465
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 545134467}
+  - component: {fileID: 545134466}
+  m_Layer: 0
+  m_Name: ItemSpwnCircle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &545134466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 545134465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5b40598bf77f8248b75be2851cbf089, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Radius: 22
+--- !u!4 &545134467
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 545134465}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -5.5, y: 0, z: 13.3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &550381990 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1205363955188376, guid: 129dc43f422014544b187190b956b08e,
