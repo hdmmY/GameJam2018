@@ -2725,11 +2725,11 @@ MonoBehaviour:
   m_isBeingGrabbed: 0
   m_leftSideForward: 0
   m_sinceGrounded: 0
-  m_sinceWall: 0
-  m_sinceJumped: 0
-  m_sinceFallen: 0
-  m_sinceGrabbed: 0
-  m_sinceThrown: 0
+  m_sinceWall: 6.0626
+  m_sinceJumped: 5.0626
+  m_sinceFallen: 13.43134
+  m_sinceGrabbed: 13.43134
+  m_sinceThrown: 13.43134
   m_paceState: 1
 --- !u!114 &114770525961480356
 MonoBehaviour:
@@ -2921,7 +2921,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_rigsToMove:
   - m_rigidbody: {fileID: 54010583713977252}
-    m_forceMutiplier: 6000
+    m_forceMutiplier: 8000
   - m_rigidbody: {fileID: 54119321714958766}
     m_forceMutiplier: -2500
   - m_rigidbody: {fileID: 54786024921724456}

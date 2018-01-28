@@ -11,6 +11,7 @@ public class PlayerActions : PlayerActionSet {
     public PlayerAction Back;
     public PlayerAction Left;
     public PlayerAction Right;
+    public PlayerAction None;
     public PlayerTwoAxisAction Move;
 
     public PlayerActions()
@@ -18,6 +19,7 @@ public class PlayerActions : PlayerActionSet {
         Attack = CreatePlayerAction("Attack");
         Jump = CreatePlayerAction("Jump");
         Pick = CreatePlayerAction("Pick");
+        None = CreatePlayerAction("None");
         Forward = CreatePlayerAction("Forward");
         Back = CreatePlayerAction("Back");
         Left = CreatePlayerAction("Left");
@@ -31,7 +33,8 @@ public class PlayerActions : PlayerActionSet {
 
         actions.Attack.AddDefaultBinding(InputControlType.Action3);
         actions.Jump.AddDefaultBinding(InputControlType.Action1);
-        actions.Pick.AddDefaultBinding(InputControlType.Action2);
+        actions.Pick.AddDefaultBinding(InputControlType.Action3);
+        actions.None.AddDefaultBinding(InputControlType.Action4);
 
         actions.Forward.AddDefaultBinding(InputControlType.LeftStickUp);
         actions.Back.AddDefaultBinding(InputControlType.LeftStickDown);

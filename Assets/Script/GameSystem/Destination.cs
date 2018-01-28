@@ -20,6 +20,7 @@ public class Destination : MonoBehaviour
             ball.LastController.Score += Score;
             ball.GetComponent<MeshRenderer>().material = ball.LastController.GetComponentInChildren<SkinnedMeshRenderer>().material;
             Destroy(ball);
+            GameObject.Find("GameSystem").GetComponent<ObjectManager>().Spawn();
         }
     }
 }
