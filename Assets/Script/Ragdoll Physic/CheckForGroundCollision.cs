@@ -61,6 +61,7 @@ public class CheckForGroundCollision : MonoBehaviour
                 return;
             }
 
+            Debug.Log(collision.gameObject);
             if (collision.gameObject.layer != LayerMask.NameToLayer("Barrier"))
             {
                 float angle = Vector3.Angle(Vector3.up, collision.contacts[0].normal);
