@@ -6,6 +6,7 @@ TagManager:
   tags:
   - IgnoreRigidbody
   - IgnoreDrag
+  - Item
   layers:
   - Default
   - TransparentFX
@@ -20,7 +21,7 @@ TagManager:
   - Player3
   - Player4
   - 
-  - 
+  - Barrier
   - 
   - 
   - 

@@ -16,7 +16,7 @@ public class StepController : MonoBehaviour
 
     private CharacterInformation _characterInfo;
 
-    private Controller _controller;
+    private GrabHandler _grabHandler;
 
     private void Start()
     {
@@ -24,7 +24,7 @@ public class StepController : MonoBehaviour
         _leftLeg = GetComponentInChildren<LeftLeg>().transform;
 
         _characterInfo = GetComponent<CharacterInformation>();
-        _controller = GetComponent<Controller>();
+        _grabHandler = GetComponent<GrabHandler>();
 
         _timer = 0f;
     }
@@ -34,13 +34,15 @@ public class StepController : MonoBehaviour
     {
         _timer += Time.deltaTime;
 
+        float switchTime = _grabHandler.m_isHoldSomething ? m_switchTime * 2 : m_switchTime;
+
         if (Vector3.Angle(_leftLeg.up, _rightLeg.up) > m_legAngle &&
-           _timer > m_switchTime &&
-           _characterInfo.m_sinceFallen > 0.1f && 
+           _timer > switchTime &&
+           _characterInfo.m_sinceFallen > 0.1f &&
            _characterInfo.m_paceState != 0)
         {
             _characterInfo.m_leftSideForward = !_characterInfo.m_leftSideForward;
             _timer = 0f;
         }
-    }                   
+    }
 }

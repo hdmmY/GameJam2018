@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 4749011482517128}
   - component: {fileID: 33817440972246928}
   - component: {fileID: 23907121753052190}
-  - component: {fileID: 95059948080075236}
   - component: {fileID: 65903814177207924}
   m_Layer: 0
   m_Name: Wooden-Box
@@ -36,8 +35,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1058068648440434}
-  m_LocalRotation: {x: -0.000000053385083, y: 0.7071068, z: 0.7071068, w: 0.000000053385083}
-  m_LocalPosition: {x: 0.501, y: 0.01, z: -1.501}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.3, y: 1.3, z: 1.3}
   m_Children: []
   m_Father: {fileID: 0}
@@ -54,8 +53,8 @@ MeshRenderer:
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
   m_Materials:
   - {fileID: 2100000, guid: ac249d4b2bc38dd4596ab8da08b526b3, type: 2}
   - {fileID: 2100000, guid: b68ba643ccd71e143bf502264e120e40, type: 2}
@@ -98,20 +97,3 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.763096, y: 0.76309586, z: 0.7625482}
   m_Center: {x: 0.000000029802344, y: -0.0000000909028, z: 0.381274}
---- !u!95 &95059948080075236
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1058068648440434}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 212c91187564aef4b900ea2b5d0fb9f8, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1

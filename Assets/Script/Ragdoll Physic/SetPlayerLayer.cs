@@ -7,10 +7,10 @@ public class SetPlayerLayer : MonoBehaviour
     private void Awake()
     {
         var players = GameObject.FindGameObjectsWithTag("Player");
-        
-        if(players == null)
+
+        if (players == null)
         {
-            foreach(var rig in GetComponentsInChildren<Rigidbody>())
+            foreach (var rig in GetComponentsInChildren<Rigidbody>())
             {
                 rig.gameObject.layer = LayerMask.GetMask("Player1");
             }
@@ -18,7 +18,7 @@ public class SetPlayerLayer : MonoBehaviour
         else
         {
             int layer = LayerMask.NameToLayer("Player" + players.Length);
-            foreach(var rig in GetComponentsInChildren<Rigidbody>())
+            foreach (var rig in GetComponentsInChildren<Rigidbody>())
             {
                 rig.gameObject.layer = layer;
             }

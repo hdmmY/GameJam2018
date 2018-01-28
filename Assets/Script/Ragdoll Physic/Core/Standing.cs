@@ -73,7 +73,7 @@ public class Standing : MonoBehaviour
             }
         }
 
-        if (_characterInfo.m_isGround || _grabHandler.m_isHoldSomethingAnchored)
+        if (_characterInfo.m_isGround)
         {
             m_gravity = 0f;
         }
@@ -118,6 +118,17 @@ public class Standing : MonoBehaviour
             float accel = upStrength + rigToLift.m_rigidbody.velocity.magnitude * 100f * rigToLift.m_forceMutiplier * Time.fixedDeltaTime;
             rigToLift.m_rigidbody.AddForce(Vector2.up * accel, ForceMode.Force);
         }     
+    }
+
+    public void AddStandForce(float force)
+    {
+        _rightKneeForce.force += force * Vector3.down;
+        _leftKneeForce.force -= force * Vector3.down;
+    }
+
+    public void RealseStandForce(float realseForce)
+    {
+        AddStandForce(-Mathf.Abs(realseForce));
     }
 
 }

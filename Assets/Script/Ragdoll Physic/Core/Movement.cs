@@ -5,7 +5,7 @@ using Sirenix.OdinInspector;
 public class Movement : MonoBehaviour
 {
     [BoxGroup("Move")]
-    public List<RigidbodyMovement> m_rigsToMove;         
+    public List<RigidbodyMovement> m_rigsToMove;
 
     [BoxGroup("Jump")]
     public List<RigidbodyMovement> m_rigsToJump;
@@ -32,8 +32,8 @@ public class Movement : MonoBehaviour
         _standing = GetComponent<Standing>();
         _characterInfo = GetComponent<CharacterInformation>();
         _controller = GetComponent<Controller>();
-        _grabHandler = GetComponent<GrabHandler>();     
-    }                
+        _grabHandler = GetComponent<GrabHandler>();
+    }
 
     public void Move(Vector3 direction)
     {
@@ -42,13 +42,15 @@ public class Movement : MonoBehaviour
             return;
         }
 
-        float strength = _grabHandler.m_isHoldSomething ? 0.1f : 1f;
+        float strength = _grabHandler.m_isHoldSomething ? 1f : 1.5f;
 
         direction = direction.normalized;
         foreach (var rbMovement in m_rigsToMove)
         {
-            rbMovement.m_rigidbody.AddForce(direction * rbMovement.m_forceMutiplier * _fighting.m_movementMutiplier *
-                        strength * Time.fixedDeltaTime, ForceMode.Acceleration);
+            var rb = rbMovement.m_rigidbody;
+
+            rb.AddForce(direction * rbMovement.m_forceMutiplier *
+                _fighting.m_movementMutiplier * strength * Time.fixedDeltaTime, ForceMode.Acceleration);
         }
     }
 
