@@ -1467,9 +1467,11 @@ GameObject:
   m_Component:
   - component: {fileID: 318658681}
   - component: {fileID: 318658667}
+  - component: {fileID: 318658670}
   - component: {fileID: 318658666}
   - component: {fileID: 318658669}
   - component: {fileID: 318658668}
+  - component: {fileID: 318658671}
   m_Layer: 0
   m_Name: Player_test
   m_TagString: Player
@@ -1541,6 +1543,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_character: {fileID: 318658667}
   m_gravity: {fileID: 958192867}
+--- !u!114 &318658670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 318658665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5445d2af068c2c643aad2466b4518eee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &318658671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 318658665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62f9ad29c1aaacc41a2d510d37a5b78e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &318658681
 Transform:
   m_ObjectHideFlags: 0
@@ -3215,6 +3239,105 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 736727637}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &740975485
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 740975486}
+  - component: {fileID: 740975487}
+  m_Layer: 0
+  m_Name: Base Move
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &740975486
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 740975485}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1043072474}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &740975487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 740975485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01cf3ce59829f4f44bebdb7cdd23dac9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _description: Apply each body part a force to move player
+  m_forceAppliers:
+  - m_force: {x: 0, y: 0, z: 0}
+    m_rig: {fileID: 1393999309}
+    m_forceMode: 0
+    m_forecAxis: 0
+  - m_force: {x: 0, y: 0, z: 0}
+    m_rig: {fileID: 437180149}
+    m_forceMode: 0
+    m_forecAxis: 0
+  - m_force: {x: 0, y: 0, z: 0}
+    m_rig: {fileID: 1327184072}
+    m_forceMode: 0
+    m_forecAxis: 0
+  - m_force: {x: 0, y: 0, z: 0}
+    m_rig: {fileID: 605253215}
+    m_forceMode: 0
+    m_forecAxis: 0
+  - m_force: {x: 0, y: 0, z: 0}
+    m_rig: {fileID: 341520580}
+    m_forceMode: 0
+    m_forecAxis: 0
+  - m_force: {x: 0, y: 0, z: 0}
+    m_rig: {fileID: 543135390}
+    m_forceMode: 0
+    m_forecAxis: 0
+  - m_force: {x: 0, y: 0, z: 0}
+    m_rig: {fileID: 1701434575}
+    m_forceMode: 0
+    m_forecAxis: 0
+  - m_force: {x: 0, y: 0, z: 0}
+    m_rig: {fileID: 380780968}
+    m_forceMode: 0
+    m_forecAxis: 0
+  - m_force: {x: 0, y: 0, z: 0}
+    m_rig: {fileID: 510092311}
+    m_forceMode: 0
+    m_forecAxis: 0
+  - m_force: {x: 0, y: 0, z: 0}
+    m_rig: {fileID: 1635792729}
+    m_forceMode: 0
+    m_forecAxis: 0
+  - m_force: {x: 0, y: 0, z: 0}
+    m_rig: {fileID: 2113628223}
+    m_forceMode: 0
+    m_forecAxis: 0
+  - m_force: {x: 0, y: 0, z: 0}
+    m_rig: {fileID: 1510360458}
+    m_forceMode: 0
+    m_forecAxis: 0
+  - m_force: {x: 0, y: 0, z: 0}
+    m_rig: {fileID: 1283445403}
+    m_forceMode: 0
+    m_forecAxis: 0
+  - m_force: {x: 0, y: 0, z: 0}
+    m_rig: {fileID: 783797977}
+    m_forceMode: 0
+    m_forecAxis: 0
+  m_forceMutiplier: 1
 --- !u!1 &755218151
 GameObject:
   m_ObjectHideFlags: 0
@@ -4078,6 +4201,7 @@ Transform:
   m_Children:
   - {fileID: 929326227}
   - {fileID: 958192866}
+  - {fileID: 740975486}
   m_Father: {fileID: 318658681}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
