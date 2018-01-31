@@ -73,9 +73,15 @@ public class InputProperty : MonoBehaviour
         {
             if (_actions != null)
             {
-                return _actions.Move.Vector;
+                return _actions.Move.Value;
             }
             return Vector2.zero;
         }
+    }
+
+    public void BindActions(CharacterActions actions, InputDevice device)
+    {
+        _actions = actions;
+        Device = device;
     }
 }

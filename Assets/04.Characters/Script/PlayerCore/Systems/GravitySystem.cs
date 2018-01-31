@@ -25,11 +25,11 @@ public class GravitySystem : MonoBehaviour
         if(m_character.HasState(CharacterProperty.State.InAir) ||
            m_character.HasState(CharacterProperty.State.Wall))
         {
-            m_gravity.enabled = true;
+            m_gravity.m_enabled = true;
         }
         else
         {
-            m_gravity.enabled = false;
+            m_gravity.m_enabled = false;
         }
     }
 }

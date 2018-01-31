@@ -27,11 +27,11 @@ public class StandSystem : MonoBehaviour
             m_character.HasState(CharacterProperty.State.Wall) || 
             (m_character.HasState(CharacterProperty.State.InAir) && _inAirTime < 0.3f))
         {
-            m_standForce.enabled = true;
+            m_standForce.m_enabled = true;
         }
         else
         {
-            m_standForce.enabled = false;
+            m_standForce.m_enabled = false;
         }             
     }
 }

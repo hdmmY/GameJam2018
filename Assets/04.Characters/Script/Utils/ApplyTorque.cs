@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 
 [System.Serializable]
-public struct TorqueApplier
+public class TorqueApplier
 {
     public Vector3 m_torque;
 
