@@ -8,10 +8,9 @@ public class CharacterProperty : MonoBehaviour
         None = 0,
         Ground = 1,
         InAir = 2,
-        Jump = 4,
-        HoldSomething = 8,
-        BeingGrabbed = 16,
-        Wall = 32
+        HoldSomething = 4,
+        BeingGrabbed = 8,
+        Wall = 16
     }
 
     public State m_state;

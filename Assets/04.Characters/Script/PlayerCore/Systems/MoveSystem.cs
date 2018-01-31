@@ -1,4 +1,16 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
+using Sirenix.OdinInspector;
+
+
+/*
+
+    It's not easy to understand the logic of the movement system.
+    I will restruct it later.   
+                                                        -- hdmmY
+     
+*/
+
 
 public class MoveSystem : MonoBehaviour
 {
@@ -8,12 +20,17 @@ public class MoveSystem : MonoBehaviour
 
     public ApplyForce m_movementForce;
 
-    [Range(0, 1), SerializeField]
-    private float _forceDampWhenHoldSomething = 0.5f;
+    [Range(0, 1)]
+    public float m_forceDampWhenHoldSomething = 0.5f;
+
+    [Range(0, 10)]
+    public float m_impulseMagnitudeWhenStopMove = 1.2f;
+
+    private float _inAirTime;
 
     private float _initForceMutiplier;
 
-    private float _inAirTime;
+    private Vector2 _lastInput;
 
     private void Start()
     {
@@ -34,34 +51,87 @@ public class MoveSystem : MonoBehaviour
 
     private void FixedUpdate()
     {
+        Vector2 curInputVector = m_input.Move;
+
+        Movement(curInputVector, _lastInput);
+
+        _lastInput = curInputVector;
+    }
+
+    private void Movement(Vector2 curMoveInput, Vector2 lastMoveInput)
+    {
         if (m_character.HasState(CharacterProperty.State.BeingGrabbed))
         {
             m_movementForce.m_enabled = false;
             return;
         }
 
-        m_movementForce.m_enabled = true;
-        ApplyMoveForce();
+        if (m_character.HasState(CharacterProperty.State.Ground) ||
+           (m_character.HasState(CharacterProperty.State.InAir) && _inAirTime < 0.2f))
+        {
+            if (JustStopMove(curMoveInput, lastMoveInput))
+            {
+                StopMoving();
+                return;
+            }
 
-        if (m_character.HasState(CharacterProperty.State.HoldSomething) ||
-            (m_character.HasState(CharacterProperty.State.InAir) && _inAirTime > 0.3f) ||
-            m_character.HasState(CharacterProperty.State.Wall))
-        {
-            m_movementForce.m_forceMutiplier = _initForceMutiplier * _forceDampWhenHoldSomething;
+            if (curMoveInput != Vector2.zero)
+            {
+                m_movementForce.m_forceMutiplier = _initForceMutiplier;
+                m_movementForce.m_enabled = true;
+                ApplyForce(m_movementForce.m_forceAppliers, curMoveInput.x, 0, curMoveInput.y);
+            }
+            else
+            {
+                m_movementForce.m_enabled = false;
+            }
+            return;
         }
-        else
+
+        if (m_character.HasState(CharacterProperty.State.HoldSomething))
         {
-            m_movementForce.m_forceMutiplier = _initForceMutiplier;
+            if (JustStopMove(curMoveInput, lastMoveInput))
+            {
+                StopMoving();
+                return;
+            }
+
+            if (curMoveInput != Vector2.zero)
+            {
+                m_movementForce.m_forceMutiplier = _initForceMutiplier * m_forceDampWhenHoldSomething;
+                m_movementForce.m_enabled = true;
+                ApplyForce(m_movementForce.m_forceAppliers, curMoveInput.x, 0, curMoveInput.y);
+            }
+            else
+            {
+                m_movementForce.m_enabled = false;
+            }
+            return;
+        }
+
+        m_movementForce.m_enabled = false;
+    }
+
+    private void ApplyForce(List<ForceApplier> forceAppliers, float forceX, float forceY, float forceZ)
+    {
+        foreach (var forceApplier in forceAppliers)
+        {
+            forceApplier.ChangeForce(forceX, forceY, forceZ);
         }
     }
 
-    private void ApplyMoveForce()
+    private bool JustStopMove(Vector2 curInput, Vector2 lastInput)
     {
-        Vector2 inputVector = m_input.Move;
-
-        foreach(var forceApplier in m_movementForce.m_forceAppliers)
+        if (curInput == Vector2.zero && lastInput != Vector2.zero)
         {
-            forceApplier.ChangeForce(inputVector.x, 0, inputVector.y);
+            return true;
         }
+        return false;
+    }
+
+    private void StopMoving()
+    {
+        m_movementForce.AddInverseImplusForce(m_impulseMagnitudeWhenStopMove);
+        m_movementForce.m_enabled = false;
     }
 }

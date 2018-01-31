@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using Sirenix.OdinInspector;
 using System.Collections.Generic;
+using System.Collections;
 
 
 [System.Serializable]
@@ -31,20 +32,48 @@ public class ApplyTorque : MonoBehaviour
     [ListDrawerSettings(Expanded = false)]
     public List<TorqueApplier> m_torqueAppliers;
 
-    public int m_torqueMutiplier = 1;
+    public float m_torqueMutiplier = 1;
+
+    [ReadOnly]
+    public bool m_enabled;
 
     private void FixedUpdate()
     {
-        foreach(var torqueApplier in m_torqueAppliers)
+        if (m_enabled)
         {
-            Vector3 torque = torqueApplier.m_torque;
-
-            if(torqueApplier.m_torqueAxis == TorqueApplier.Axis.Local)
+            foreach (var torqueApplier in m_torqueAppliers)
             {
-                torque = torqueApplier.m_rig.transform.TransformVector(torque);
-            }
+                Vector3 torque = torqueApplier.m_torque;
 
-            torqueApplier.m_rig.AddTorque(torque * m_torqueMutiplier, torqueApplier.m_torqueMode);
+                if (torqueApplier.m_torqueAxis == TorqueApplier.Axis.Local)
+                {
+                    torque = torqueApplier.m_rig.transform.TransformVector(torque);
+                }
+
+                torqueApplier.m_rig.AddTorque(torque * m_torqueMutiplier, torqueApplier.m_torqueMode);
+            }
         }
+    }
+
+    public void FreezeRotation()
+    {
+        StartCoroutine(FreezeRotationForOneFrame());
+    }
+
+    private IEnumerator FreezeRotationForOneFrame()
+    {
+        foreach (var torquApplier in m_torqueAppliers)
+        {
+            torquApplier.m_rig.freezeRotation = true;
+        }
+
+        yield return null;
+
+        foreach (var torquApplier in m_torqueAppliers)
+        {
+            torquApplier.m_rig.freezeRotation = false;
+        }
+
+        Debug.Log("Impluse Torque happen!");
     }
 }

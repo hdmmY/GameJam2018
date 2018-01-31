@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using Sirenix.OdinInspector;
 using System.Collections.Generic;
+using System.Collections;
 
 
 [System.Serializable]
@@ -62,5 +63,19 @@ public class ApplyForce : MonoBehaviour
                 forceApplier.m_rig.AddForce(force * m_forceMutiplier, forceApplier.m_forceMode);
             }
         }
+    }
+
+    public void AddInverseImplusForce(float impluseMagnitude)
+    {
+        impluseMagnitude = Mathf.Abs(impluseMagnitude);
+
+        foreach (var forceApplier in m_forceAppliers)
+        {
+            forceApplier.m_rig.AddForce(
+                -forceApplier.m_rig.velocity * forceApplier.m_rig.mass * impluseMagnitude,
+                ForceMode.Impulse);
+        }
+
+        Debug.Log("Impluse force happen!");
     }
 }

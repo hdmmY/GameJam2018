@@ -19,12 +19,12 @@ public class GroundCheckSystem : MonoBehaviour
             {
                 if (minAngle > checker.CollisionAngle)
                 {
-                    minAngle = checker.CollisionAngle;
+                    minAngle = Vector3.Angle(Vector3.up, checker.CollisionNormal);
                 }
             }
         }
 
-        if (minAngle < 60)
+        if (minAngle < 70)
         {
             if (!m_character.HasState(CharacterProperty.State.BeingGrabbed))
             {
