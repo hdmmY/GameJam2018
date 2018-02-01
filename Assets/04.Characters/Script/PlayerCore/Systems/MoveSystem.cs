@@ -28,6 +28,7 @@ public class MoveSystem : MonoBehaviour
 
     private float _inAirTime;
 
+    [SerializeField]
     private float _initForceMutiplier;
 
     private Vector2 _lastInput;
