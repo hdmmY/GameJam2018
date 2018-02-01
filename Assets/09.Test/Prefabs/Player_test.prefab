@@ -135,7 +135,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1092172790341838
 GameObject:
   m_ObjectHideFlags: 1
@@ -1218,7 +1218,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1935709617906552
 GameObject:
   m_ObjectHideFlags: 1
@@ -3092,7 +3092,7 @@ MonoBehaviour:
     m_rig: {fileID: 54010583713977252}
     m_forceMode: 1
     m_forecAxis: 0
-  m_forceMutiplier: 100
+  m_forceMutiplier: 150
   m_enabled: 0
 --- !u!114 &114409881908688644
 MonoBehaviour:

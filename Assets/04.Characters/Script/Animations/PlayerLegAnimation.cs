@@ -45,7 +45,7 @@ public class PlayerLegAnimation : MonoBehaviour
                 m_legTorque.m_enabled = true;
 
                 _animationTimer += Time.deltaTime;
-                if (_animationTimer > m_animationSpeed)
+                if (_animationTimer >= m_animationSpeed)
                 {
                     m_legTorque.m_torqueMutiplier = -m_legTorque.m_torqueMutiplier;
                     _animationTimer = 0f;

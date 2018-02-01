@@ -79,9 +79,55 @@ public class InputProperty : MonoBehaviour
         }
     }
 
+    [ShowInInspector, ReadOnly]
+    public Vector2 LastMove
+    {
+        get
+        {
+            if (_actions != null)
+            {
+                return _actions.Move.LastValue;
+            }
+            return Vector2.zero;
+        }
+    }
+
+    [ShowInInspector, ReadOnly]
+    public bool HasMoveInput
+    {
+        get
+        {
+            if (_actions != null)
+            {
+                return ValidMovementInput(_actions.Move);
+            }
+            return false;
+        }
+    }
+
+    [ShowInInspector, ReadOnly]
+    public bool JustMove
+    {
+        get
+        {
+            if(_actions != null)
+            {
+                return ValidMovementInput(_actions.Move) && !ValidMovementInput(_actions.Move.LastValue);
+            }
+            return false;
+        }
+    }
+                                      
     public void BindActions(CharacterActions actions, InputDevice device)
     {
         _actions = actions;
         Device = device;
+    }
+
+
+    private bool ValidMovementInput(Vector2 input)
+    {
+        return (input.x > 0.05f || input.x < -0.05f) ||
+               (input.y > 0.05f || input.y < -0.05f);
     }
 }

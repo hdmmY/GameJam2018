@@ -45,7 +45,5 @@ public class GroundCheckSystem : MonoBehaviour
             m_character.m_state &= ~CharacterProperty.State.InAir;
             m_character.m_state |= CharacterProperty.State.Wall;
         }
-    }
-
-
+    }             
 }

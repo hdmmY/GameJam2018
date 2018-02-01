@@ -4,34 +4,29 @@ public class StandSystem : MonoBehaviour
 {
     public CharacterProperty m_character;
 
-    public ApplyForce m_standForce;
+    public InputProperty m_input;
 
-    private float _inAirTime;   
+    public ApplyForce m_standUpForce;
 
-    private void Update()
-    {
-        if (m_character.HasState(CharacterProperty.State.InAir))
-        {
-            _inAirTime += Time.deltaTime;
-        }
-        else
-        {
-            _inAirTime = 0f;
-        }    
-    }
+    public ApplyForce m_standDownForce;
+
+    public ApplyForce m_footStickForce;
 
     private void FixedUpdate()
     {
         if (m_character.HasState(CharacterProperty.State.Ground) ||
-            m_character.HasState(CharacterProperty.State.HoldSomething) ||
-            m_character.HasState(CharacterProperty.State.Wall) || 
-            (m_character.HasState(CharacterProperty.State.InAir) && _inAirTime < 0.3f))
-        {   
-            m_standForce.m_enabled = true;
+           (m_character.HasState(CharacterProperty.State.InAir) && m_character.InAirTime < 0.15f))
+        {
+            m_footStickForce.m_enabled = !m_input.HasMoveInput;
+            m_standUpForce.m_enabled = true;
+            m_standDownForce.m_enabled = true;
+
         }
         else
         {
-            m_standForce.m_enabled = false;
-        }             
+            m_footStickForce.m_enabled = false;
+            m_standUpForce.m_enabled = false;
+            m_standDownForce.m_enabled = false;
+        }
     }
 }
