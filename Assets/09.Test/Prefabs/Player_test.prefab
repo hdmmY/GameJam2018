@@ -50,7 +50,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4406057067793228}
   - component: {fileID: 114591730699410362}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RenderPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -82,7 +82,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4488759631630024}
   - component: {fileID: 114980050074257620}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RenderPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -120,6 +120,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1082802644184770
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4530747344246832}
+  - component: {fileID: 114654100280053240}
+  m_Layer: 0
+  m_Name: Leg Animation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
 --- !u!1 &1092172790341838
 GameObject:
   m_ObjectHideFlags: 1
@@ -133,7 +149,7 @@ GameObject:
   - component: {fileID: 144436188148393946}
   - component: {fileID: 114189824568271052}
   - component: {fileID: 114409881908688644}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Knee_Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -199,7 +215,7 @@ GameObject:
   - component: {fileID: 144190784499968292}
   - component: {fileID: 114305583604263000}
   - component: {fileID: 114654440094967618}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Knee_Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -215,7 +231,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4843152013043696}
   - component: {fileID: 114674089949923574}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RenderPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -231,7 +247,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4089621030526434}
   - component: {fileID: 114617975101211014}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RenderPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -247,7 +263,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4562299361150452}
   - component: {fileID: 114785398922797024}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RenderPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -279,7 +295,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4384284198332350}
   - component: {fileID: 114411567081109574}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RenderPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -387,7 +403,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4175640194289726}
   - component: {fileID: 114904974766316830}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RenderPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -407,7 +423,7 @@ GameObject:
   - component: {fileID: 144829131398507556}
   - component: {fileID: 114058710354412078}
   - component: {fileID: 114105216384638702}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Hand_Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -439,7 +455,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4224228777373144}
   - component: {fileID: 114994272767949874}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RenderPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -487,7 +503,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4027819075010954}
   - component: {fileID: 114212405081018152}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RenderPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -686,7 +702,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4785686503266126}
   - component: {fileID: 114302121172474472}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RenderPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -738,7 +754,7 @@ GameObject:
   - component: {fileID: 144114201520851914}
   - component: {fileID: 114461085866669014}
   - component: {fileID: 114391440365457260}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Elbow_Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -773,7 +789,7 @@ GameObject:
   - component: {fileID: 65276019100262608}
   - component: {fileID: 144255382700575452}
   - component: {fileID: 114564695038719208}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Neck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -819,7 +835,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4340705590288666}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Item Position
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -839,7 +855,7 @@ GameObject:
   - component: {fileID: 144413727209166974}
   - component: {fileID: 114464997901343996}
   - component: {fileID: 114193398177666754}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -874,7 +890,7 @@ GameObject:
   - component: {fileID: 144557929223569282}
   - component: {fileID: 114096597544451948}
   - component: {fileID: 114037317668664790}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Leg_Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -894,7 +910,7 @@ GameObject:
   - component: {fileID: 144843602569398870}
   - component: {fileID: 114514248693323544}
   - component: {fileID: 114786693589323290}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Torso
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -914,7 +930,7 @@ GameObject:
   - component: {fileID: 144319030781424012}
   - component: {fileID: 114775096308561098}
   - component: {fileID: 114831896944518272}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Elbow_Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -949,7 +965,7 @@ GameObject:
   - component: {fileID: 65998129761102446}
   - component: {fileID: 114848929632690870}
   - component: {fileID: 114671237102210450}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Hip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -980,7 +996,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4871477364558274}
   - component: {fileID: 114474785530012598}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RenderPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1012,7 +1028,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4718914990735574}
   - component: {fileID: 114660049442757932}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RenderPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1028,7 +1044,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4270041460221246}
   - component: {fileID: 114438305258073006}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RenderPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1094,8 +1110,23 @@ GameObject:
   - component: {fileID: 144968407563580492}
   - component: {fileID: 114618554309594766}
   - component: {fileID: 114176036005250286}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Leg_Left
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1830309035750050
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4232952041434534}
+  m_Layer: 0
+  m_Name: Animations
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1114,7 +1145,7 @@ GameObject:
   - component: {fileID: 144506048529600932}
   - component: {fileID: 114825655894569654}
   - component: {fileID: 114215052877794610}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Arm_Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1130,7 +1161,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4201074112611194}
   - component: {fileID: 114379314432655716}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RenderPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1165,13 +1196,29 @@ GameObject:
   - component: {fileID: 144520186706785892}
   - component: {fileID: 114535134965277588}
   - component: {fileID: 114570265225084182}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Arm_Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1928410829488298
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4794303707037686}
+  - component: {fileID: 114684190934452076}
+  m_Layer: 0
+  m_Name: Leg Rotation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
 --- !u!1 &1935709617906552
 GameObject:
   m_ObjectHideFlags: 1
@@ -1185,7 +1232,7 @@ GameObject:
   - component: {fileID: 144613372386613078}
   - component: {fileID: 114168836258330354}
   - component: {fileID: 114325817999101340}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Hand_Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1234,7 +1281,7 @@ Transform:
   - {fileID: 4789151926878096}
   - {fileID: 4947977273030344}
   m_Father: {fileID: 4792546739284554}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4027819075010954
 Transform:
@@ -1516,6 +1563,20 @@ Transform:
   m_Father: {fileID: 4877784034137588}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4232952041434534
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1830309035750050}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4530747344246832}
+  m_Father: {fileID: 4792546739284554}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4234841601839764
 Transform:
   m_ObjectHideFlags: 1
@@ -1795,8 +1856,22 @@ Transform:
   - {fileID: 4095285123533796}
   - {fileID: 4238392150325116}
   - {fileID: 4086828161891656}
+  - {fileID: 4794303707037686}
   m_Father: {fileID: 4792546739284554}
-  m_RootOrder: 2
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4530747344246832
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1082802644184770}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4232952041434534}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4551346710333242
 Transform:
@@ -2036,10 +2111,24 @@ Transform:
   m_Children:
   - {fileID: 4082188679644744}
   - {fileID: 4323061060156990}
+  - {fileID: 4232952041434534}
   - {fileID: 4514717809095884}
   - {fileID: 4010018335374812}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4794303707037686
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1928410829488298}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4514717809095884}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4843152013043696
 Transform:
@@ -2763,7 +2852,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _bodyPart: 1
-  _bodyType: 2
+  _bodyType: 6
 --- !u!114 &114212405081018152
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3369,7 +3458,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _bodyPart: 2
-  _bodyType: 1
+  _bodyType: 5
 --- !u!114 &114565237273543128
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3449,6 +3538,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d5819dbb4f85ca41bcf84a8df3c088a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114654100280053240
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1082802644184770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24dd05b8d4db3fc4284337d5dc64ac27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _description: Rotate two legs when player is grounded and in moving
+  m_character: {fileID: 114735206479208058}
+  m_input: {fileID: 114132585580804164}
+  m_legTorque: {fileID: 114684190934452076}
+  m_animationSpeed: 0.5
 --- !u!114 &114654440094967618
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3492,7 +3597,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _bodyPart: 10
-  _bodyType: 2
+  _bodyType: 6
 --- !u!114 &114674089949923574
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3511,6 +3616,29 @@ MonoBehaviour:
   m_positionOffset: {x: 0, y: 0, z: 0}
   m_rotationOffset: {x: -0.0030475075, y: 0.0023069787, z: 0.70384103, w: 0.71034724}
   m_updateMode: 2
+--- !u!114 &114684190934452076
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1928410829488298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13a389008c440fa418ceb20c5668c308, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _description: Rotate two legs in forward or back direction
+  m_torqueAppliers:
+  - m_torque: {x: 1, y: 0, z: 0}
+    m_rig: {fileID: 54482489574706610}
+    m_torqueMode: 0
+    m_torqueAxis: 1
+  - m_torque: {x: -1, y: 0, z: 0}
+    m_rig: {fileID: 54536538229507520}
+    m_torqueMode: 0
+    m_torqueAxis: 1
+  m_torqueMutiplier: 100
+  m_enabled: 0
 --- !u!114 &114703671205142386
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3664,7 +3792,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _bodyPart: 3
-  _bodyType: 2
+  _bodyType: 6
 --- !u!114 &114802559932798416
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3758,7 +3886,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _description: Add a torque to main body to make main body's forward direction align
-    with the velocity
+    with the input
   m_torqueAppliers:
   - m_torque: {x: 0, y: 1, z: 0}
     m_rig: {fileID: 54119321714958766}

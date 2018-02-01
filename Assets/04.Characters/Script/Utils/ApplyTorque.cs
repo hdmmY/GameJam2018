@@ -43,6 +43,8 @@ public class ApplyTorque : MonoBehaviour
         {
             foreach (var torqueApplier in m_torqueAppliers)
             {
+                if (torqueApplier.m_rig == null) continue;
+
                 Vector3 torque = torqueApplier.m_torque;
 
                 if (torqueApplier.m_torqueAxis == TorqueApplier.Axis.Local)

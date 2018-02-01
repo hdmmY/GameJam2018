@@ -25,7 +25,8 @@ public enum BodyType
 {
     None = 0,
     Normal = 1,
-    Vital = 2,
+    Vital = 2,      // Take more damage
+    MainBody = 4   
 }
 
 

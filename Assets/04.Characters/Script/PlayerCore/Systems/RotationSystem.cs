@@ -31,19 +31,7 @@ public class RotationSystem : MonoBehaviour
     }
 
     private void Rotation(Vector2 curInputVector, Vector2 lastInputVector)
-    {
-        //if (curInputVector == Vector2.zero)
-        //{
-        //    if (lastInputVector != Vector2.zero)
-        //    {
-        //        m_rotationTorque.FreezeRotation();
-        //    }
-
-        //    m_rotationTorque.m_enabled = false;
-        //    return;
-        //}
-
-
+    {    
         // Angle between rig's velocity and rig's forward direction
         Rigidbody rig = m_rotationTorque.m_torqueAppliers[0].m_rig;
 
