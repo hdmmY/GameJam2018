@@ -88,7 +88,8 @@ public class MoveSystem : MonoBehaviour
             return;
         }
 
-        if (m_character.HasState(CharacterProperty.State.HoldSomething))
+        if (m_character.HasState(CharacterProperty.State.HoldSomething) ||
+           (m_character.HasState(CharacterProperty.State.InAir) && _inAirTime > 0.3f))
         {
             if (JustStopMove(curMoveInput, lastMoveInput))
             {

@@ -43,7 +43,7 @@ public class ApplyForce : MonoBehaviour
     public float m_forceMutiplier = 1;
 
     [ReadOnly]
-    public bool m_enabled;
+    public bool m_enabled = false;
 
     private void FixedUpdate()
     {
