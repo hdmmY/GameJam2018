@@ -28,6 +28,12 @@ public class CharacterProperty : MonoBehaviour
     }
 
     [ShowInInspector, ReadOnly]
+    public float WallTime
+    {
+        get; private set;
+    }
+
+    [ShowInInspector, ReadOnly]
     public float GroundTime
     {
         get; private set;
@@ -51,6 +57,15 @@ public class CharacterProperty : MonoBehaviour
         else
         {
             InAirTime = 0f;
+        }
+
+        if((m_state & State.Wall) == State.Wall)
+        {
+            WallTime += Time.deltaTime;
+        }
+        else
+        {
+            WallTime = 0f;
         }
     }   
 }

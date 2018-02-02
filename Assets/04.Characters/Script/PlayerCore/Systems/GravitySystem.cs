@@ -4,11 +4,19 @@ public class GravitySystem : MonoBehaviour
 {
     public CharacterProperty m_character;
 
-    public ApplyForce m_gravity;     
+    public ApplyForce m_gravity;
 
     private void Update()
     {
-        m_gravity.m_enabled = true;    
+        if ((m_character.HasState(CharacterProperty.State.InAir) && m_character.InAirTime > 0.15f) ||
+            (m_character.HasState(CharacterProperty.State.Wall) && m_character.WallTime > 0.15f))
+        {
+            m_gravity.m_enabled = true;
+        }
+        else
+        {
+            m_gravity.m_enabled = false;
+        }    
     }
 
     private void OnDisable()

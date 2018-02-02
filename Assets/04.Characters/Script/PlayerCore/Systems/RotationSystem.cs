@@ -1,4 +1,7 @@
 ﻿using UnityEngine;
+using Sirenix.OdinInspector;
+using System.Collections.Generic;
+using System.Linq;
 
 public class RotationSystem : MonoBehaviour
 {
@@ -6,57 +9,99 @@ public class RotationSystem : MonoBehaviour
 
     public InputProperty m_input;
 
-    public ApplyTorque m_rotationTorque;
+    public ApplyTorque m_mainBodyRotateTorque;
 
-    private float _initAbsTorqueMutiplier;
+    public ApplyTorque m_footRotateTorque;
 
-    private Vector2 _lastInput;
+    [SerializeField, ReadOnly]
+    private float _initAbsMainBodyTorqueMutiplier;
 
-    private Vector2 _lastValidInput = Vector2.right;
+    //[SerializeField, ReadOnly]
+    //private List<Vector3> _initAbsFootTorque;
+
+    private Vector2 _lastValidMoveInput;
 
     private void Start()
     {
-        _initAbsTorqueMutiplier = Mathf.Abs(m_rotationTorque.m_torqueMutiplier);
+        _initAbsMainBodyTorqueMutiplier = Mathf.Abs(m_mainBodyRotateTorque.m_torqueMutiplier);
+
+        //_initAbsFootTorque = new List<Vector3>(
+        //            from torqueApplier in m_footRotateTorque.m_torqueAppliers
+        //            select new Vector3(Mathf.Abs(torqueApplier.m_torque.x),
+        //                               Mathf.Abs(torqueApplier.m_torque.y),
+        //                               Mathf.Abs(torqueApplier.m_torque.z)));
     }
 
     private void Update()
     {
-        Vector2 inputVector = m_input.Move;
+        if (m_input.HasMoveInput)
+        {
+            _lastValidMoveInput = m_input.Move;
+        }
 
-        Rotation(inputVector, _lastInput);
+        RotateMainBody();
 
-        _lastInput = inputVector;
-
-        if (inputVector != Vector2.zero) _lastValidInput = inputVector;
+        //RotateFoot();
     }
 
-    private void Rotation(Vector2 curInputVector, Vector2 lastInputVector)
-    {    
+    private void RotateMainBody()
+    {
         // Angle between rig's velocity and rig's forward direction
-        Rigidbody rig = m_rotationTorque.m_torqueAppliers[0].m_rig;
+        Rigidbody rig = m_mainBodyRotateTorque.m_torqueAppliers[0].m_rig;
 
-        Vector3 xzInput = new Vector3(_lastValidInput.x, 0, _lastValidInput.y);
+        Vector3 xzInput = new Vector3(_lastValidMoveInput.x, 0, _lastValidMoveInput.y);
         Vector3 xzForward = new Vector3(rig.transform.forward.x, 0, rig.transform.forward.z);
 
         float angle = Vector3.SignedAngle(xzInput.normalized, xzForward.normalized, Vector3.up);
         float ratio = angle / 180;
 
-        m_rotationTorque.m_torqueMutiplier = -1f * _initAbsTorqueMutiplier * Mathf.Sin(ratio * Mathf.PI / 2);
+        m_mainBodyRotateTorque.m_torqueMutiplier = -1f * _initAbsMainBodyTorqueMutiplier * Mathf.Sin(ratio * Mathf.PI / 2);
 
         if (m_character.HasState(CharacterProperty.State.Ground) ||
             m_character.HasState(CharacterProperty.State.HoldSomething) ||
             m_character.HasState(CharacterProperty.State.InAir))
         {
-            m_rotationTorque.m_enabled = true;
+            m_mainBodyRotateTorque.m_enabled = true;
         }
         else
         {
-            m_rotationTorque.m_enabled = false;
+            m_mainBodyRotateTorque.m_enabled = false;
         }
     }
 
+    //private void RotateFoot()
+    //{
+    //    Rigidbody rig;
+    //    float angle, ratio;
+
+    //    for (int i = 0; i < m_footRotateTorque.m_torqueAppliers.Count; i++)
+    //    {
+    //        rig = m_footRotateTorque.m_torqueAppliers[i].m_rig;
+
+    //        angle = Vector3.SignedAngle(rig.transform.forward, Vector3.up, Vector3.right);
+    //        ratio = angle / 180;
+
+    //        m_footRotateTorque.m_torqueAppliers[i].m_torque = -1f * _initAbsFootTorque[i] * Mathf.Sin(ratio * Mathf.PI / 2);
+    //    }  
+
+    //    if (!m_character.HasState(CharacterProperty.State.BeingGrabbed) &&
+    //         m_character.HasState(CharacterProperty.State.Ground) &&
+    //        !m_input.HasMoveInput)
+    //    {
+    //        m_footRotateTorque.m_enabled = true;
+    //    }
+    //    else
+    //    {
+    //        m_footRotateTorque.m_enabled = false;
+    //    }
+    //}
+
+
+
     private void OnDisable()
     {
-        m_rotationTorque.m_enabled = false;
-    }               
+        m_mainBodyRotateTorque.m_enabled = false;
+
+        m_footRotateTorque.m_enabled = false;
+    }
 }

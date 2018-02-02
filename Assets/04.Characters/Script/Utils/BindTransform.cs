@@ -2,6 +2,7 @@
 using Sirenix.OdinInspector;
 
 
+[ExecuteInEditMode]
 public class BindTransform : MonoBehaviour
 {
     public Transform m_targetTransform;

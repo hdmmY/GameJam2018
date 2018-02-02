@@ -23,6 +23,8 @@ public class ApplyRigDrag : MonoBehaviour
 
     public float m_dragMutiplier = 1;
 
+    public float m_angularDragMutiplier = 1;
+
     [ReadOnly]
     public bool m_enabled = false;
 
@@ -35,7 +37,7 @@ public class ApplyRigDrag : MonoBehaviour
             if(dragApplier.m_rig != null)
             {
                 dragApplier.m_rig.drag = dragApplier.m_drag * m_dragMutiplier;
-                dragApplier.m_rig.angularDrag = dragApplier.m_angleDrag * m_dragMutiplier;
+                dragApplier.m_rig.angularDrag = dragApplier.m_angleDrag * m_angularDragMutiplier;
             }
         }
     }

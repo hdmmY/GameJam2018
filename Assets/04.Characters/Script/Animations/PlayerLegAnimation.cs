@@ -22,7 +22,8 @@ public class PlayerLegAnimation : MonoBehaviour
     {
         Vector2 inputVector = m_input.Move;
 
-        if (inputVector == Vector2.zero)
+        if (inputVector == Vector2.zero ||
+            m_character.HasState(CharacterProperty.State.BeingGrabbed))
         {
             m_legTorque.m_enabled = false;
         }

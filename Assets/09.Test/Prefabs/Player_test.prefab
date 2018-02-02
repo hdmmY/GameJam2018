@@ -1051,6 +1051,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1783439794926148
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4997574664366094}
+  - component: {fileID: 114901351424942892}
+  m_Layer: 0
+  m_Name: Leg Anim Rotation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1785330483757710
 GameObject:
   m_ObjectHideFlags: 1
@@ -1245,7 +1261,7 @@ GameObject:
   - component: {fileID: 4794303707037686}
   - component: {fileID: 114684190934452076}
   m_Layer: 0
-  m_Name: Leg Rotation
+  m_Name: Leg Balance Rotation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1322,7 +1338,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1385836069924278}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.23202616, z: 0.0027211148}
+  m_LocalPosition: {x: 0, y: 0.359, z: 0.003}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4139744014650552}
@@ -1362,7 +1378,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1228389896383220}
   m_LocalRotation: {x: 0.56015885, y: 0.31517938, z: -0.45060915, w: 0.61954457}
-  m_LocalPosition: {x: 0.009182235, y: 1.1994038, z: 0.010862371}
+  m_LocalPosition: {x: 0.009182235, y: 1.1994019, z: 0.010862371}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4082188679644744}
@@ -1403,7 +1419,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1219533581441912}
   m_LocalRotation: {x: -0.0030475075, y: 0.0023069787, z: 0.70384103, w: 0.71034724}
-  m_LocalPosition: {x: 0.299, y: -0.43297386, z: 0.0027211148}
+  m_LocalPosition: {x: 0.299, y: -0.30599976, z: 0.003}
   m_LocalScale: {x: 1.0000006, y: 1.0000006, z: 1}
   m_Children: []
   m_Father: {fileID: 4082188679644744}
@@ -1420,7 +1436,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4514717809095884}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4089621030526434
 Transform:
@@ -1575,8 +1591,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1903140537241756}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.21982138, z: 0.0000000022536142}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0, y: 0.125, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4998204118730916}
@@ -1616,7 +1632,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1665820199773480}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.28, y: -0.249, z: 0}
+  m_LocalPosition: {x: 0.28, y: -0.293, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4785686503266126}
@@ -1634,7 +1650,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4514717809095884}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4261756207548000
 Transform:
@@ -1669,7 +1685,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1007421040190152}
   m_LocalRotation: {x: 0.00077065866, y: 0.00076012715, z: -0.7119076, w: 0.70227236}
-  m_LocalPosition: {x: -0.004329677, y: 0.21873856, z: -0.0000000065469954}
+  m_LocalPosition: {x: -0.004329677, y: 0.21873474, z: -0.0000000065469954}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4082188679644744}
@@ -1735,7 +1751,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1919153022155366}
   m_LocalRotation: {x: -0.01171788, y: -0.006529543, z: 0.69031394, w: 0.72338563}
-  m_LocalPosition: {x: -0.28, y: -0.02917862, z: 0.0000000022536142}
+  m_LocalPosition: {x: -0.28, y: -0.16799927, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4082188679644744}
@@ -1761,7 +1777,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1200232821530808}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.137, z: 0}
+  m_LocalPosition: {x: -0, y: -0.358, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4994311600158438}
@@ -1774,7 +1790,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1649912731022500}
   m_LocalRotation: {x: 0.009544666, y: 0.012494834, z: 0.72235936, w: 0.69133914}
-  m_LocalPosition: {x: 0.28, y: -0.02917862, z: 0.0000000022536142}
+  m_LocalPosition: {x: 0.28193766, y: -0.16558838, z: 0.025695676}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4082188679644744}
@@ -1888,9 +1904,10 @@ Transform:
   - {fileID: 4707956312865982}
   - {fileID: 4493091112221824}
   - {fileID: 4095285123533796}
+  - {fileID: 4794303707037686}
   - {fileID: 4238392150325116}
   - {fileID: 4086828161891656}
-  - {fileID: 4794303707037686}
+  - {fileID: 4997574664366094}
   m_Father: {fileID: 4792546739284554}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1927,7 +1944,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1019461818494916}
   m_LocalRotation: {x: 0.16392271, y: -0.13908198, z: -0.69971097, w: 0.68131506}
-  m_LocalPosition: {x: 0.0048643295, y: 0.95811653, z: 0.0012306862}
+  m_LocalPosition: {x: 0.0048643295, y: 0.9581146, z: 0.0012306862}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4082188679644744}
@@ -1953,7 +1970,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1453313335438406}
   m_LocalRotation: {x: -0.0015979547, y: 0.010618418, z: 0.69997185, w: 0.7140897}
-  m_LocalPosition: {x: -0.299, y: -0.43297386, z: 0.0027211148}
+  m_LocalPosition: {x: -0.299, y: -0.30599976, z: 0.003}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4082188679644744}
@@ -1980,7 +1997,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1760682372009664}
   m_LocalRotation: {x: 0.0000002187381, y: -0.00000022013243, z: -0.7044871, w: 0.7097168}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.22100067, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4082188679644744}
@@ -2113,8 +2130,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1529974449817196}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.21982138, z: 0.0000000022536142}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.0019376716, y: 0.12741485, z: 0.025695676}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4234841601839764}
@@ -2140,7 +2157,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1444802340485222}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 30, z: 0}
+  m_LocalPosition: {x: 0, y: 100, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4082188679644744}
@@ -2162,7 +2179,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4514717809095884}
-  m_RootOrder: 8
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4843152013043696
 Transform:
@@ -2171,7 +2188,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1146716571134532}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.23202616, z: 0.0027211148}
+  m_LocalPosition: {x: 0, y: 0.359, z: 0.003}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4440676607864034}
@@ -2197,7 +2214,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1492907331363310}
   m_LocalRotation: {x: -0.0016523289, y: -0.0056378245, z: -0.027134689, w: 0.9996146}
-  m_LocalPosition: {x: -0.73380065, y: 0.9670353, z: 0.0051201535}
+  m_LocalPosition: {x: -0.73380065, y: 0.9670334, z: 0.0051201535}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4082188679644744}
@@ -2316,7 +2333,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1604392367849900}
   m_LocalRotation: {x: -0.007605683, y: 0.004149363, z: -0.024567962, w: 0.9996607}
-  m_LocalPosition: {x: -0.23831186, y: 0.9426327, z: 0.0011899603}
+  m_LocalPosition: {x: -0.23831186, y: 0.9426346, z: 0.0011899603}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4082188679644744}
@@ -2349,6 +2366,19 @@ Transform:
   m_Father: {fileID: 4323061060156990}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4997574664366094
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1783439794926148}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4514717809095884}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4998204118730916
 Transform:
   m_ObjectHideFlags: 1
@@ -2356,7 +2386,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1822178247609010}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.28, y: -0.249, z: 0}
+  m_LocalPosition: {x: -0.28, y: -0.29299873, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4201074112611194}
@@ -2631,7 +2661,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.2538, y: 0.33495, z: 0.2}
+  m_Size: {x: 0.2538, y: 0.43, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &65456268531139526
 BoxCollider:
@@ -2655,7 +2685,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.2538, y: 0.33495, z: 0.2}
+  m_Size: {x: 0.2538, y: 0.43, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &65667581895771202
 BoxCollider:
@@ -2748,6 +2778,7 @@ MonoBehaviour:
   m_angleVelocityMagnitude: 0
   m_maxAngleVelocity: 0
   m_angleDrag: 0
+  m_showCentreOfMass: 1
 --- !u!114 &114024852780937912
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2806,6 +2837,7 @@ MonoBehaviour:
   m_angleVelocityMagnitude: 0
   m_maxAngleVelocity: 0
   m_angleDrag: 0
+  m_showCentreOfMass: 1
 --- !u!114 &114096597544451948
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2852,20 +2884,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01cf3ce59829f4f44bebdb7cdd23dac9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _description: Apply up force to Head and Torso to make character's body lift
+  _description: 'Apply up force to Head and Torso to make character''s body lift
+
+    Give head a back force to make head not topple forward'
   m_forceAppliers:
-  - m_force: {x: 0, y: 500, z: 0}
+  - m_force: {x: 0, y: 1000, z: 0}
     m_rig: {fileID: 54786024921724456}
     m_forceMode: 0
     m_forecAxis: 0
-  - m_force: {x: 0, y: 1000, z: 0}
+  - m_force: {x: 0, y: 800, z: 0}
     m_rig: {fileID: 54119321714958766}
     m_forceMode: 0
     m_forecAxis: 0
-  - m_force: {x: 0, y: 800, z: 0}
-    m_rig: {fileID: 54010583713977252}
+  - m_force: {x: 0, y: 0, z: -100}
+    m_rig: {fileID: 54786024921724456}
     m_forceMode: 0
-    m_forecAxis: 0
+    m_forecAxis: 1
   m_forceMutiplier: 1
   m_enabled: 0
 --- !u!114 &114168836258330354
@@ -2984,7 +3018,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_character: {fileID: 114735206479208058}
   m_input: {fileID: 114132585580804164}
-  m_rotationTorque: {fileID: 114841791197730376}
+  m_mainBodyRotateTorque: {fileID: 114841791197730376}
+  m_footRotateTorque: {fileID: 114684190934452076}
+  _initAbsMainBodyTorqueMutiplier: 0
 --- !u!114 &114256583437008120
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3004,6 +3040,7 @@ MonoBehaviour:
   m_angleVelocityMagnitude: 0
   m_maxAngleVelocity: 0
   m_angleDrag: 0
+  m_showCentreOfMass: 1
 --- !u!114 &114302121172474472
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3065,6 +3102,7 @@ MonoBehaviour:
   m_angleVelocityMagnitude: 0
   m_maxAngleVelocity: 0
   m_angleDrag: 0
+  m_showCentreOfMass: 1
 --- !u!114 &114379314432655716
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3189,6 +3227,7 @@ MonoBehaviour:
   m_angleVelocityMagnitude: 0
   m_maxAngleVelocity: 0
   m_angleDrag: 0
+  m_showCentreOfMass: 1
 --- !u!114 &114430856157918638
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3208,6 +3247,7 @@ MonoBehaviour:
   m_angleVelocityMagnitude: 0
   m_maxAngleVelocity: 0
   m_angleDrag: 0
+  m_showCentreOfMass: 1
 --- !u!114 &114438305258073006
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3269,6 +3309,7 @@ MonoBehaviour:
   m_angleVelocityMagnitude: 0
   m_maxAngleVelocity: 0
   m_angleDrag: 0
+  m_showCentreOfMass: 1
 --- !u!114 &114460272352360190
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3357,6 +3398,7 @@ MonoBehaviour:
   m_angleVelocityMagnitude: 0
   m_maxAngleVelocity: 0
   m_angleDrag: 0
+  m_showCentreOfMass: 1
 --- !u!114 &114514248693323544
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3483,6 +3525,7 @@ MonoBehaviour:
   m_angleVelocityMagnitude: 0
   m_maxAngleVelocity: 0
   m_angleDrag: 0
+  m_showCentreOfMass: 1
 --- !u!114 &114560178768170102
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3528,6 +3571,7 @@ MonoBehaviour:
   m_angleVelocityMagnitude: 0
   m_maxAngleVelocity: 0
   m_angleDrag: 0
+  m_showCentreOfMass: 1
 --- !u!114 &114570265225084182
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3602,8 +3646,8 @@ MonoBehaviour:
   _description: Rotate two legs when player is grounded and in moving
   m_character: {fileID: 114735206479208058}
   m_input: {fileID: 114132585580804164}
-  m_legTorque: {fileID: 114684190934452076}
-  m_animationSpeed: 0.8
+  m_legTorque: {fileID: 114901351424942892}
+  m_animationSpeed: 0.5
 --- !u!114 &114654440094967618
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3683,11 +3727,11 @@ MonoBehaviour:
     m_rig: {fileID: 54482489574706610}
     m_torqueMode: 0
     m_torqueAxis: 1
-  - m_torque: {x: -1, y: 0, z: 0}
+  - m_torque: {x: 1, y: 0, z: 0}
     m_rig: {fileID: 54536538229507520}
     m_torqueMode: 0
     m_torqueAxis: 1
-  m_torqueMutiplier: 1000
+  m_torqueMutiplier: 10
   m_enabled: 0
 --- !u!114 &114685558584215040
 MonoBehaviour:
@@ -3700,15 +3744,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01cf3ce59829f4f44bebdb7cdd23dac9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _description: Apply down force
+  _description: 'Apply down force
+
+    Add gravity to hands to make hands put down'
   m_forceAppliers:
-  - m_force: {x: 0, y: -500, z: 0}
+  - m_force: {x: 0, y: -1000, z: 0}
     m_rig: {fileID: 54482489574706610}
     m_forceMode: 0
     m_forecAxis: 0
-  - m_force: {x: 0, y: -500, z: 0}
+  - m_force: {x: 0, y: -1000, z: 0}
     m_rig: {fileID: 54536538229507520}
     m_forceMode: 0
+    m_forecAxis: 0
+  - m_force: {x: 0, y: -9.8, z: 0}
+    m_rig: {fileID: 54754206097629990}
+    m_forceMode: 5
+    m_forecAxis: 0
+  - m_force: {x: 0, y: -9.8, z: 0}
+    m_rig: {fileID: 54926336387533904}
+    m_forceMode: 5
+    m_forecAxis: 0
+  - m_force: {x: 0, y: -9.8, z: 0}
+    m_rig: {fileID: 54908602875590894}
+    m_forceMode: 5
+    m_forecAxis: 0
+  - m_force: {x: 0, y: -9.8, z: 0}
+    m_rig: {fileID: 54726272659147526}
+    m_forceMode: 5
     m_forecAxis: 0
   m_forceMutiplier: 1
   m_enabled: 0
@@ -3729,53 +3791,53 @@ MonoBehaviour:
   m_forceAppliers:
   - m_force: {x: 0, y: 0, z: 0}
     m_rig: {fileID: 54786024921724456}
-    m_forceMode: 5
+    m_forceMode: 0
     m_forecAxis: 0
   - m_force: {x: 0, y: 0, z: 0}
     m_rig: {fileID: 54764469867890332}
-    m_forceMode: 5
+    m_forceMode: 0
     m_forecAxis: 0
   - m_force: {x: 0, y: 0, z: 0}
     m_rig: {fileID: 54119321714958766}
-    m_forceMode: 5
+    m_forceMode: 0
     m_forecAxis: 0
   - m_force: {x: 0, y: 0, z: 0}
     m_rig: {fileID: 54010583713977252}
-    m_forceMode: 5
+    m_forceMode: 0
     m_forecAxis: 0
   - m_force: {x: 0, y: 0, z: 0}
     m_rig: {fileID: 54754542662799974}
-    m_forceMode: 5
+    m_forceMode: 0
     m_forecAxis: 0
   - m_force: {x: 0, y: 0, z: 0}
     m_rig: {fileID: 54413904680530490}
-    m_forceMode: 5
+    m_forceMode: 0
     m_forecAxis: 0
   - m_force: {x: 0, y: 0, z: 0}
     m_rig: {fileID: 54482489574706610}
-    m_forceMode: 5
+    m_forceMode: 0
     m_forecAxis: 0
   - m_force: {x: 0, y: 0, z: 0}
     m_rig: {fileID: 54967585035190044}
-    m_forceMode: 5
+    m_forceMode: 0
     m_forecAxis: 0
   - m_force: {x: 0, y: 0, z: 0}
     m_rig: {fileID: 54536538229507520}
-    m_forceMode: 5
+    m_forceMode: 0
     m_forecAxis: 0
   - m_force: {x: 0, y: 0, z: 0}
     m_rig: {fileID: 54365516191057456}
-    m_forceMode: 5
+    m_forceMode: 0
     m_forecAxis: 0
   - m_force: {x: 0, y: 0, z: 0}
     m_rig: {fileID: 54967585035190044}
-    m_forceMode: 5
+    m_forceMode: 0
     m_forecAxis: 0
   - m_force: {x: 0, y: 0, z: 0}
     m_rig: {fileID: 54365516191057456}
-    m_forceMode: 5
+    m_forceMode: 0
     m_forecAxis: 0
-  m_forceMutiplier: 3
+  m_forceMutiplier: 80
   m_enabled: 0
 --- !u!114 &114735206479208058
 MonoBehaviour:
@@ -3808,6 +3870,7 @@ MonoBehaviour:
   m_angleVelocityMagnitude: 0
   m_maxAngleVelocity: 0
   m_angleDrag: 0
+  m_showCentreOfMass: 1
 --- !u!114 &114753495666867386
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3932,6 +3995,7 @@ MonoBehaviour:
     m_angleDrag: 1
     m_rig: {fileID: 54365516191057456}
   m_dragMutiplier: 1
+  m_angularDragMutiplier: 10
   m_enabled: 0
 --- !u!114 &114825655894569654
 MonoBehaviour:
@@ -3979,6 +4043,14 @@ MonoBehaviour:
     m_rig: {fileID: 54010583713977252}
     m_torqueMode: 2
     m_torqueAxis: 1
+  - m_torque: {x: 0, y: 1, z: 0}
+    m_rig: {fileID: 54482489574706610}
+    m_torqueMode: 0
+    m_torqueAxis: 0
+  - m_torque: {x: 0, y: 1, z: 0}
+    m_rig: {fileID: 54536538229507520}
+    m_torqueMode: 0
+    m_torqueAxis: 0
   m_torqueMutiplier: 10
   m_enabled: 0
 --- !u!114 &114848929632690870
@@ -3992,6 +4064,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d5819dbb4f85ca41bcf84a8df3c088a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114901351424942892
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1783439794926148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13a389008c440fa418ceb20c5668c308, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _description: Rotate two legs in forward or back direction
+  m_torqueAppliers:
+  - m_torque: {x: 1, y: 0, z: 0}
+    m_rig: {fileID: 54482489574706610}
+    m_torqueMode: 0
+    m_torqueAxis: 1
+  - m_torque: {x: -1, y: 0, z: 0}
+    m_rig: {fileID: 54536538229507520}
+    m_torqueMode: 0
+    m_torqueAxis: 1
+  m_torqueMutiplier: 1000
+  m_enabled: 0
 --- !u!114 &114904974766316830
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4045,6 +4140,7 @@ MonoBehaviour:
   m_angleVelocityMagnitude: 0
   m_maxAngleVelocity: 0
   m_angleDrag: 0
+  m_showCentreOfMass: 1
 --- !u!114 &114958642269017524
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4064,6 +4160,7 @@ MonoBehaviour:
   m_angleVelocityMagnitude: 0
   m_maxAngleVelocity: 0
   m_angleDrag: 0
+  m_showCentreOfMass: 1
 --- !u!114 &114980050074257620
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4101,6 +4198,7 @@ MonoBehaviour:
   m_angleVelocityMagnitude: 0
   m_maxAngleVelocity: 0
   m_angleDrag: 0
+  m_showCentreOfMass: 1
 --- !u!114 &114994272767949874
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4257,7 +4355,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0.1, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.018999994, y: -0.31600052, z: 0}
+  m_ConnectedAnchor: {x: -0.018999994, y: -0.2720037, z: 0}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 1, z: 0}
   m_TwistLimitSpring:
@@ -4301,7 +4399,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: -0.15, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: 0.3089999, z: 0.0000000065469954}
+  m_ConnectedAnchor: {x: 0, y: 0.308998, z: 0.0000000065469954}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -4345,7 +4443,7 @@ CharacterJoint:
   m_Anchor: {x: -0.2, y: 0, z: 0}
   m_Axis: {x: 0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.18900001, y: 0.018999934, z: 0}
+  m_ConnectedAnchor: {x: 0.18900001, y: 0.019001842, z: 0}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -4389,7 +4487,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: -0.22, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: 0.17100096, z: 0}
+  m_ConnectedAnchor: {x: 0, y: 0.17099714, z: 0}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -4433,7 +4531,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0.1, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.018999994, y: -0.31600052, z: 0}
+  m_ConnectedAnchor: {x: 0.018999994, y: -0.27200243, z: 0}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 1, z: 0}
   m_TwistLimitSpring:
@@ -4477,7 +4575,7 @@ CharacterJoint:
   m_Anchor: {x: -0.17, y: 0, z: 0}
   m_Axis: {x: 0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.31599998, y: 0.28300083, z: 0.0000000065469954}
+  m_ConnectedAnchor: {x: 0.31599998, y: 0.282997, z: 0.0000000065469954}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -4488,7 +4586,7 @@ CharacterJoint:
     bounciness: 0
     contactDistance: 0
   m_HighTwistLimit:
-    limit: 100
+    limit: 20
     bounciness: 0
     contactDistance: 0
   m_SwingLimitSpring:
@@ -4521,14 +4619,14 @@ CharacterJoint:
   m_Anchor: {x: 0.17, y: 0, z: 0}
   m_Axis: {x: 0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.31599998, y: 0.30199993, z: 0.0000000065469954}
+  m_ConnectedAnchor: {x: -0.31599998, y: 0.30200183, z: 0.0000000065469954}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
     spring: 0
     damper: 0
   m_LowTwistLimit:
-    limit: -100
+    limit: -20
     bounciness: 0
     contactDistance: 0
   m_HighTwistLimit:
@@ -4562,10 +4660,10 @@ CharacterJoint:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1665820199773480}
   m_ConnectedBody: {fileID: 54010583713977252}
-  m_Anchor: {x: 0, y: 0.17, z: 0}
+  m_Anchor: {x: 0, y: 0.22, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.28, y: -0.21600047, z: 0}
+  m_ConnectedAnchor: {x: 0.28, y: -0.20999804, z: 0}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 1, z: 0}
   m_TwistLimitSpring:
@@ -4576,7 +4674,7 @@ CharacterJoint:
     bounciness: 0
     contactDistance: 0
   m_HighTwistLimit:
-    limit: 45
+    limit: 20
     bounciness: 0
     contactDistance: 0
   m_SwingLimitSpring:
@@ -4609,7 +4707,7 @@ CharacterJoint:
   m_Anchor: {x: -0.1, y: 0, z: 0}
   m_Axis: {x: 0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.22299993, y: 0.01499933, z: 0}
+  m_ConnectedAnchor: {x: 0.22299993, y: 0.015001237, z: 0}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -4653,7 +4751,7 @@ CharacterJoint:
   m_Anchor: {x: 0.1, y: 0, z: 0}
   m_Axis: {x: 0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.22299993, y: 0.007000029, z: 0}
+  m_ConnectedAnchor: {x: -0.22299993, y: 0.0069962144, z: 0}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -4697,7 +4795,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: -0.3, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: 0.21600065, z: -0.0000000065469954}
+  m_ConnectedAnchor: {x: 0, y: 0.21599683, z: -0.0000000065469954}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -4738,10 +4836,10 @@ CharacterJoint:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1822178247609010}
   m_ConnectedBody: {fileID: 54010583713977252}
-  m_Anchor: {x: 0, y: 0.17, z: 0}
+  m_Anchor: {x: 0, y: 0.22, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.28, y: -0.21600047, z: 0}
+  m_ConnectedAnchor: {x: -0.28, y: -0.20999804, z: 0}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 1, z: 0}
   m_TwistLimitSpring:
@@ -4752,7 +4850,7 @@ CharacterJoint:
     bounciness: 0
     contactDistance: 0
   m_HighTwistLimit:
-    limit: 45
+    limit: 20
     bounciness: 0
     contactDistance: 0
   m_SwingLimitSpring:

@@ -27,6 +27,8 @@ public class RigidDebugHelper : MonoBehaviour
     [ReadOnly, BoxGroup("Angle")]
     public float m_angleDrag;
 
+    public bool m_showCentreOfMass;
+
     private void FixedUpdate()
     {
         if (m_rigidbody != null)
@@ -53,5 +55,12 @@ public class RigidDebugHelper : MonoBehaviour
         }
     }
 
-
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        if(m_showCentreOfMass)
+        {
+            Gizmos.DrawCube(m_rigidbody.worldCenterOfMass, Vector3.one * 0.08f);   
+        }
+    }
 }

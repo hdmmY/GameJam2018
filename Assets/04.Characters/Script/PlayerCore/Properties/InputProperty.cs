@@ -79,6 +79,9 @@ public class InputProperty : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Move input of the last frame
+    /// </summary>
     [ShowInInspector, ReadOnly]
     public Vector2 LastMove
     {
@@ -90,8 +93,11 @@ public class InputProperty : MonoBehaviour
             }
             return Vector2.zero;
         }
-    }
+    }                  
 
+    /// <summary>
+    /// Whether this frame have valid move input
+    /// </summary>
     [ShowInInspector, ReadOnly]
     public bool HasMoveInput
     {
@@ -105,19 +111,22 @@ public class InputProperty : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Is this frame have valid move input, but last frame doesn't have valid move input?
+    /// </summary>
     [ShowInInspector, ReadOnly]
     public bool JustMove
     {
         get
         {
-            if(_actions != null)
+            if (_actions != null)
             {
                 return ValidMovementInput(_actions.Move) && !ValidMovementInput(_actions.Move.LastValue);
             }
             return false;
         }
     }
-                                      
+
     public void BindActions(CharacterActions actions, InputDevice device)
     {
         _actions = actions;
