@@ -114,6 +114,11 @@ public class MoveSystem : MonoBehaviour
         m_movementForce.m_enabled = false;
     }
 
+    private void OnDisable()
+    {
+        m_movementForce.m_enabled = false;
+    }                                     
+
     private void ApplyForce(List<ForceApplier> forceAppliers, float forceX, float forceY, float forceZ)
     {
         foreach (var forceApplier in forceAppliers)

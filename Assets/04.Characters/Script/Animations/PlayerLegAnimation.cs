@@ -20,16 +20,6 @@ public class PlayerLegAnimation : MonoBehaviour
 
     private void Update()
     {
-        if (m_character.HasState(CharacterProperty.State.InAir))
-        {
-            _inAirTime += Time.deltaTime;
-        }
-        else
-        {
-            _inAirTime = 0f;
-        }
-
-
         Vector2 inputVector = m_input.Move;
 
         if (inputVector == Vector2.zero)
@@ -38,18 +28,13 @@ public class PlayerLegAnimation : MonoBehaviour
         }
         else
         {
-            if (m_character.HasState(CharacterProperty.State.Ground) ||
-               (m_character.HasState(CharacterProperty.State.InAir) && _inAirTime < 0.2f))
+            m_legTorque.m_enabled = true;
 
+            _animationTimer += Time.deltaTime;
+            if (_animationTimer >= m_animationSpeed)
             {
-                m_legTorque.m_enabled = true;
-
-                _animationTimer += Time.deltaTime;
-                if (_animationTimer >= m_animationSpeed)
-                {
-                    m_legTorque.m_torqueMutiplier = -m_legTorque.m_torqueMutiplier;
-                    _animationTimer = 0f;
-                }
+                m_legTorque.m_torqueMutiplier = -m_legTorque.m_torqueMutiplier;
+                _animationTimer = 0f;
             }
         }
     }

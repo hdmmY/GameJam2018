@@ -55,7 +55,8 @@ public class RotationSystem : MonoBehaviour
         }
     }
 
-
-
-
+    private void OnDisable()
+    {
+        m_rotationTorque.m_enabled = false;
+    }               
 }

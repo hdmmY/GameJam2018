@@ -10,4 +10,9 @@ public class GravitySystem : MonoBehaviour
     {
         m_gravity.m_enabled = true;    
     }
+
+    private void OnDisable()
+    {
+        m_gravity.m_enabled = false;
+    }
 }

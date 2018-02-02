@@ -29,4 +29,11 @@ public class StandSystem : MonoBehaviour
             m_standDownForce.m_enabled = false;
         }
     }
+
+    private void OnDisable()
+    {
+        m_footStickForce.m_enabled = false;
+        m_standUpForce.m_enabled = false;
+        m_standDownForce.m_enabled = false;
+    }
 }

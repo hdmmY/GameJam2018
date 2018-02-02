@@ -135,7 +135,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1092172790341838
 GameObject:
   m_ObjectHideFlags: 1
@@ -3603,7 +3603,7 @@ MonoBehaviour:
   m_character: {fileID: 114735206479208058}
   m_input: {fileID: 114132585580804164}
   m_legTorque: {fileID: 114684190934452076}
-  m_animationSpeed: 0.5
+  m_animationSpeed: 0.8
 --- !u!114 &114654440094967618
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3687,7 +3687,7 @@ MonoBehaviour:
     m_rig: {fileID: 54536538229507520}
     m_torqueMode: 0
     m_torqueAxis: 1
-  m_torqueMutiplier: 100
+  m_torqueMutiplier: 1000
   m_enabled: 0
 --- !u!114 &114685558584215040
 MonoBehaviour:
@@ -3723,49 +3723,59 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01cf3ce59829f4f44bebdb7cdd23dac9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _description: Apply each body part (except hand and elbow) a force to move player
+  _description: 'Apply each body part (except hand and elbow) a force to move player
+
+    Add an extra force to each knees'
   m_forceAppliers:
   - m_force: {x: 0, y: 0, z: 0}
     m_rig: {fileID: 54786024921724456}
-    m_forceMode: 0
+    m_forceMode: 5
     m_forecAxis: 0
   - m_force: {x: 0, y: 0, z: 0}
     m_rig: {fileID: 54764469867890332}
-    m_forceMode: 0
+    m_forceMode: 5
     m_forecAxis: 0
   - m_force: {x: 0, y: 0, z: 0}
     m_rig: {fileID: 54119321714958766}
-    m_forceMode: 0
+    m_forceMode: 5
     m_forecAxis: 0
   - m_force: {x: 0, y: 0, z: 0}
     m_rig: {fileID: 54010583713977252}
-    m_forceMode: 0
+    m_forceMode: 5
     m_forecAxis: 0
   - m_force: {x: 0, y: 0, z: 0}
     m_rig: {fileID: 54754542662799974}
-    m_forceMode: 0
+    m_forceMode: 5
     m_forecAxis: 0
   - m_force: {x: 0, y: 0, z: 0}
     m_rig: {fileID: 54413904680530490}
-    m_forceMode: 0
+    m_forceMode: 5
     m_forecAxis: 0
   - m_force: {x: 0, y: 0, z: 0}
     m_rig: {fileID: 54482489574706610}
-    m_forceMode: 0
+    m_forceMode: 5
     m_forecAxis: 0
   - m_force: {x: 0, y: 0, z: 0}
     m_rig: {fileID: 54967585035190044}
-    m_forceMode: 0
+    m_forceMode: 5
     m_forecAxis: 0
   - m_force: {x: 0, y: 0, z: 0}
     m_rig: {fileID: 54536538229507520}
-    m_forceMode: 0
+    m_forceMode: 5
     m_forecAxis: 0
   - m_force: {x: 0, y: 0, z: 0}
     m_rig: {fileID: 54365516191057456}
-    m_forceMode: 0
+    m_forceMode: 5
     m_forecAxis: 0
-  m_forceMutiplier: 10
+  - m_force: {x: 0, y: 0, z: 0}
+    m_rig: {fileID: 54967585035190044}
+    m_forceMode: 5
+    m_forecAxis: 0
+  - m_force: {x: 0, y: 0, z: 0}
+    m_rig: {fileID: 54365516191057456}
+    m_forceMode: 5
+    m_forecAxis: 0
+  m_forceMutiplier: 3
   m_enabled: 0
 --- !u!114 &114735206479208058
 MonoBehaviour:
@@ -4562,7 +4572,7 @@ CharacterJoint:
     spring: 0
     damper: 0
   m_LowTwistLimit:
-    limit: -45
+    limit: -20
     bounciness: 0
     contactDistance: 0
   m_HighTwistLimit:
@@ -4738,7 +4748,7 @@ CharacterJoint:
     spring: 0
     damper: 0
   m_LowTwistLimit:
-    limit: -45
+    limit: -20
     bounciness: 0
     contactDistance: 0
   m_HighTwistLimit:
