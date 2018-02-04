@@ -13,6 +13,6 @@ public class InputSystem : MonoBehaviour
 
     private void Awake()
     {
-        m_inputProperty.BindActions(CharacterActions.CreateWithKeyboardBindings(), InputManager.ActiveDevice);
+        m_inputProperty.BindActions(CharacterActions.CreateWithControllerBindings(), InputManager.ActiveDevice);
     }
 }

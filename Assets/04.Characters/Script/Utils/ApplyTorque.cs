@@ -49,10 +49,12 @@ public class ApplyTorque : MonoBehaviour
 
                 if (torqueApplier.m_torqueAxis == TorqueApplier.Axis.Local)
                 {
-                    torque = torqueApplier.m_rig.transform.TransformVector(torque);
+                    torqueApplier.m_rig.AddRelativeTorque(torque * m_torqueMutiplier, torqueApplier.m_torqueMode);
                 }
-
-                torqueApplier.m_rig.AddTorque(torque * m_torqueMutiplier, torqueApplier.m_torqueMode);
+                else
+                {
+                    torqueApplier.m_rig.AddTorque(torque * m_torqueMutiplier, torqueApplier.m_torqueMode);
+                }                                                                                                         
             }
         }
     }

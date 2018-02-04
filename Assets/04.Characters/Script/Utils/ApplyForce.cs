@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using Sirenix.OdinInspector;
 using System.Collections.Generic;
-using System.Collections;
 
 
 [System.Serializable]
@@ -57,10 +56,12 @@ public class ApplyForce : MonoBehaviour
 
                 if (forceApplier.m_forecAxis == ForceApplier.Axis.Local)
                 {
-                    force = forceApplier.m_rig.transform.TransformVector(force);
+                    forceApplier.m_rig.AddRelativeForce(force * m_forceMutiplier, forceApplier.m_forceMode);
                 }
-
-                forceApplier.m_rig.AddForce(force * m_forceMutiplier, forceApplier.m_forceMode);
+                else
+                {
+                    forceApplier.m_rig.AddForce(force * m_forceMutiplier, forceApplier.m_forceMode);
+                }
             }
         }
     }
@@ -74,8 +75,6 @@ public class ApplyForce : MonoBehaviour
             forceApplier.m_rig.AddForce(
                 -forceApplier.m_rig.velocity * forceApplier.m_rig.mass * impluseMagnitude,
                 ForceMode.Impulse);
-        }
-
-        Debug.Log("Impluse force happen!");
+        }                                         
     }
 }

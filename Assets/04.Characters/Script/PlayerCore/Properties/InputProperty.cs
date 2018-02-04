@@ -127,6 +127,20 @@ public class InputProperty : MonoBehaviour
         }
     }
 
+    [ShowInInspector, ReadOnly]
+    public bool JustStopMove
+    {
+        get
+        {
+            if(_actions != null)
+            {
+                return ValidMovementInput(_actions.Move.LastValue) &&
+                       !ValidMovementInput(_actions.Move);
+            }
+            return false;
+        }
+    }
+
     public void BindActions(CharacterActions actions, InputDevice device)
     {
         _actions = actions;
@@ -134,7 +148,7 @@ public class InputProperty : MonoBehaviour
     }
 
 
-    private bool ValidMovementInput(Vector2 input)
+    public static bool ValidMovementInput(Vector2 input)
     {
         return (input.x > 0.05f || input.x < -0.05f) ||
                (input.y > 0.05f || input.y < -0.05f);

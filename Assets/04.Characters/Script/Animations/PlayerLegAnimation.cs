@@ -16,14 +16,17 @@ public class PlayerLegAnimation : MonoBehaviour
 
     private float _animationTimer;
 
-    private float _inAirTime;
+    [SerializeField]
+    private float _initAbsTorqueMutiplier;
+
+    private void Start()
+    {
+        _initAbsTorqueMutiplier = Mathf.Abs(m_legTorque.m_torqueMutiplier);
+    }
 
     private void Update()
     {
-        Vector2 inputVector = m_input.Move;
-
-        if (inputVector == Vector2.zero ||
-            m_character.HasState(CharacterProperty.State.BeingGrabbed))
+        if (!m_input.HasMoveInput || m_character.HasState(CharacterProperty.State.BeingGrabbed))
         {
             m_legTorque.m_enabled = false;
         }
@@ -32,6 +35,10 @@ public class PlayerLegAnimation : MonoBehaviour
             m_legTorque.m_enabled = true;
 
             _animationTimer += Time.deltaTime;
+
+            float ratio = Mathf.Sin(_animationTimer / m_animationSpeed * Mathf.PI * 0.5f);
+            m_legTorque.m_torqueMutiplier = Mathf.Sign(m_legTorque.m_torqueMutiplier) * ratio * _initAbsTorqueMutiplier;
+
             if (_animationTimer >= m_animationSpeed)
             {
                 m_legTorque.m_torqueMutiplier = -m_legTorque.m_torqueMutiplier;

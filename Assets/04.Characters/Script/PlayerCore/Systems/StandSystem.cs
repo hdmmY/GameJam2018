@@ -12,8 +12,18 @@ public class StandSystem : MonoBehaviour
 
     public ApplyForce m_footStickForce;
 
-    private void FixedUpdate()
-    {
+    private void Update()
+    {   
+        if(m_character.HasState(CharacterProperty.State.Jump))
+        {
+            m_footStickForce.m_enabled = false;
+            m_standUpForce.m_enabled = false;
+            m_standDownForce.m_enabled = false;
+
+            return;
+        }
+
+
         if (m_character.HasState(CharacterProperty.State.Ground) ||
            (m_character.HasState(CharacterProperty.State.InAir) && m_character.InAirTime < 0.15f))
         {

@@ -10,7 +10,7 @@ public class GroundCheckSystem : MonoBehaviour
     public List<EnvironmentCollisionChecker> m_collisionCheckers;
 
     private void Update()
-    {
+    {                                                     
         float minAngle = 1024;  // means nothing
 
         foreach (var checker in m_collisionCheckers)

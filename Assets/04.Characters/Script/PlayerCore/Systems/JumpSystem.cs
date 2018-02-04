@@ -9,44 +9,40 @@ public class JumpSystem : MonoBehaviour
 
     public ApplyForce m_jumpForceApplier;
 
-    private float _inAirTime;
-
     private void Update()
-    {
-        if (m_character.HasState(CharacterProperty.State.InAir))
-        {
-            _inAirTime += Time.deltaTime;
-        }
-        else
-        {
-            _inAirTime = 0f;
-        }
-    }
-
-    private void FixedUpdate()
     {
         if (m_input.JumpWasPressed)
         {
             if (m_character.HasState(CharacterProperty.State.Ground) ||
-                m_character.HasState(CharacterProperty.State.HoldSomething) ||
                 m_character.HasState(CharacterProperty.State.Wall) ||
-                (m_character.HasState(CharacterProperty.State.InAir) && _inAirTime < 0.09f))
+               (m_character.HasState(CharacterProperty.State.InAir) && m_character.InAirTime < 0.1f))
             {
-                StartCoroutine(AddJumpImpulseForOneFrame());
+                if (!m_character.HasState(CharacterProperty.State.Jump))
+                {
+                    StartCoroutine(AddJumpImpulse());
+                }
             }
         }
     }
 
-    private IEnumerator AddJumpImpulseForOneFrame()
+    private IEnumerator AddJumpImpulse()
     {
+        m_character.m_state = CharacterProperty.State.Jump;
+
         m_jumpForceApplier.m_enabled = true;
 
-        yield return new WaitForFixedUpdate();
+        Debug.Log("Jump" + Time.time);
 
-        yield return new WaitForFixedUpdate();
+        for (int i = 0; i < 20; i++)
+        {
+            yield return new WaitForEndOfFrame();
 
-        m_jumpForceApplier.m_enabled = false;
+            if (i == 2)
+            {
+                m_jumpForceApplier.m_enabled = false;
+            }
+        }
 
-        Debug.Log("Jump!");
+        m_character.m_state &= ~CharacterProperty.State.Jump;  
     }
 }

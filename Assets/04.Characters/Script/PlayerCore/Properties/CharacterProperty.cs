@@ -11,10 +11,11 @@ public class CharacterProperty : MonoBehaviour
         InAir = 2,
         HoldSomething = 4,
         BeingGrabbed = 8,
-        Wall = 16
+        Wall = 16,
+        Jump = 32
     }
 
-    public State m_state; 
+    public State m_state;
 
     public bool HasState(State state)
     {
@@ -41,7 +42,7 @@ public class CharacterProperty : MonoBehaviour
 
     private void Update()
     {
-        if((m_state & State.Ground) == State.Ground)
+        if ((m_state & State.Ground) == State.Ground)
         {
             GroundTime += Time.deltaTime;
         }
@@ -50,7 +51,7 @@ public class CharacterProperty : MonoBehaviour
             GroundTime = 0f;
         }
 
-        if((m_state & State.InAir) == State.InAir)
+        if ((m_state & State.InAir) == State.InAir)
         {
             InAirTime += Time.deltaTime;
         }
@@ -59,7 +60,7 @@ public class CharacterProperty : MonoBehaviour
             InAirTime = 0f;
         }
 
-        if((m_state & State.Wall) == State.Wall)
+        if ((m_state & State.Wall) == State.Wall)
         {
             WallTime += Time.deltaTime;
         }
@@ -67,5 +68,5 @@ public class CharacterProperty : MonoBehaviour
         {
             WallTime = 0f;
         }
-    }   
+    }
 }
