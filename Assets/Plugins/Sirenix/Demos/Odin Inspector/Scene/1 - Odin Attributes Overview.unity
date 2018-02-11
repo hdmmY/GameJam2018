@@ -1,19 +1,19 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
 --- !u!29 &1
-SceneSettings:
+OcclusionCullingSettings:
   m_ObjectHideFlags: 0
-  m_PVSData: 
-  m_PVSObjectsArray: []
-  m_PVSPortalsArray: []
+  serializedVersion: 2
   m_OcclusionBakeSettings:
     smallestOccluder: 5
     smallestHole: 0.25
     backfaceThreshold: 100
+  m_SceneGUID: 00000000000000000000000000000000
+  m_OcclusionCullingData: {fileID: 0}
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 6
+  serializedVersion: 8
   m_Fog: 0
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 3
@@ -25,6 +25,7 @@ RenderSettings:
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 0
+  m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
@@ -37,12 +38,12 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
+  m_IndirectSpecularColor: {r: 0.37311992, g: 0.38074034, b: 0.35872713, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 6
+  serializedVersion: 11
   m_GIWorkflowMode: 0
-  m_LightmapsMode: 1
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -53,47 +54,74 @@ LightmapSettings:
     m_EnableBakedLightmaps: 1
     m_EnableRealtimeLightmaps: 1
   m_LightmapEditorSettings:
-    serializedVersion: 3
+    serializedVersion: 9
     m_Resolution: 2
     m_BakeResolution: 40
     m_TextureWidth: 1024
     m_TextureHeight: 1024
+    m_AO: 0
     m_AOMaxDistance: 1
-    m_Padding: 2
     m_CompAOExponent: 0
+    m_CompAOExponentDirect: 0
+    m_Padding: 2
     m_LightmapParameters: {fileID: 0}
+    m_LightmapsBakeMode: 1
     m_TextureCompression: 1
     m_FinalGather: 0
+    m_FinalGatherFiltering: 1
     m_FinalGatherRayCount: 1024
     m_ReflectionCompression: 2
+    m_MixedBakeMode: 1
+    m_BakeBackend: 0
+    m_PVRSampling: 1
+    m_PVRDirectSampleCount: 32
+    m_PVRSampleCount: 500
+    m_PVRBounces: 2
+    m_PVRFilterTypeDirect: 0
+    m_PVRFilterTypeIndirect: 0
+    m_PVRFilterTypeAO: 0
+    m_PVRFilteringMode: 0
+    m_PVRCulling: 1
+    m_PVRFilteringGaussRadiusDirect: 1
+    m_PVRFilteringGaussRadiusIndirect: 5
+    m_PVRFilteringGaussRadiusAO: 2
+    m_PVRFilteringAtrousPositionSigmaDirect: 0.5
+    m_PVRFilteringAtrousPositionSigmaIndirect: 2
+    m_PVRFilteringAtrousPositionSigmaAO: 1
+    m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
-  m_RuntimeCPUUsage: 25
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
   m_ObjectHideFlags: 0
   m_BuildSettings:
     serializedVersion: 2
+    agentTypeID: 0
     agentRadius: 0.5
     agentHeight: 2
     agentSlope: 45
     agentClimb: 0.4
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
-    accuratePlacement: 0
     minRegionArea: 2
-    cellSize: 0.16666667
     manualCellSize: 0
+    cellSize: 0.16666667
+    manualTileSize: 0
+    tileSize: 256
+    accuratePlacement: 0
+    debug:
+      m_Flags: 0
   m_NavMeshData: {fileID: 0}
 --- !u!1 &25355501
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 25355503}
-  - 114: {fileID: 25355502}
+  - component: {fileID: 25355503}
+  - component: {fileID: 25355502}
   m_Layer: 0
   m_Name: Vertical Group
   m_TagString: Untagged
@@ -128,15 +156,16 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &29335745
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 29335747}
-  - 114: {fileID: 29335746}
+  - component: {fileID: 29335747}
+  - component: {fileID: 29335746}
   m_Layer: 0
   m_Name: Enum Toggle Buttons
   m_TagString: Untagged
@@ -172,15 +201,16 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 17
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &57986443
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 57986445}
-  - 114: {fileID: 57986444}
+  - component: {fileID: 57986445}
+  - component: {fileID: 57986444}
   m_Layer: 0
   m_Name: Disable In Editor and Disable In Play Mode
   m_TagString: Untagged
@@ -215,15 +245,16 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 24
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &70616883
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 70616885}
-  - 114: {fileID: 70616884}
+  - component: {fileID: 70616885}
+  - component: {fileID: 70616884}
   m_Layer: 0
   m_Name: Value Dropdowns
   m_TagString: Untagged
@@ -263,15 +294,16 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 45
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &142205026
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 142205028}
-  - 114: {fileID: 142205027}
+  - component: {fileID: 142205028}
+  - component: {fileID: 142205027}
   m_Layer: 0
   m_Name: Display As String
   m_TagString: Untagged
@@ -307,15 +339,16 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 25
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &198556527
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 198556529}
-  - 114: {fileID: 198556528}
+  - component: {fileID: 198556529}
+  - component: {fileID: 198556528}
   m_Layer: 0
   m_Name: Hide Label Examples
   m_TagString: Untagged
@@ -352,15 +385,16 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 26
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &356546016
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 356546018}
-  - 114: {fileID: 356546017}
+  - component: {fileID: 356546018}
+  - component: {fileID: 356546017}
   m_Layer: 0
   m_Name: Validate Input
   m_TagString: Untagged
@@ -396,15 +430,16 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 42
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &399639919
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 399639920}
-  - 114: {fileID: 399639921}
+  - component: {fileID: 399639920}
+  - component: {fileID: 399639921}
   m_Layer: 0
   m_Name: Scene Objects Only and Assets Only
   m_TagString: Untagged
@@ -424,6 +459,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 29
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &399639921
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -454,10 +490,10 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 411999782}
-  - 114: {fileID: 411999781}
+  - component: {fileID: 411999782}
+  - component: {fileID: 411999781}
   m_Layer: 0
   m_Name: Disable Context Menu
   m_TagString: Untagged
@@ -492,15 +528,16 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 22
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &448236892
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 448236894}
-  - 114: {fileID: 448236893}
+  - component: {fileID: 448236894}
+  - component: {fileID: 448236893}
   m_Layer: 0
   m_Name: Title Groups
   m_TagString: Untagged
@@ -536,15 +573,16 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &474737044
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 474737046}
-  - 114: {fileID: 474737045}
+  - component: {fileID: 474737046}
+  - component: {fileID: 474737045}
   m_Layer: 0
   m_Name: Asset List
   m_TagString: Untagged
@@ -593,15 +631,16 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &483105256
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 483105258}
-  - 114: {fileID: 483105257}
+  - component: {fileID: 483105258}
+  - component: {fileID: 483105257}
   m_Layer: 0
   m_Name: Custom Context Menu
   m_TagString: Untagged
@@ -633,15 +672,16 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 21
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &515229435
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 515229437}
-  - 114: {fileID: 515229436}
+  - component: {fileID: 515229437}
+  - component: {fileID: 515229436}
   m_Layer: 0
   m_Name: Lists
   m_TagString: Untagged
@@ -708,15 +748,16 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 18
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &566933178
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 566933180}
-  - 114: {fileID: 566933179}
+  - component: {fileID: 566933180}
+  - component: {fileID: 566933179}
   m_Layer: 0
   m_Name: Foldout Groups
   m_TagString: Untagged
@@ -755,15 +796,16 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &615482320
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 615482322}
-  - 114: {fileID: 615482321}
+  - component: {fileID: 615482322}
+  - component: {fileID: 615482321}
   m_Layer: 0
   m_Name: Horizontal Groups
   m_TagString: Untagged
@@ -805,15 +847,16 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &768479960
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 768479962}
-  - 114: {fileID: 768479961}
+  - component: {fileID: 768479962}
+  - component: {fileID: 768479961}
   m_Layer: 0
   m_Name: Wrap
   m_TagString: Untagged
@@ -854,15 +897,16 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 32
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &844746228
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 844746229}
-  - 114: {fileID: 844746230}
+  - component: {fileID: 844746229}
+  - component: {fileID: 844746230}
   m_Layer: 0
   m_Name: Indent
   m_TagString: Untagged
@@ -882,6 +926,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 34
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &844746230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -905,10 +950,10 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 904941559}
-  - 114: {fileID: 904941558}
+  - component: {fileID: 904941559}
+  - component: {fileID: 904941558}
   m_Layer: 0
   m_Name: Table Matrix and Two Dimensional Array Examples
   m_TagString: Untagged
@@ -1495,7 +1540,7 @@ MonoBehaviour:
       Data: 
     - Name: LabledTable
       Entry: 7
-      Data: 2|UnityEngine.GameObject[,], UnityEngine
+      Data: 2|UnityEngine.GameObject[,], UnityEngine.CoreModule
     - Name: 
       Entry: 12
       Data: 10
@@ -2762,15 +2807,16 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &952687596
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 952687598}
-  - 114: {fileID: 952687597}
+  - component: {fileID: 952687598}
+  - component: {fileID: 952687597}
   m_Layer: 0
   m_Name: Unity Structs
   m_TagString: Untagged
@@ -2812,15 +2858,16 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 50
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &965927596
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 965927598}
-  - 114: {fileID: 965927597}
+  - component: {fileID: 965927598}
+  - component: {fileID: 965927597}
   m_Layer: 0
   m_Name: Required
   m_TagString: Untagged
@@ -2855,15 +2902,16 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 48
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &967040673
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 967040675}
-  - 114: {fileID: 967040674}
+  - component: {fileID: 967040675}
+  - component: {fileID: 967040674}
   m_Layer: 0
   m_Name: Enabled If and Disable If
   m_TagString: Untagged
@@ -2899,15 +2947,16 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 23
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1029988704
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 1029988706}
-  - 114: {fileID: 1029988705}
+  - component: {fileID: 1029988706}
+  - component: {fileID: 1029988705}
   m_Layer: 0
   m_Name: Tabs
   m_TagString: Untagged
@@ -2956,15 +3005,16 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1130832693
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 1130832695}
-  - 114: {fileID: 1130832694}
+  - component: {fileID: 1130832695}
+  - component: {fileID: 1130832694}
   m_Layer: 0
   m_Name: Inline Property Examples
   m_TagString: Untagged
@@ -3003,15 +3053,16 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 55
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1215192576
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 1215192578}
-  - 114: {fileID: 1215192577}
+  - component: {fileID: 1215192578}
+  - component: {fileID: 1215192577}
   m_Layer: 0
   m_Name: Progress Bar Examples
   m_TagString: Untagged
@@ -3046,15 +3097,16 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1242822175
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 1242822177}
-  - 114: {fileID: 1242822176}
+  - component: {fileID: 1242822177}
+  - component: {fileID: 1242822176}
   m_Layer: 0
   m_Name: GUI Color
   m_TagString: Untagged
@@ -3087,15 +3139,16 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 33
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1267824224
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 1267824226}
-  - 114: {fileID: 1267824225}
+  - component: {fileID: 1267824226}
+  - component: {fileID: 1267824225}
   m_Layer: 0
   m_Name: Table List Examples
   m_TagString: Untagged
@@ -3196,15 +3249,16 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1320776714
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 1320776715}
-  - 114: {fileID: 1320776716}
+  - component: {fileID: 1320776715}
+  - component: {fileID: 1320776716}
   m_Layer: 0
   m_Name: Box Group
   m_TagString: Untagged
@@ -3224,6 +3278,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1320776716
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3260,11 +3315,11 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 1323157711}
-  - 114: {fileID: 1323157710}
-  - 114: {fileID: 1323157709}
+  - component: {fileID: 1323157711}
+  - component: {fileID: 1323157710}
+  - component: {fileID: 1323157709}
   m_Layer: 0
   m_Name: Incorrect use of the OdinSerialize attribute examples
   m_TagString: Untagged
@@ -3331,15 +3386,16 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 54
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1341925126
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 1341925128}
-  - 114: {fileID: 1341925127}
+  - component: {fileID: 1341925128}
+  - component: {fileID: 1341925127}
   m_Layer: 0
   m_Name: Toggle Left
   m_TagString: Untagged
@@ -3374,15 +3430,16 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 46
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1353610892
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 1353610894}
-  - 114: {fileID: 1353610893}
+  - component: {fileID: 1353610894}
+  - component: {fileID: 1353610893}
   m_Layer: 0
   m_Name: Hide In Editor and Disable In Play Mode
   m_TagString: Untagged
@@ -3421,15 +3478,16 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 51
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1396091146
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 1396091148}
-  - 114: {fileID: 1396091147}
+  - component: {fileID: 1396091148}
+  - component: {fileID: 1396091147}
   m_Layer: 0
   m_Name: Toggles
   m_TagString: Untagged
@@ -3489,15 +3547,16 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1398801816
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 1398801817}
-  - 114: {fileID: 1398801818}
+  - component: {fileID: 1398801817}
+  - component: {fileID: 1398801818}
   m_Layer: 0
   m_Name: MultiLine Property
   m_TagString: Untagged
@@ -3517,6 +3576,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 36
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1398801818
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3544,10 +3604,10 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 1409689417}
-  - 114: {fileID: 1409689416}
+  - component: {fileID: 1409689417}
+  - component: {fileID: 1409689416}
   m_Layer: 0
   m_Name: Min and Max Value
   m_TagString: Untagged
@@ -3604,15 +3664,16 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 31
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1419362784
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 1419362785}
-  - 114: {fileID: 1419362786}
+  - component: {fileID: 1419362785}
+  - component: {fileID: 1419362786}
   m_Layer: 0
   m_Name: On Inspector GUI
   m_TagString: Untagged
@@ -3632,6 +3693,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 37
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1419362786
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3649,10 +3711,10 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 1426135836}
-  - 114: {fileID: 1426135835}
+  - component: {fileID: 1426135836}
+  - component: {fileID: 1426135835}
   m_Layer: 0
   m_Name: Color Palette
   m_TagString: Untagged
@@ -3695,15 +3757,16 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1437723560
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 1437723562}
-  - 114: {fileID: 1437723561}
+  - component: {fileID: 1437723562}
+  - component: {fileID: 1437723561}
   m_Layer: 0
   m_Name: Title
   m_TagString: Untagged
@@ -3752,15 +3815,16 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1439996093
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 1439996095}
-  - 114: {fileID: 1439996094}
+  - component: {fileID: 1439996095}
+  - component: {fileID: 1439996094}
   m_Layer: 0
   m_Name: Show In Inspector
   m_TagString: Untagged
@@ -3791,15 +3855,16 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 49
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1485075118
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 1485075119}
-  - 114: {fileID: 1485075120}
+  - component: {fileID: 1485075119}
+  - component: {fileID: 1485075120}
   m_Layer: 0
   m_Name: Hide Reference Object Picker
   m_TagString: Untagged
@@ -3819,6 +3884,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 27
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1485075120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3882,12 +3948,12 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 1489174787}
-  - 114: {fileID: 1489174789}
-  - 114: {fileID: 1489174788}
-  - 114: {fileID: 1489174790}
+  - component: {fileID: 1489174787}
+  - component: {fileID: 1489174789}
+  - component: {fileID: 1489174788}
+  - component: {fileID: 1489174790}
   m_Layer: 0
   m_Name: Combining Group Attributes
   m_TagString: Untagged
@@ -3907,6 +3973,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1489174788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3961,10 +4028,10 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 1543306734}
-  - 114: {fileID: 1543306733}
+  - component: {fileID: 1543306734}
+  - component: {fileID: 1543306733}
   m_Layer: 0
   m_Name: Property Tooltip
   m_TagString: Untagged
@@ -3997,15 +4064,16 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 43
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1553840646
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 1553840647}
-  - 114: {fileID: 1553840648}
+  - component: {fileID: 1553840647}
+  - component: {fileID: 1553840648}
   m_Layer: 0
   m_Name: Min Max Slider
   m_TagString: Untagged
@@ -4025,6 +4093,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 30
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1553840648
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4043,11 +4112,11 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 1630717472}
-  - 114: {fileID: 1630717471}
-  - 114: {fileID: 1630717470}
+  - component: {fileID: 1630717472}
+  - component: {fileID: 1630717471}
+  - component: {fileID: 1630717470}
   m_Layer: 0
   m_Name: Folder and File Paths
   m_TagString: Untagged
@@ -4109,15 +4178,16 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 57
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1632000129
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 1632000130}
-  - 114: {fileID: 1632000131}
+  - component: {fileID: 1632000130}
+  - component: {fileID: 1632000131}
   m_Layer: 0
   m_Name: Info Box
   m_TagString: Untagged
@@ -4137,6 +4207,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 28
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1632000131
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4162,10 +4233,10 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 1670346138}
-  - 114: {fileID: 1670346139}
+  - component: {fileID: 1670346138}
+  - component: {fileID: 1670346139}
   m_Layer: 0
   m_Name: Custom Value Drawer
   m_TagString: Untagged
@@ -4185,6 +4256,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1670346139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4209,10 +4281,10 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 1687257426}
-  - 114: {fileID: 1687257425}
+  - component: {fileID: 1687257426}
+  - component: {fileID: 1687257425}
   m_Layer: 0
   m_Name: Serialize Anything
   m_TagString: Untagged
@@ -4254,11 +4326,11 @@ MonoBehaviour:
       Data: 
     - Name: MyGenericGameObjects
       Entry: 7
-      Data: 1|Sirenix.OdinInspector.Demos.MyGeneric`1[[UnityEngine.GameObject[], UnityEngine]],
+      Data: 1|Sirenix.OdinInspector.Demos.MyGeneric`1[[UnityEngine.GameObject[], UnityEngine.CoreModule]],
         Assembly-CSharp-firstpass
     - Name: SomeVariable
       Entry: 7
-      Data: 2|UnityEngine.GameObject[], UnityEngine
+      Data: 2|UnityEngine.GameObject[], UnityEngine.CoreModule
     - Name: 
       Entry: 12
       Data: 4
@@ -4288,6 +4360,13 @@ MonoBehaviour:
       Data: 3|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[Sirenix.OdinInspector.Demos.ISomeInterface,
         Assembly-CSharp-firstpass]], mscorlib
     - Name: 
+      Entry: 7
+      Data: 4|System.Collections.Generic.GenericEqualityComparer`1[[System.String,
+        mscorlib]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
       Entry: 12
       Data: 2
     - Name: 
@@ -4297,12 +4376,6 @@ MonoBehaviour:
       Entry: 1
       Data: B
     - Name: 
-      Entry: 7
-      Data: 4|Sirenix.OdinInspector.Demos.ImplB, Assembly-CSharp-firstpass
-    - Name: B
-      Entry: 4
-      Data: 0
-    - Name: C
       Entry: 7
       Data: 5|Sirenix.OdinInspector.Demos.ImplB, Assembly-CSharp-firstpass
     - Name: B
@@ -4325,10 +4398,16 @@ MonoBehaviour:
       Data: 8|Sirenix.OdinInspector.Demos.ImplB, Assembly-CSharp-firstpass
     - Name: B
       Entry: 4
+      Data: 0
+    - Name: C
+      Entry: 7
+      Data: 9|Sirenix.OdinInspector.Demos.ImplB, Assembly-CSharp-firstpass
+    - Name: B
+      Entry: 4
       Data: 24.71
     - Name: C
       Entry: 9
-      Data: 7
+      Data: 8
     - Name: 
       Entry: 8
       Data: 
@@ -4355,7 +4434,7 @@ MonoBehaviour:
       Data: A
     - Name: 
       Entry: 9
-      Data: 6
+      Data: 7
     - Name: 
       Entry: 8
       Data: 
@@ -4367,7 +4446,7 @@ MonoBehaviour:
       Data: 
     - Name: NullableVector3
       Entry: 7
-      Data: UnityEngine.Vector3, UnityEngine
+      Data: UnityEngine.Vector3, UnityEngine.CoreModule
     - Name: 
       Entry: 4
       Data: 0
@@ -4392,15 +4471,16 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 52
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1708016860
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 1708016861}
-  - 114: {fileID: 1708016862}
+  - component: {fileID: 1708016861}
+  - component: {fileID: 1708016862}
   m_Layer: 0
   m_Name: Button and Button Groups
   m_TagString: Untagged
@@ -4420,6 +4500,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 20
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1708016862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4446,46 +4527,31 @@ Material:
   m_Shader: {fileID: 106, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: _SUNDISK_HIGH_QUALITY
   m_LightmapFlags: 5
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
+  disabledShaderPasses: []
   m_SavedProperties:
-    serializedVersion: 2
-    m_TexEnvs: {}
+    serializedVersion: 3
+    m_TexEnvs: []
     m_Floats:
-      data:
-        first:
-          name: _Exposure
-        second: 1.3
-      data:
-        first:
-          name: _SunDisk
-        second: 2
-      data:
-        first:
-          name: _SunSize
-        second: 0.04
-      data:
-        first:
-          name: _AtmosphereThickness
-        second: 1
+    - _AtmosphereThickness: 1
+    - _Exposure: 1.3
+    - _SunDisk: 2
+    - _SunSize: 0.04
     m_Colors:
-      data:
-        first:
-          name: _SkyTint
-        second: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-      data:
-        first:
-          name: _GroundColor
-        second: {r: 0.369, g: 0.349, b: 0.341, a: 1}
+    - _GroundColor: {r: 0.369, g: 0.349, b: 0.341, a: 1}
+    - _SkyTint: {r: 0.5, g: 0.5, b: 0.5, a: 1}
 --- !u!1 &1793697095
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 1793697097}
-  - 114: {fileID: 1793697096}
+  - component: {fileID: 1793697097}
+  - component: {fileID: 1793697096}
   m_Layer: 0
   m_Name: No Boilerplate
   m_TagString: Untagged
@@ -4557,6 +4623,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 53
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1838740264
 Prefab:
   m_ObjectHideFlags: 0
@@ -4608,10 +4675,10 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 1839374581}
-  - 114: {fileID: 1839374580}
+  - component: {fileID: 1839374581}
+  - component: {fileID: 1839374580}
   m_Layer: 0
   m_Name: Show If and Hide If
   m_TagString: Untagged
@@ -4649,15 +4716,16 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 40
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1847034565
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 1847034567}
-  - 114: {fileID: 1847034566}
+  - component: {fileID: 1847034567}
+  - component: {fileID: 1847034566}
   m_Layer: 0
   m_Name: Inline Editor
   m_TagString: Untagged
@@ -4698,15 +4766,16 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1921051733
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 1921051735}
-  - 114: {fileID: 1921051734}
+  - component: {fileID: 1921051735}
+  - component: {fileID: 1921051734}
   m_Layer: 0
   m_Name: Show Properties In The Inspector
   m_TagString: Untagged
@@ -4738,15 +4807,16 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 56
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1943253128
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 1943253130}
-  - 114: {fileID: 1943253129}
+  - component: {fileID: 1943253130}
+  - component: {fileID: 1943253129}
   m_Layer: 0
   m_Name: Assets Only
   m_TagString: Untagged
@@ -4791,15 +4861,16 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 41
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1976956536
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 1976956538}
-  - 114: {fileID: 1976956537}
+  - component: {fileID: 1976956538}
+  - component: {fileID: 1976956537}
   m_Layer: 0
   m_Name: Property Order
   m_TagString: Untagged
@@ -4832,15 +4903,16 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 44
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2023126756
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 2023126758}
-  - 114: {fileID: 2023126757}
+  - component: {fileID: 2023126758}
+  - component: {fileID: 2023126757}
   m_Layer: 0
   m_Name: On Value Changed
   m_TagString: Untagged
@@ -4873,15 +4945,16 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 38
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2069571538
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 2069571540}
-  - 114: {fileID: 2069571539}
+  - component: {fileID: 2069571540}
+  - component: {fileID: 2069571539}
   m_Layer: 0
   m_Name: Read Only
   m_TagString: Untagged
@@ -4915,15 +4988,16 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 39
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2076840153
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 2076840154}
-  - 114: {fileID: 2076840155}
+  - component: {fileID: 2076840154}
+  - component: {fileID: 2076840155}
   m_Layer: 0
   m_Name: Label Text
   m_TagString: Untagged
@@ -4943,6 +5017,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 35
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2076840155
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4963,10 +5038,10 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 2078361552}
-  - 114: {fileID: 2078361551}
+  - component: {fileID: 2078361552}
+  - component: {fileID: 2078361551}
   m_Layer: 0
   m_Name: Suffix Label Examples
   m_TagString: Untagged
@@ -5001,15 +5076,16 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2112201020
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 2112201022}
-  - 114: {fileID: 2112201021}
+  - component: {fileID: 2112201022}
+  - component: {fileID: 2112201021}
   m_Layer: 0
   m_Name: Dictionaries
   m_TagString: Untagged
@@ -5040,7 +5116,14 @@ MonoBehaviour:
     - Name: IntMaterialLookup
       Entry: 7
       Data: 0|System.Collections.Generic.Dictionary`2[[System.Int32, mscorlib],[UnityEngine.Material,
-        UnityEngine]], mscorlib
+        UnityEngine.CoreModule]], mscorlib
+    - Name: 
+      Entry: 7
+      Data: 1|System.Collections.Generic.GenericEqualityComparer`1[[System.Int32,
+        mscorlib]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: 
       Entry: 12
       Data: 3
@@ -5088,9 +5171,16 @@ MonoBehaviour:
       Data: 
     - Name: EnumObjectLookup
       Entry: 7
-      Data: 1|System.Collections.Generic.Dictionary`2[[Sirenix.OdinInspector.Demos.MyEnum,
+      Data: 2|System.Collections.Generic.Dictionary`2[[Sirenix.OdinInspector.Demos.MyEnum,
         Assembly-CSharp-firstpass],[Sirenix.OdinInspector.Demos.DictionaryExamples+MyCustomType,
         Assembly-CSharp-firstpass]], mscorlib
+    - Name: 
+      Entry: 7
+      Data: 3|System.Collections.Generic.EqualityComparer`1+DefaultComparer[[Sirenix.OdinInspector.Demos.MyEnum,
+        Assembly-CSharp-firstpass]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: 
       Entry: 12
       Data: 3
@@ -5102,13 +5192,13 @@ MonoBehaviour:
       Data: 2
     - Name: 
       Entry: 7
-      Data: 2|Sirenix.OdinInspector.Demos.DictionaryExamples+MyCustomType, Assembly-CSharp-firstpass
+      Data: 4|Sirenix.OdinInspector.Demos.DictionaryExamples+MyCustomType, Assembly-CSharp-firstpass
     - Name: SomeMember
       Entry: 3
       Data: 0
     - Name: SomeRotation
       Entry: 7
-      Data: UnityEngine.Quaternion, UnityEngine
+      Data: UnityEngine.Quaternion, UnityEngine.CoreModule
     - Name: 
       Entry: 4
       Data: 0
@@ -5141,13 +5231,13 @@ MonoBehaviour:
       Data: 1
     - Name: 
       Entry: 7
-      Data: 3|Sirenix.OdinInspector.Demos.DictionaryExamples+MyCustomType, Assembly-CSharp-firstpass
+      Data: 5|Sirenix.OdinInspector.Demos.DictionaryExamples+MyCustomType, Assembly-CSharp-firstpass
     - Name: SomeMember
       Entry: 3
       Data: 0
     - Name: SomeRotation
       Entry: 7
-      Data: UnityEngine.Quaternion, UnityEngine
+      Data: UnityEngine.Quaternion, UnityEngine.CoreModule
     - Name: 
       Entry: 4
       Data: 0
@@ -5180,13 +5270,13 @@ MonoBehaviour:
       Data: 7
     - Name: 
       Entry: 7
-      Data: 4|Sirenix.OdinInspector.Demos.DictionaryExamples+MyCustomType, Assembly-CSharp-firstpass
+      Data: 6|Sirenix.OdinInspector.Demos.DictionaryExamples+MyCustomType, Assembly-CSharp-firstpass
     - Name: SomeMember
       Entry: 3
       Data: 0
     - Name: SomeRotation
       Entry: 7
-      Data: UnityEngine.Quaternion, UnityEngine
+      Data: UnityEngine.Quaternion, UnityEngine.CoreModule
     - Name: 
       Entry: 4
       Data: 0
@@ -5219,8 +5309,15 @@ MonoBehaviour:
       Data: 
     - Name: StringListDictionary
       Entry: 7
-      Data: 5|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[System.Collections.Generic.List`1[[System.Int32,
+      Data: 7|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[System.Collections.Generic.List`1[[System.Int32,
         mscorlib]], mscorlib]], mscorlib
+    - Name: 
+      Entry: 7
+      Data: 8|System.Collections.Generic.GenericEqualityComparer`1[[System.String,
+        mscorlib]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: 
       Entry: 12
       Data: 2
@@ -5255,46 +5352,19 @@ MonoBehaviour:
       Entry: 8
       Data: 
     - Name: StringStringDictionary
-      Entry: 7
-      Data: 6|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[System.String,
-        mscorlib]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 2
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: 
-      Entry: 1
-      Data: a
-    - Name: 
-      Entry: 1
-      Data: b
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: 
-      Entry: 1
-      Data: c
-    - Name: 
-      Entry: 1
-      Data: d
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
+      Entry: 6
       Data: 
     - Name: NotSupportedDictionary
       Entry: 7
-      Data: 7|System.Collections.Generic.Dictionary`2[[UnityEngine.MonoBehaviour,
-        UnityEngine],[System.Single, mscorlib]], mscorlib
+      Data: 9|System.Collections.Generic.Dictionary`2[[UnityEngine.MonoBehaviour,
+        UnityEngine.CoreModule],[System.Single, mscorlib]], mscorlib
+    - Name: 
+      Entry: 7
+      Data: 10|System.Collections.Generic.EqualityComparer`1+DefaultComparer[[UnityEngine.MonoBehaviour,
+        UnityEngine.CoreModule]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: 
       Entry: 12
       Data: 0
@@ -5316,3 +5386,4 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 19
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

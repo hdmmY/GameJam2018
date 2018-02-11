@@ -1,49 +1,55 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
+
+public struct StandSystemNeededProperty
+{
+    public BodyProperty m_bodyProperty;
+
+    public StateProperty m_stateProperty;
+
+    public InputProperty m_inputProperty;
+
+    public bool Valid ()
+    {
+        return m_bodyProperty && m_stateProperty && m_inputProperty;
+    }
+}
 
 public class StandSystem : MonoBehaviour
 {
-    public CharacterProperty m_character;
+    public List<StandSystemNeededProperty> m_entities;
 
-    public InputProperty m_input;
-
-    public ApplyForce m_standUpForce;
-
-    public ApplyForce m_standDownForce;
-
-    public ApplyForce m_footStickForce;
-
-    private void Update()
-    {   
-        if(m_character.HasState(CharacterProperty.State.Jump))
+    /// <summary>
+    /// This function is called every fixed framerate frame, if the MonoBehaviour is enabled.
+    /// </summary>
+    private void FixedUpdate ()
+    {
+        foreach (var entity in m_entities)
         {
-            m_footStickForce.m_enabled = false;
-            m_standUpForce.m_enabled = false;
-            m_standDownForce.m_enabled = false;
+            if (entity.Valid ())
+            {
+                Stand (entity);
+            }
+        }
+    }
 
+    private void Stand (StandSystemNeededProperty neededProperty)
+    {
+        var body = neededProperty.m_bodyProperty;
+        var input = neededProperty.m_inputProperty;
+        var state = neededProperty.m_stateProperty.m_state;
+
+        if (state.HasState (State.Dead) || state.HasState (State.Stun))
+        {
             return;
         }
 
-
-        if (m_character.HasState(CharacterProperty.State.Ground) ||
-           (m_character.HasState(CharacterProperty.State.InAir) && m_character.InAirTime < 0.15f))
+        if (!state.HasState (State.Stand) && !state.HasState (State.Run))
         {
-            m_footStickForce.m_enabled = !m_input.HasMoveInput;
-            m_standUpForce.m_enabled = true;
-            m_standDownForce.m_enabled = true;
+            return;
+        }
 
-        }
-        else
-        {
-            m_footStickForce.m_enabled = false;
-            m_standUpForce.m_enabled = false;
-            m_standDownForce.m_enabled = false;
-        }
+        
     }
 
-    private void OnDisable()
-    {
-        m_footStickForce.m_enabled = false;
-        m_standUpForce.m_enabled = false;
-        m_standDownForce.m_enabled = false;
-    }
 }

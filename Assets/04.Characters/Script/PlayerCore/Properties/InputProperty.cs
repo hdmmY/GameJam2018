@@ -3,12 +3,12 @@ using InControl;
 using Sirenix.OdinInspector;
 
 
-public class InputProperty : MonoBehaviour
+public class InputProperty : BaseProperty
 {
     [ShowInInspector, ReadOnly]
     public InputDevice Device
     {
-        get; private set;
+        get; set;
     }
 
     [ShowInInspector, ReadOnly]

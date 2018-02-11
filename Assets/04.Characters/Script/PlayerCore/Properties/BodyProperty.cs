@@ -1,4 +1,6 @@
 ﻿using UnityEngine;
+using Sirenix.OdinInspector;
+using System.Collections.Generic;
 
 public enum BodyPart
 {
@@ -16,7 +18,8 @@ public enum BodyPart
     RightLeg,
     RightKnee,
     LeftLeg,
-    LeftKnee
+    LeftKnee,
+    Anchor
 }
 
 
@@ -30,13 +33,23 @@ public enum BodyType
 }
 
 
-public class BodyProperty : MonoBehaviour
+[System.Serializable]
+public class BodyInfo
 {
     [SerializeField]
-    private BodyPart _bodyPart;
-    public BodyPart BodyPart
+    private Transform _bodyTransform;
+
+    public Transform BodyTransform
     {
-        get { return _bodyPart; }
+        get { return _bodyTransform; }
+    }
+
+    public Rigidbody BodyRigid
+    {
+        get
+        {
+            return _bodyTransform.GetComponent<Rigidbody>();
+        }
     }
 
     [SerializeField]
@@ -45,4 +58,23 @@ public class BodyProperty : MonoBehaviour
     {
         get { return _bodyType; }
     }            
+}
+
+
+public class BodyProperty : BaseProperty
+{
+    [ShowInInspector]
+    public Dictionary<BodyPart, BodyInfo> m_bodyInfo;
+
+    public BodyInfo this[BodyPart bodyPart]
+    {
+        get
+        {
+            if(m_bodyInfo.ContainsKey(bodyPart))
+            {
+                return m_bodyInfo[bodyPart];
+            }
+            return null;
+        }
+    }
 }

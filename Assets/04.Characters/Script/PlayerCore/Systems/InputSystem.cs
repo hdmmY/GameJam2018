@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using InControl;
 
 
@@ -9,10 +10,13 @@ using InControl;
 */
 public class InputSystem : MonoBehaviour
 {
-    public InputProperty m_inputProperty;
+    public List<InputProperty> m_entities;
 
     private void Awake()
     {
-        m_inputProperty.BindActions(CharacterActions.CreateWithControllerBindings(), InputManager.ActiveDevice);
+        foreach(var entity in m_entities)
+        {
+            entity.BindActions(CharacterActions.CreateWithControllerBindings(), InputManager.ActiveDevice);
+        }        
     }
 }
