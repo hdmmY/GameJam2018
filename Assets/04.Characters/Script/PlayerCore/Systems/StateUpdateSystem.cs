@@ -1,78 +1,30 @@
-using Sirenix.OdinInspector;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Sirenix.OdinInspector;
 
 public class StateUpdateSystem : MonoBehaviour
 {
     public List<StateProperty> m_stateProperties;
 
-    /// <summary>
-    /// Update is called every frame, if the MonoBehaviour is enabled.
+     /// <summary>
+    /// Start is called on the frame when a script is enabled just before
+    /// any of the Update methods is called the first time.
     /// </summary>
-    private void Update ()
+    private void Start()
     {
-        foreach (var stateProperty in m_stateProperties)
-        {
-            UpdateProperty (stateProperty);
-        }
+        StartCoroutine(UpdateProperty());
     }
 
-    private void UpdateProperty (StateProperty stateProperty)
+    private IEnumerator UpdateProperty()
     {
-        State state = stateProperty.m_state;
-
-        if (state.HasState (State.Stand))
+        while(true)
         {
-            stateProperty.StandTime += Time.deltaTime;
-        }
-        else
-        {
-            stateProperty.StandTime = 0f;
-        }
-
-        if (state.HasState (State.Run))
-        {
-            stateProperty.RunTime += Time.deltaTime;
-        }
-        else
-        {
-            stateProperty.RunTime = 0f;
-        }
-
-        if (state.HasState (State.Stun))
-        {
-            stateProperty.StunTime += Time.deltaTime;
-        }
-        else
-        {
-            stateProperty.StunTime = 0f;
-        }
-
-        if (state.HasState (State.Jump))
-        {
-            stateProperty.JumpTime += Time.deltaTime;
-        }
-        else
-        {
-            stateProperty.JumpTime = 0f;
-        }
-
-        if (state.HasState (State.Fall))
-        {
-            stateProperty.FallTime += Time.deltaTime;
-        }
-        else
-        {
-            stateProperty.FallTime = 0f;
-        }
-
-        if (state.HasState(State.Dead))
-        {
-            stateProperty.DeadTime += Time.deltaTime;
-        }
-        else
-        {
-            stateProperty.DeadTime = 0f;
+            yield return new WaitForFixedUpdate();
+            foreach(var state in m_stateProperties)
+            {
+                state.m_lastState = state.m_state;
+            }
         }
     }
 }

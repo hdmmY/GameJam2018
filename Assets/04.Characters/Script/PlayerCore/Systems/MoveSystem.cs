@@ -1,124 +1,43 @@
-﻿// using UnityEngine;
-// using System.Collections;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
-// public class MoveSystem : MonoBehaviour
-// {
-//     public CharacterProperty m_character;
+[System.Serializable]
+public struct MoveSystemNeededProperty
+{
+    public StateProperty m_stateProperty;
 
-//     public InputProperty m_input;
+    public InputProperty m_inputProperty;
 
-//     public ApplyForce m_movementForce;
+    public MovementProperty m_moveProperty;
 
-//     [Range(0, 1)]
-//     public float m_forceDampWhenHoldSomething = 0.5f;
+    public BodyProperty m_bodyProperty;
 
-//     [Range(0, 10)]
-//     public float m_impulseMagnitudeWhenStopMove = 1.2f;
+    public bool Valid ()
+    {
+        return m_stateProperty && m_inputProperty && m_moveProperty && m_bodyProperty;
+    }
+}
 
-//     [SerializeField]
-//     private float _initForceMutiplier;
+public class MoveSystem : MonoBehaviour
+{
+    public List<MoveSystemNeededProperty> m_entities;
 
-//     private Vector2 _lastInput;
+    /// <summary>
+    /// This function is called every fixed framerate frame, if the MonoBehaviour is enabled.
+    /// </summary>
+    private void FixedUpdate ()
+    {
+        foreach (var entity in m_entities)
+        {
+            if (entity.Valid ())
+            {
+                Move (entity);
+            }
+        }
+    }
 
-//     private void Start()
-//     {
-//         _initForceMutiplier = m_movementForce.m_forceMutiplier;
-//     }
+    private void Move (MoveSystemNeededProperty neededProperty)
+    {
 
-//     private void Update()
-//     {
-//         Vector2 curInputVector = m_input.Move;
-
-//         Movement(curInputVector, _lastInput);
-
-//         _lastInput = curInputVector;
-//     }
-
-//     private void Movement(Vector2 curMoveInput, Vector2 lastMoveInput)
-//     {
-//         if (m_character.HasState(CharacterProperty.State.BeingGrabbed))
-//         {
-//             m_movementForce.m_enabled = false;
-//             return;
-//         }
-
-//         if (m_character.HasState(CharacterProperty.State.InAir) && m_character.InAirTime > 0.2f)
-//         {
-//             m_movementForce.m_enabled = false;
-//             return;
-//         }
-
-//         if (m_character.HasState(CharacterProperty.State.HoldSomething))
-//         {
-//             if (m_input.JustStopMove)
-//             {
-//                 StartCoroutine(StopMoving());
-//                 return;
-//             }
-
-//             if (curMoveInput != Vector2.zero)
-//             {
-//                 m_movementForce.m_forceMutiplier = _initForceMutiplier * m_forceDampWhenHoldSomething;
-//                 m_movementForce.m_enabled = true;
-//                 ApplyForce(curMoveInput.x, 0, curMoveInput.y);
-//             }
-//             else
-//             {
-//                 m_movementForce.m_enabled = false;
-//             }
-//             return;
-//         }
-
-//         if (m_character.HasState(CharacterProperty.State.Ground))
-//         {
-//             if (m_input.JustStopMove)
-//             {
-//                 StartCoroutine(StopMoving());
-//                 return;
-//             }
-
-//             if (curMoveInput != Vector2.zero)
-//             {
-//                 m_movementForce.m_forceMutiplier = _initForceMutiplier;
-//                 m_movementForce.m_enabled = true;
-//                 ApplyForce(curMoveInput.x, 0, curMoveInput.y);
-//             }
-//             else
-//             {
-//                 m_movementForce.m_enabled = false;
-//             }
-//             return;
-//         }
-
-//         m_movementForce.m_enabled = false;
-//     }
-
-//     private void OnDisable()
-//     {
-//         m_movementForce.m_enabled = false;
-//     }
-
-//     private void ApplyForce(float forceX, float forceY, float forceZ)
-//     {
-//         Vector3 force = new Vector3(forceX, forceY, forceZ);
-//         force = force.normalized;
-
-//         foreach (var forceApplier in m_movementForce.m_forceAppliers)
-//         {
-//             forceApplier.ChangeForce(force.x, force.y, force.z);
-//         }
-//     } 
-
-//     private IEnumerator StopMoving()
-//     {
-//         for (int i = 0; i < 10; i++)
-//         {
-//             if (!m_character.HasState(CharacterProperty.State.InAir))
-//             {
-//                 m_movementForce.AddInverseImplusForce(m_impulseMagnitudeWhenStopMove);
-//                 m_movementForce.m_enabled = false;
-//             }
-//             yield return new WaitForEndOfFrame();
-//         }
-//     }
-// }
+    }
+}

@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-
 [System.Serializable]
 public struct GravitySystemNeededProperty
 {
@@ -43,14 +42,11 @@ public class GravitySystem : MonoBehaviour
 
         var curState = state.m_state;
 
-        if (curState.All ())
+        foreach (var body in bodies.m_bodyInfo.Values)
         {
-            foreach (var body in bodies.m_bodyInfo.Values)
+            if (body.BodyRigid != null)
             {
-                if (body.BodyRigid != null)
-                {
-                    body.BodyRigid.AddForce (gravity, ForceMode.Acceleration);
-                }
+                body.BodyRigid.AddForce (gravity, ForceMode.Acceleration);
             }
         }
     }

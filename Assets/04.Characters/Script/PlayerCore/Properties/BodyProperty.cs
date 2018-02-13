@@ -52,6 +52,14 @@ public class BodyInfo
         }
     }
 
+    public BodyColliderProperty BodyCollider
+    {
+        get
+        {
+            return _bodyTransform.GetComponent<BodyColliderProperty>();
+        }
+    }
+
     [SerializeField]
     private BodyType _bodyType = BodyType.Normal;
     public BodyType BodyType

@@ -2,7 +2,6 @@
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-[Flags]
 public enum State
 {
     None = 0,
@@ -10,70 +9,15 @@ public enum State
     Run = 2,
     Jump = 4,
     Fall = 8,
-    Stun = 16,
-    Dead = 32,
+    Climb = 16,
+    Unconscious = 32,
+    Dead = 64,
+    All = 127
 }
 
 public class StateProperty : BaseProperty
 {
     public State m_state;
 
-    [ShowInInspector, ReadOnly]
-    public float StandTime
-    {
-        get;
-        /// <summary>
-        /// Only can be set by StateUpdateSystem
-        /// </summary>
-        set;
-    }
-
-    public float RunTime
-    {
-        get;
-        /// <summary>
-        /// Only can be set by StateUpdateSystem
-        /// </summary>
-        set;
-    }
-
-    [ShowInInspector, ReadOnly]
-    public float StunTime
-    {
-        get;
-        /// <summary>
-        /// Only can be set by StateUpdateSystem
-        /// </summary>
-        set;
-    }
-
-    [ShowInInspector, ReadOnly]
-    public float JumpTime
-    {
-        get;
-        /// <summary>
-        /// Only can be set by StateUpdateSystem
-        /// </summary>
-        set;
-    }
-
-    [ShowInInspector, ReadOnly]
-    public float FallTime
-    {
-        get;
-        /// <summary>
-        /// Only can be set by StateUpdateSystem
-        /// </summary>
-        set;
-    }
-
-    [ShowInInspector, ReadOnly]
-    public float DeadTime
-    {
-        get;
-        /// <summary>
-        /// Only can be set by StateUpdateSystem
-        /// </summary>
-        set;
-    }
+    public State m_lastState;
 }
