@@ -96,7 +96,7 @@ public class ControlInfoUpdateSystem : MonoBehaviour
 
         if (InputUtils.ValidMove (input.Move))
         {
-            control.m_direction = control.m_rawDirection;
+            control.m_direction = control.m_rawDirection.normalized;
         }
 
         if (!control.m_idle)
@@ -197,7 +197,7 @@ public class ControlInfoUpdateSystem : MonoBehaviour
         }
 
         if (state.m_lastState == State.Stand &&
-            InputUtils.ValidMove (new Vector2 (control.m_rawDirection.x, control.m_rawDirection.z)) &&
+            !InputUtils.ValidMove (new Vector2 (control.m_rawDirection.x, control.m_rawDirection.z)) &&
             !control.m_idle)
         {
             control.m_run = false;
@@ -217,6 +217,21 @@ public class ControlInfoUpdateSystem : MonoBehaviour
             }
             control.m_jumpTimer += Time.deltaTime;
         }
+        else
+        {
+            if (control.m_runTimer >= 0)
+            {
+                control.m_runTimer -= Time.deltaTime;
+            }
+            else
+            {
+                control.m_runTimer = 0;
+                if (!control.m_idle)
+                {
+                    control.m_run = false;
+                }
+            }
+        }
 
         if (input.JumpWasReleaseed)
         {
@@ -232,7 +247,10 @@ public class ControlInfoUpdateSystem : MonoBehaviour
                     state.m_state = State.Jump;
                 }
             }
-            control.m_canJump = true;
+        }
+        else
+        {
+            control.m_jump = false;
         }
     }
 }

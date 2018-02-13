@@ -212,9 +212,9 @@ Rigidbody:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 8095062}
   serializedVersion: 2
-  m_Mass: 3
+  m_Mass: 5
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 1
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 1
@@ -534,9 +534,9 @@ Rigidbody:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 20683837}
   serializedVersion: 2
-  m_Mass: 5
+  m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 1
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 1
@@ -752,7 +752,7 @@ MonoBehaviour:
   m_angleVelocityMagnitude: 0
   m_maxAngleVelocity: 0
   m_angleDrag: 0
-  m_showCentreOfMass: 1
+  m_showCentreOfMass: 0
 --- !u!1 &51708154
 GameObject:
   m_ObjectHideFlags: 0
@@ -781,9 +781,9 @@ Rigidbody:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 51708154}
   serializedVersion: 2
-  m_Mass: 5
+  m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0.01
+  m_AngularDrag: 1
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 1
@@ -1189,9 +1189,9 @@ Rigidbody:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 78822933}
   serializedVersion: 2
-  m_Mass: 10
+  m_Mass: 5
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 1
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 1
@@ -1362,7 +1362,7 @@ MonoBehaviour:
   m_angleVelocityMagnitude: 0
   m_maxAngleVelocity: 0
   m_angleDrag: 0
-  m_showCentreOfMass: 1
+  m_showCentreOfMass: 0
 --- !u!1 &102729024
 GameObject:
   m_ObjectHideFlags: 0
@@ -1555,57 +1555,6 @@ MonoBehaviour:
   m_positionOffset: {x: 0, y: 0, z: 0}
   m_rotationOffset: {x: -0.01171788, y: -0.006529543, z: 0.69031394, w: 0.72338563}
   m_updateMode: 2
---- !u!1 &131667426
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 1461521628944012, guid: c5219a6d1ce2671439d4add3bf04b60f,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 131667428}
-  - component: {fileID: 131667427}
-  m_Layer: 0
-  m_Name: Jump
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &131667427
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114400019357537648, guid: c5219a6d1ce2671439d4add3bf04b60f,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 131667426}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01cf3ce59829f4f44bebdb7cdd23dac9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _description: Add an implus up force to all main body.
-  m_forceAppliers:
-  - m_force: {x: 0, y: 1, z: 0}
-    m_rig: {fileID: 1126909508}
-    m_forceMode: 1
-    m_forecAxis: 0
-  m_forceMutiplier: 150
-  m_enabled: 0
---- !u!4 &131667428
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 4238392150325116, guid: c5219a6d1ce2671439d4add3bf04b60f,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 131667426}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1866407660}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &140003021
 GameObject:
   m_ObjectHideFlags: 0
@@ -1700,6 +1649,7 @@ MonoBehaviour:
     SerializationNodes: []
   m_state: 0
   m_lastState: 0
+  m_stateChanged: 0
 --- !u!1 &184840206
 GameObject:
   m_ObjectHideFlags: 0
@@ -1829,9 +1779,9 @@ Rigidbody:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 265444020}
   serializedVersion: 2
-  m_Mass: 5
+  m_Mass: 7
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 1
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 1
@@ -1937,9 +1887,9 @@ Rigidbody:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 277077398}
   serializedVersion: 2
-  m_Mass: 3
+  m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 1
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 1
@@ -2185,7 +2135,7 @@ MonoBehaviour:
   m_angleVelocityMagnitude: 0
   m_maxAngleVelocity: 0
   m_angleDrag: 0
-  m_showCentreOfMass: 1
+  m_showCentreOfMass: 0
 --- !u!1 &298423682
 GameObject:
   m_ObjectHideFlags: 0
@@ -2285,9 +2235,9 @@ Rigidbody:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 299288483}
   serializedVersion: 2
-  m_Mass: 3
+  m_Mass: 5
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 1
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 1
@@ -2559,7 +2509,7 @@ MonoBehaviour:
   m_angleVelocityMagnitude: 0
   m_maxAngleVelocity: 0
   m_angleDrag: 0
-  m_showCentreOfMass: 1
+  m_showCentreOfMass: 0
 --- !u!1 &314038474
 GameObject:
   m_ObjectHideFlags: 0
@@ -2588,9 +2538,9 @@ Rigidbody:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 314038474}
   serializedVersion: 2
-  m_Mass: 20
+  m_Mass: 30
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 1
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 1
@@ -2648,18 +2598,18 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0.3, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: -0.32600012, z: 0}
+  m_ConnectedAnchor: {x: 0, y: -0.3149995, z: 0}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 1, z: 0}
   m_TwistLimitSpring:
     spring: 0
     damper: 0
   m_LowTwistLimit:
-    limit: 0
+    limit: -30
     bounciness: 0
     contactDistance: 0
   m_HighTwistLimit:
-    limit: 0
+    limit: 30
     bounciness: 0
     contactDistance: 0
   m_SwingLimitSpring:
@@ -2703,63 +2653,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 314038474}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.489, z: -0}
+  m_LocalPosition: {x: 0, y: -0.478, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 289800543}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &391221341
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 1446214233980006, guid: c5219a6d1ce2671439d4add3bf04b60f,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 391221343}
-  - component: {fileID: 391221342}
-  m_Layer: 0
-  m_Name: Foot Stick
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &391221342
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114233996500752304, guid: c5219a6d1ce2671439d4add3bf04b60f,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 391221341}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01cf3ce59829f4f44bebdb7cdd23dac9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _description: Apply huge down force to anchor to make character stick to the stand
-    point
-  m_forceAppliers:
-  - m_force: {x: 0, y: -8000, z: 0}
-    m_rig: {fileID: 314038475}
-    m_forceMode: 0
-    m_forecAxis: 0
-  m_forceMutiplier: 1
-  m_enabled: 0
---- !u!4 &391221343
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 4958854335317676, guid: c5219a6d1ce2671439d4add3bf04b60f,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 391221341}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1866407660}
-  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &393676169
 GameObject:
@@ -3111,113 +3009,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 467071987}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &471141364
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 1586621256115946, guid: c5219a6d1ce2671439d4add3bf04b60f,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 471141366}
-  - component: {fileID: 471141365}
-  m_Layer: 0
-  m_Name: Gravity
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &471141365
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114533216542596880, guid: c5219a6d1ce2671439d4add3bf04b60f,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 471141364}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01cf3ce59829f4f44bebdb7cdd23dac9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _description: Add gravity to all body.
-  m_forceAppliers:
-  - m_force: {x: 0, y: -9.8, z: 0}
-    m_rig: {fileID: 1126909508}
-    m_forceMode: 5
-    m_forecAxis: 0
-  - m_force: {x: 0, y: -9.8, z: 0}
-    m_rig: {fileID: 277077399}
-    m_forceMode: 5
-    m_forecAxis: 0
-  - m_force: {x: 0, y: -9.8, z: 0}
-    m_rig: {fileID: 1107839480}
-    m_forceMode: 5
-    m_forecAxis: 0
-  - m_force: {x: 0, y: -9.8, z: 0}
-    m_rig: {fileID: 618633086}
-    m_forceMode: 5
-    m_forecAxis: 0
-  - m_force: {x: 0, y: -9.8, z: 0}
-    m_rig: {fileID: 314038475}
-    m_forceMode: 5
-    m_forecAxis: 0
-  - m_force: {x: 0, y: -9.8, z: 0}
-    m_rig: {fileID: 78822934}
-    m_forceMode: 5
-    m_forecAxis: 0
-  - m_force: {x: 0, y: -9.8, z: 0}
-    m_rig: {fileID: 847889988}
-    m_forceMode: 5
-    m_forecAxis: 0
-  - m_force: {x: 0, y: -9.8, z: 0}
-    m_rig: {fileID: 51708155}
-    m_forceMode: 5
-    m_forecAxis: 0
-  - m_force: {x: 0, y: -9.8, z: 0}
-    m_rig: {fileID: 1666402655}
-    m_forceMode: 5
-    m_forecAxis: 0
-  - m_force: {x: 0, y: -9.8, z: 0}
-    m_rig: {fileID: 1131476845}
-    m_forceMode: 5
-    m_forecAxis: 0
-  - m_force: {x: 0, y: -9.8, z: 0}
-    m_rig: {fileID: 20683838}
-    m_forceMode: 5
-    m_forecAxis: 0
-  - m_force: {x: 0, y: -9.8, z: 0}
-    m_rig: {fileID: 613032531}
-    m_forceMode: 5
-    m_forecAxis: 0
-  - m_force: {x: 0, y: -9.8, z: 0}
-    m_rig: {fileID: 299288484}
-    m_forceMode: 5
-    m_forecAxis: 0
-  - m_force: {x: 0, y: -9.8, z: 0}
-    m_rig: {fileID: 265444021}
-    m_forceMode: 5
-    m_forecAxis: 0
-  - m_force: {x: 0, y: -9.8, z: 0}
-    m_rig: {fileID: 8095063}
-    m_forceMode: 5
-    m_forecAxis: 0
-  m_forceMutiplier: 1
-  m_enabled: 0
---- !u!4 &471141366
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 4707956312865982, guid: c5219a6d1ce2671439d4add3bf04b60f,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 471141364}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1866407660}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &471544605
 GameObject:
   m_ObjectHideFlags: 0
@@ -3340,63 +3131,6 @@ Transform:
   m_Father: {fileID: 1596919199}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &484438306
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 1695568573667478, guid: c5219a6d1ce2671439d4add3bf04b60f,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 484438308}
-  - component: {fileID: 484438307}
-  m_Layer: 0
-  m_Name: Stand Up
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &484438307
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114136342035509424, guid: c5219a6d1ce2671439d4add3bf04b60f,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 484438306}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01cf3ce59829f4f44bebdb7cdd23dac9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _description: 'Apply up force to Head and Torso to make character''s body lift
-
-    Give head a back force to make head not topple forward'
-  m_forceAppliers:
-  - m_force: {x: 0, y: 1000, z: 0}
-    m_rig: {fileID: 1126909508}
-    m_forceMode: 0
-    m_forecAxis: 0
-  - m_force: {x: 0, y: 800, z: 0}
-    m_rig: {fileID: 1107839480}
-    m_forceMode: 0
-    m_forecAxis: 0
-  m_forceMutiplier: 1
-  m_enabled: 0
---- !u!4 &484438308
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 4944608607451024, guid: c5219a6d1ce2671439d4add3bf04b60f,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 484438306}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1866407660}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &517693455
 GameObject:
   m_ObjectHideFlags: 0
@@ -3448,7 +3182,7 @@ MonoBehaviour:
   m_angleVelocityMagnitude: 0
   m_maxAngleVelocity: 0
   m_angleDrag: 0
-  m_showCentreOfMass: 1
+  m_showCentreOfMass: 0
 --- !u!1 &529526783
 GameObject:
   m_ObjectHideFlags: 0
@@ -3544,7 +3278,7 @@ MonoBehaviour:
   m_angleVelocityMagnitude: 0
   m_maxAngleVelocity: 0
   m_angleDrag: 0
-  m_showCentreOfMass: 1
+  m_showCentreOfMass: 0
 --- !u!1 &562462420
 GameObject:
   m_ObjectHideFlags: 0
@@ -3753,9 +3487,9 @@ Rigidbody:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 613032530}
   serializedVersion: 2
-  m_Mass: 5
+  m_Mass: 7
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 1
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 1
@@ -3863,7 +3597,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 20
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 1
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 1
@@ -4178,10 +3912,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1986402510}
   - {fileID: 1877361197}
   m_Father: {fileID: 819714533}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &695819406
 GameObject:
@@ -4355,7 +4088,7 @@ MonoBehaviour:
   m_angleVelocityMagnitude: 0
   m_maxAngleVelocity: 0
   m_angleDrag: 0
-  m_showCentreOfMass: 1
+  m_showCentreOfMass: 0
 --- !u!1 &736727637
 GameObject:
   m_ObjectHideFlags: 0
@@ -4457,96 +4190,6 @@ Transform:
   m_Father: {fileID: 1596919199}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &747907227
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 1453248521605084, guid: c5219a6d1ce2671439d4add3bf04b60f,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 747907228}
-  - component: {fileID: 747907229}
-  m_Layer: 0
-  m_Name: All Body Drag
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &747907228
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 4086828161891656, guid: c5219a6d1ce2671439d4add3bf04b60f,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 747907227}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1866407660}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &747907229
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114802559932798416, guid: c5219a6d1ce2671439d4add3bf04b60f,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 747907227}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ffa71953c856334f9984a6afe9ba12f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _description: Give all body rig a drag to make body move smooth
-  m_dragAppliers:
-  - m_drag: 1
-    m_angleDrag: 1
-    m_rig: {fileID: 1126909508}
-  - m_drag: 1
-    m_angleDrag: 1
-    m_rig: {fileID: 277077399}
-  - m_drag: 1
-    m_angleDrag: 1
-    m_rig: {fileID: 1107839480}
-  - m_drag: 1
-    m_angleDrag: 1
-    m_rig: {fileID: 618633086}
-  - m_drag: 1
-    m_angleDrag: 1
-    m_rig: {fileID: 78822934}
-  - m_drag: 1
-    m_angleDrag: 1
-    m_rig: {fileID: 847889988}
-  - m_drag: 1
-    m_angleDrag: 1
-    m_rig: {fileID: 51708155}
-  - m_drag: 1
-    m_angleDrag: 1
-    m_rig: {fileID: 1666402655}
-  - m_drag: 1
-    m_angleDrag: 1
-    m_rig: {fileID: 1131476845}
-  - m_drag: 1
-    m_angleDrag: 1
-    m_rig: {fileID: 20683838}
-  - m_drag: 1
-    m_angleDrag: 1
-    m_rig: {fileID: 613032531}
-  - m_drag: 1
-    m_angleDrag: 1
-    m_rig: {fileID: 299288484}
-  - m_drag: 1
-    m_angleDrag: 1
-    m_rig: {fileID: 265444021}
-  - m_drag: 1
-    m_angleDrag: 1
-    m_rig: {fileID: 8095063}
-  m_dragMutiplier: 1
-  m_angularDragMutiplier: 10
-  m_enabled: 0
 --- !u!1 &752576898
 GameObject:
   m_ObjectHideFlags: 0
@@ -4714,65 +4357,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 768060908}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &779401084
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 1783439794926148, guid: c5219a6d1ce2671439d4add3bf04b60f,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 779401086}
-  - component: {fileID: 779401085}
-  m_Layer: 0
-  m_Name: Body Lean Anin
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &779401085
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114226510608164392, guid: c5219a6d1ce2671439d4add3bf04b60f,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 779401084}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01cf3ce59829f4f44bebdb7cdd23dac9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _description: Add main body a forward force when character is moving
-  m_forceAppliers:
-  - m_force: {x: 0, y: 0, z: 100}
-    m_rig: {fileID: 1126909508}
-    m_forceMode: 0
-    m_forecAxis: 1
-  - m_force: {x: 0, y: 0, z: 100}
-    m_rig: {fileID: 277077399}
-    m_forceMode: 0
-    m_forecAxis: 1
-  - m_force: {x: 0, y: 0, z: 100}
-    m_rig: {fileID: 1107839480}
-    m_forceMode: 0
-    m_forecAxis: 1
-  m_forceMutiplier: 1
-  m_enabled: 0
---- !u!4 &779401086
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 4997574664366094, guid: c5219a6d1ce2671439d4add3bf04b60f,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 779401084}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1866407660}
-  m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &783332041
 GameObject:
   m_ObjectHideFlags: 0
@@ -4879,7 +4463,6 @@ Transform:
   - {fileID: 1203453929}
   - {fileID: 1596919199}
   - {fileID: 289800543}
-  - {fileID: 1866407660}
   - {fileID: 673256423}
   m_Father: {fileID: 0}
   m_RootOrder: 5
@@ -5076,7 +4659,7 @@ MonoBehaviour:
   m_angleVelocityMagnitude: 0
   m_maxAngleVelocity: 0
   m_angleDrag: 0
-  m_showCentreOfMass: 1
+  m_showCentreOfMass: 0
 --- !u!1 &847889987
 GameObject:
   m_ObjectHideFlags: 0
@@ -5105,9 +4688,9 @@ Rigidbody:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 847889987}
   serializedVersion: 2
-  m_Mass: 7
+  m_Mass: 3
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 1
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 1
@@ -5227,61 +4810,6 @@ Transform:
   m_Father: {fileID: 289800543}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &870952391
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 1350106532456628, guid: c5219a6d1ce2671439d4add3bf04b60f,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 870952392}
-  - component: {fileID: 870952393}
-  m_Layer: 0
-  m_Name: Leg Rotation Anim
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &870952392
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 4120351619810554, guid: c5219a6d1ce2671439d4add3bf04b60f,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 870952391}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1866407660}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &870952393
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114901351424942892, guid: c5219a6d1ce2671439d4add3bf04b60f,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 870952391}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13a389008c440fa418ceb20c5668c308, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _description: Rotate two legs in forward or back direction
-  m_torqueAppliers:
-  - m_torque: {x: 1, y: 0, z: 0}
-    m_rig: {fileID: 613032531}
-    m_torqueMode: 0
-    m_torqueAxis: 1
-  - m_torque: {x: -1, y: 0, z: 0}
-    m_rig: {fileID: 265444021}
-    m_torqueMode: 0
-    m_torqueAxis: 1
-  m_torqueMutiplier: 500
-  m_enabled: 0
 --- !u!1 &887491995
 GameObject:
   m_ObjectHideFlags: 0
@@ -5345,7 +4873,6 @@ MonoBehaviour:
   m_run: 0
   m_runTimer: 0
   m_jump: 0
-  m_canJump: 0
   m_jumpTimer: 0
   m_jumpDelay: 0.8
   m_fallTimer: 0
@@ -5635,7 +5162,7 @@ MonoBehaviour:
   m_angleVelocityMagnitude: 0
   m_maxAngleVelocity: 0
   m_angleDrag: 0
-  m_showCentreOfMass: 1
+  m_showCentreOfMass: 0
 --- !u!1 &1048018635
 GameObject:
   m_ObjectHideFlags: 0
@@ -5842,6 +5369,7 @@ MonoBehaviour:
     m_inputProperty: {fileID: 964437144}
     m_moveProperty: {fileID: 1513287206}
     m_bodyProperty: {fileID: 1072397528}
+    m_controlProperty: {fileID: 887491997}
 --- !u!114 &1072397528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6241,9 +5769,9 @@ Rigidbody:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1107839479}
   serializedVersion: 2
-  m_Mass: 30
+  m_Mass: 20
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 1
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 1
@@ -6635,9 +6163,9 @@ Rigidbody:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1126909507}
   serializedVersion: 2
-  m_Mass: 8
+  m_Mass: 5
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 1
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 1
@@ -6702,18 +6230,18 @@ CharacterJoint:
     spring: 0
     damper: 0
   m_LowTwistLimit:
-    limit: -177
+    limit: -30
     bounciness: 0
     contactDistance: 0
   m_HighTwistLimit:
-    limit: 177
+    limit: 30
     bounciness: 0
     contactDistance: 0
   m_SwingLimitSpring:
     spring: 0
     damper: 0
   m_Swing1Limit:
-    limit: 30
+    limit: 20
     bounciness: 0
     contactDistance: 0
   m_Swing2Limit:
@@ -6785,9 +6313,9 @@ Rigidbody:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1131476844}
   serializedVersion: 2
-  m_Mass: 7
+  m_Mass: 3
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 1
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 1
@@ -7058,7 +6586,7 @@ MonoBehaviour:
   m_angleVelocityMagnitude: 0
   m_maxAngleVelocity: 0
   m_angleDrag: 0
-  m_showCentreOfMass: 1
+  m_showCentreOfMass: 0
 --- !u!1 &1195728355
 GameObject:
   m_ObjectHideFlags: 0
@@ -7178,7 +6706,7 @@ MonoBehaviour:
   m_angleVelocityMagnitude: 0
   m_maxAngleVelocity: 0
   m_angleDrag: 0
-  m_showCentreOfMass: 1
+  m_showCentreOfMass: 0
 --- !u!1 &1215338710
 GameObject:
   m_ObjectHideFlags: 0
@@ -7332,7 +6860,7 @@ MonoBehaviour:
   m_angleVelocityMagnitude: 0
   m_maxAngleVelocity: 0
   m_angleDrag: 0
-  m_showCentreOfMass: 1
+  m_showCentreOfMass: 0
 --- !u!1 &1316905691
 GameObject:
   m_ObjectHideFlags: 0
@@ -7404,66 +6932,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1316905691}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1327602378
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 1082706484394330, guid: c5219a6d1ce2671439d4add3bf04b60f,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1327602379}
-  - component: {fileID: 1327602380}
-  m_Layer: 0
-  m_Name: Move Rotation
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1327602379
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 4095285123533796, guid: c5219a6d1ce2671439d4add3bf04b60f,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1327602378}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1866407660}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1327602380
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114841791197730376, guid: c5219a6d1ce2671439d4add3bf04b60f,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1327602378}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13a389008c440fa418ceb20c5668c308, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _description: Add a torque to main body to make main body's forward direction align
-    with the input
-  m_torqueAppliers:
-  - m_torque: {x: 0, y: 1, z: 0}
-    m_rig: {fileID: 1107839480}
-    m_torqueMode: 2
-    m_torqueAxis: 1
-  - m_torque: {x: 0, y: 1, z: 0}
-    m_rig: {fileID: 618633086}
-    m_torqueMode: 2
-    m_torqueAxis: 1
-  - m_torque: {x: 0, y: 1, z: 0}
-    m_rig: {fileID: 314038475}
-    m_torqueMode: 2
-    m_torqueAxis: 1
-  m_torqueMutiplier: 10
-  m_enabled: 0
 --- !u!1 &1342238306
 GameObject:
   m_ObjectHideFlags: 0
@@ -7515,7 +6983,7 @@ MonoBehaviour:
   m_angleVelocityMagnitude: 0
   m_maxAngleVelocity: 0
   m_angleDrag: 0
-  m_showCentreOfMass: 1
+  m_showCentreOfMass: 0
 --- !u!1 &1469232050
 GameObject:
   m_ObjectHideFlags: 0
@@ -7587,85 +7055,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1469232050}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1483272528
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 1850977462381322, guid: c5219a6d1ce2671439d4add3bf04b60f,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1483272530}
-  - component: {fileID: 1483272529}
-  m_Layer: 0
-  m_Name: Stand Down
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1483272529
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114685558584215040, guid: c5219a6d1ce2671439d4add3bf04b60f,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1483272528}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01cf3ce59829f4f44bebdb7cdd23dac9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _description: 'Apply down force
-
-    Add gravity to hands to make hands put down
-
-    Add gravity to knees to make knee put down when there is not input'
-  m_forceAppliers:
-  - m_force: {x: 0, y: -2000, z: 0}
-    m_rig: {fileID: 314038475}
-    m_forceMode: 0
-    m_forecAxis: 0
-  - m_force: {x: 0, y: -9.8, z: 0}
-    m_rig: {fileID: 847889988}
-    m_forceMode: 5
-    m_forecAxis: 0
-  - m_force: {x: 0, y: -9.8, z: 0}
-    m_rig: {fileID: 51708155}
-    m_forceMode: 5
-    m_forecAxis: 0
-  - m_force: {x: 0, y: -9.8, z: 0}
-    m_rig: {fileID: 1131476845}
-    m_forceMode: 5
-    m_forecAxis: 0
-  - m_force: {x: 0, y: -9.8, z: 0}
-    m_rig: {fileID: 20683838}
-    m_forceMode: 5
-    m_forecAxis: 0
-  - m_force: {x: 0, y: -9.8, z: 0}
-    m_rig: {fileID: 299288484}
-    m_forceMode: 5
-    m_forecAxis: 0
-  - m_force: {x: 0, y: -9.8, z: 0}
-    m_rig: {fileID: 8095063}
-    m_forceMode: 5
-    m_forecAxis: 0
-  m_forceMutiplier: 1
-  m_enabled: 0
---- !u!4 &1483272530
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 4853578790317950, guid: c5219a6d1ce2671439d4add3bf04b60f,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1483272528}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1866407660}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1495102234
 GameObject:
   m_ObjectHideFlags: 0
@@ -7787,97 +7176,13 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
---- !u!1 &1525927959
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 1523198128269928, guid: c5219a6d1ce2671439d4add3bf04b60f,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1525927961}
-  - component: {fileID: 1525927960}
-  m_Layer: 0
-  m_Name: Base Move
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1525927960
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114703671205142386, guid: c5219a6d1ce2671439d4add3bf04b60f,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1525927959}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01cf3ce59829f4f44bebdb7cdd23dac9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _description: Apply each body part (except hand and elbow) a force to move player
-  m_forceAppliers:
-  - m_force: {x: 0, y: 0, z: 0}
-    m_rig: {fileID: 1126909508}
-    m_forceMode: 0
-    m_forecAxis: 0
-  - m_force: {x: 0, y: 0, z: 0}
-    m_rig: {fileID: 277077399}
-    m_forceMode: 0
-    m_forecAxis: 0
-  - m_force: {x: 0, y: 0, z: 0}
-    m_rig: {fileID: 1107839480}
-    m_forceMode: 0
-    m_forecAxis: 0
-  - m_force: {x: 0, y: 0, z: 0}
-    m_rig: {fileID: 618633086}
-    m_forceMode: 0
-    m_forecAxis: 0
-  - m_force: {x: 0, y: 0, z: 0}
-    m_rig: {fileID: 314038475}
-    m_forceMode: 0
-    m_forecAxis: 0
-  - m_force: {x: 0, y: 0, z: 0}
-    m_rig: {fileID: 78822934}
-    m_forceMode: 0
-    m_forecAxis: 0
-  - m_force: {x: 0, y: 0, z: 0}
-    m_rig: {fileID: 1666402655}
-    m_forceMode: 0
-    m_forecAxis: 0
-  - m_force: {x: 0, y: 0, z: 0}
-    m_rig: {fileID: 613032531}
-    m_forceMode: 0
-    m_forecAxis: 0
-  - m_force: {x: 0, y: 0, z: 0}
-    m_rig: {fileID: 299288484}
-    m_forceMode: 0
-    m_forecAxis: 0
-  - m_force: {x: 0, y: 0, z: 0}
-    m_rig: {fileID: 265444021}
-    m_forceMode: 0
-    m_forecAxis: 0
-  - m_force: {x: 0, y: 0, z: 0}
-    m_rig: {fileID: 8095063}
-    m_forceMode: 0
-    m_forecAxis: 0
-  m_forceMutiplier: 80
-  m_enabled: 0
---- !u!4 &1525927961
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 4493091112221824, guid: c5219a6d1ce2671439d4add3bf04b60f,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1525927959}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1866407660}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_cycleSpeed: 0
+  m_cycleTimer: 0
+  m_leftLegPose: 2
+  m_rightLegPose: 2
+  m_leftArmPose: 2
+  m_rightArmPose: 2
+  m_runForce: 0
 --- !u!1 &1535160565
 GameObject:
   m_ObjectHideFlags: 0
@@ -8304,7 +7609,7 @@ MonoBehaviour:
   m_angleVelocityMagnitude: 0
   m_maxAngleVelocity: 0
   m_angleDrag: 0
-  m_showCentreOfMass: 1
+  m_showCentreOfMass: 0
 --- !u!1 &1634999413
 GameObject:
   m_ObjectHideFlags: 0
@@ -8383,9 +7688,9 @@ Rigidbody:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1666402654}
   serializedVersion: 2
-  m_Mass: 10
+  m_Mass: 5
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 1
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 1
@@ -9407,63 +8712,6 @@ MonoBehaviour:
   m_positionOffset: {x: 0, y: 0, z: 0}
   m_rotationOffset: {x: -0.00199913, y: 0.0010825498, z: -0.9999879, w: 0.0043639247}
   m_updateMode: 2
---- !u!1 &1866407659
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 1502368365859656, guid: c5219a6d1ce2671439d4add3bf04b60f,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1866407660}
-  - component: {fileID: 1866407661}
-  m_Layer: 0
-  m_Name: Appliers
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1866407660
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 4514717809095884, guid: c5219a6d1ce2671439d4add3bf04b60f,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1866407659}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 484438308}
-  - {fileID: 1483272530}
-  - {fileID: 391221343}
-  - {fileID: 471141366}
-  - {fileID: 1525927961}
-  - {fileID: 1327602379}
-  - {fileID: 131667428}
-  - {fileID: 747907228}
-  - {fileID: 870952392}
-  - {fileID: 779401086}
-  m_Father: {fileID: 819714533}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1866407661
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114024852780937912, guid: c5219a6d1ce2671439d4add3bf04b60f,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1866407659}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01cf3ce59829f4f44bebdb7cdd23dac9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _description: 
-  m_forceAppliers: []
-  m_forceMutiplier: 1
-  m_enabled: 0
 --- !u!1 &1877361196
 GameObject:
   m_ObjectHideFlags: 0
@@ -9507,7 +8755,7 @@ Transform:
   - {fileID: 726980965}
   - {fileID: 45876676}
   m_Father: {fileID: 673256423}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1887271144
 GameObject:
@@ -9896,67 +9144,7 @@ MonoBehaviour:
   m_angleVelocityMagnitude: 0
   m_maxAngleVelocity: 0
   m_angleDrag: 0
-  m_showCentreOfMass: 1
---- !u!1 &1986402509
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 1248695139168450, guid: c5219a6d1ce2671439d4add3bf04b60f,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1986402510}
-  - component: {fileID: 1986402511}
-  m_Layer: 0
-  m_Name: Force Appliers
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1986402510
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 4789151926878096, guid: c5219a6d1ce2671439d4add3bf04b60f,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1986402509}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 673256423}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1986402511
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114442432302950160, guid: c5219a6d1ce2671439d4add3bf04b60f,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1986402509}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2bd708b55304fa418932bf3cd840001, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_forceAppliersState:
-  - m_forceApplier: {fileID: 484438307}
-    m_isActive: 0
-  - m_forceApplier: {fileID: 1483272529}
-    m_isActive: 0
-  - m_forceApplier: {fileID: 391221342}
-    m_isActive: 0
-  - m_forceApplier: {fileID: 471141365}
-    m_isActive: 0
-  - m_forceApplier: {fileID: 1525927960}
-    m_isActive: 0
-  - m_forceApplier: {fileID: 131667427}
-    m_isActive: 0
-  - m_forceApplier: {fileID: 779401085}
-    m_isActive: 0
-  - m_forceApplier: {fileID: 0}
-    m_isActive: 0
+  m_showCentreOfMass: 0
 --- !u!1 &2050114053
 GameObject:
   m_ObjectHideFlags: 0

@@ -19,7 +19,7 @@ public class BodyCollisionSystem : MonoBehaviour
     private void Update()
     {
         var unRegistBodyCols = from entity in m_entities
-                where entity.m_bodyCollider.m_hasRigistEvent == true
+                where entity.m_bodyCollider.m_hasRigistEvent == false
                 select entity.m_bodyCollider;
 
         foreach(var unRegistBodyCol in unRegistBodyCols)

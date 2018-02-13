@@ -40,8 +40,6 @@ public class GravitySystem : MonoBehaviour
         var bodies = neededProperty.m_bodyProperty;
         var gravity = neededProperty.m_gravityProperty.m_gravity;
 
-        var curState = state.m_state;
-
         foreach (var body in bodies.m_bodyInfo.Values)
         {
             if (body.BodyRigid != null)

@@ -18,7 +18,7 @@ public static class ApplyForceUtils
     /// <summary>
     /// Aligh body's forward direction to desire direction
     /// </summary>
-    public static void AlignToVector (Rigidbody rig, Vector3 alignmentVector, Vector3 targetVector, float stability, float speed)
+    public static void AlignToVector (Rigidbody rig, Vector3 alignmentVector, Vector3 targetVector, float stability, float speed, bool showForce = false)
     {
         if (rig == null) return;
 
@@ -29,16 +29,22 @@ public static class ApplyForceUtils
         if (!float.IsNaN (torque.x) && !float.IsNaN (torque.y) && !float.IsNaN (torque.z))
         {
             rig.AddTorque (torque * speed * speed);
+
+            if (showForce)
+            {
+                Debug.DrawRay (rig.position, alignmentVector * 0.2f, Color.red, 0f, false);
+                Debug.DrawRay (rig.position, targetVector * 0.2f, Color.green, 0f, false);
+            }
         }
     }
 
     /// <summary>
     /// Aligh body's forward direction to desire direction
     /// </summary>
-    public static void AlignToVector (BodyInfo body, Vector3 alignmentVector, Vector3 targetVector, float stability, float speed)
+    public static void AlignToVector (BodyInfo body, Vector3 alignmentVector, Vector3 targetVector, float stability, float speed, bool showForce = false)
     {
         if (body == null) return;
 
-        AlignToVector (body.BodyRigid, alignmentVector, targetVector, stability, speed);
+        AlignToVector (body.BodyRigid, alignmentVector, targetVector, stability, speed, showForce);
     }
 }

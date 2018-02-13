@@ -54,8 +54,6 @@ public class ControlProperty : BaseProperty
 
     public bool m_jump;
 
-    public bool m_canJump;
-
     /// <summary>
     /// Hold the jump button timer
     /// </summary>
