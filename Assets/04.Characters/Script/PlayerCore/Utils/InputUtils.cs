@@ -18,7 +18,7 @@ public static class InputUtils
     {
         float tolerance = 0.1f;
 
-        return (move.x < -tolerance || move.x > tolerance) &&
+        return (move.x < -tolerance || move.x > tolerance) ||
             (move.y < -tolerance || move.y > tolerance);
     }
 

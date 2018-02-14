@@ -279,11 +279,11 @@ CharacterJoint:
     spring: 0
     damper: 0
   m_LowTwistLimit:
-    limit: 0
+    limit: -10
     bounciness: 0
     contactDistance: 0
   m_HighTwistLimit:
-    limit: 0
+    limit: 10
     bounciness: 0
     contactDistance: 0
   m_SwingLimitSpring:
@@ -313,7 +313,7 @@ SphereCollider:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 8095062}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6095d08ac115fc144b8b676a86444389, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -2302,11 +2302,11 @@ CharacterJoint:
     spring: 0
     damper: 0
   m_LowTwistLimit:
-    limit: 0
+    limit: -10
     bounciness: 0
     contactDistance: 0
   m_HighTwistLimit:
-    limit: 0
+    limit: 10
     bounciness: 0
     contactDistance: 0
   m_SwingLimitSpring:
@@ -2336,7 +2336,7 @@ SphereCollider:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 299288483}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6095d08ac115fc144b8b676a86444389, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -2539,7 +2539,7 @@ Rigidbody:
   m_GameObject: {fileID: 314038474}
   serializedVersion: 2
   m_Mass: 30
-  m_Drag: 0
+  m_Drag: 7
   m_AngularDrag: 1
   m_UseGravity: 0
   m_IsKinematic: 0
@@ -2595,21 +2595,21 @@ CharacterJoint:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 314038474}
   m_ConnectedBody: {fileID: 618633086}
-  m_Anchor: {x: 0, y: 0.3, z: 0}
+  m_Anchor: {x: 0, y: 0.45, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: -0.3149995, z: 0}
+  m_ConnectedAnchor: {x: 0, y: -0.1949996, z: 0}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 1, z: 0}
   m_TwistLimitSpring:
     spring: 0
     damper: 0
   m_LowTwistLimit:
-    limit: -30
+    limit: -20
     bounciness: 0
     contactDistance: 0
   m_HighTwistLimit:
-    limit: 30
+    limit: 20
     bounciness: 0
     contactDistance: 0
   m_SwingLimitSpring:
@@ -2639,7 +2639,7 @@ SphereCollider:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 314038474}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6095d08ac115fc144b8b676a86444389, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -2653,7 +2653,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 314038474}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.478, z: -0}
+  m_LocalPosition: {x: 0, y: -0.508, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 289800543}
@@ -4865,7 +4865,7 @@ MonoBehaviour:
   m_moveDirection: {x: 0, y: 0, z: 0}
   m_lookDirection: {x: 0, y: 0, z: 0}
   m_idle: 0
-  m_idleTime: 0
+  m_idleTimer: 0
   m_ground: 0
   m_groundCheckDelay: 0.1
   m_offGroundDelay: 0.2
@@ -5366,7 +5366,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_entities:
   - m_stateProperty: {fileID: 180324666}
-    m_inputProperty: {fileID: 964437144}
     m_moveProperty: {fileID: 1513287206}
     m_bodyProperty: {fileID: 1072397528}
     m_controlProperty: {fileID: 887491997}

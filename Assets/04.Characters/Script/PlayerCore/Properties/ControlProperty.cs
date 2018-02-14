@@ -32,7 +32,7 @@ public class ControlProperty : BaseProperty
     /// <summary>
     /// Timer for idle
     /// </summary>
-    public float m_idleTime;
+    public float m_idleTimer;
 
     /// <summary>
     /// Whether the character is grounded

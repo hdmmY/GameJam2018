@@ -157,16 +157,30 @@ public class ControlInfoUpdateSystem : MonoBehaviour
     {
         if (InputUtils.HasAnyInput (input) || state.HasState (State.Fall))
         {
-            control.m_idleTime = 0f;
+            if (control.m_idle)
+            {
+                control.m_idleTimer = 1 + Random.Range (0, 3);
+            }
             control.m_idle = false;
-            return;
         }
-
-        control.m_idleTime += Time.deltaTime;
-
-        if (control.m_idleTime > 10f)
+        else
         {
-            control.m_idle = true;
+            control.m_idleTimer += Time.deltaTime;
+
+            if (control.m_idleTimer >= 10)
+            {
+                control.m_idle = true;
+                if (Random.Range (1, 400) == 1)
+                {
+                    control.m_lookDirection = new Vector3 (
+                        Random.Range (-1, 1), Random.Range (-0.2f, 1), Random.Range (-1, 1)).normalized;
+                }
+            }
+            
+            if(control.m_idleTimer >= 20)
+            {
+                control.m_run = true;
+            }
         }
     }
 
