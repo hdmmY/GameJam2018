@@ -20,6 +20,4 @@ public class StateProperty : BaseProperty
     public State m_state;
 
     public State m_lastState;
-
-    public bool m_stateChanged;
 }

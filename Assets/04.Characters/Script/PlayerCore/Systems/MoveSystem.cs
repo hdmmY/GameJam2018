@@ -32,7 +32,9 @@ public class MoveSystem : MonoBehaviour
             if (entity.Valid ())
             {
                 if (entity.m_stateProperty.HasState (State.Run)) Run (entity);
-                if (entity.m_stateProperty.HasState (State.Jump)) Jump(entity);
+                if (entity.m_stateProperty.HasState (State.Jump)) Jump (entity);
+                if (entity.m_stateProperty.HasState (State.Fall)) Fall (entity);
+                if (entity.m_stateProperty.HasState (State.Stand)) Stand (entity);
             }
         }
     }
@@ -53,7 +55,7 @@ public class MoveSystem : MonoBehaviour
             movement.m_cycleSpeed = 0.23f;
         }
 
-        if (state.m_stateChanged)
+        if (state.m_state != state.m_lastState)
         {
             if (Random.Range (0, 1) == 1)
             {
@@ -69,7 +71,6 @@ public class MoveSystem : MonoBehaviour
                 movement.m_leftArmPose = Pose.Bent;
                 movement.m_rightArmPose = Pose.Straight;
             }
-            state.m_stateChanged = false;
         }
 
         RunCycleUpdate (movement);
@@ -241,13 +242,9 @@ public class MoveSystem : MonoBehaviour
         var control = entity.m_controlProperty;
         var body = entity.m_bodyProperty;
 
-        Debug.Log(Time.time.ToString() + state.m_stateChanged);
-        
-        if (state.m_stateChanged)
+        if (state.m_state != state.m_lastState)
         {
-            state.m_stateChanged = false;
-
-            float runFactor = control.m_run ? 0.2f : 0.4f;
+            float runFactor = control.m_run ? 0.4f : 0.2f;
 
             if (control.m_jump)
             {
@@ -282,13 +279,13 @@ public class MoveSystem : MonoBehaviour
             body[BodyPart.Torso].BodyRigid.AddForce (Vector3.up * 2f, ForceMode.VelocityChange);
             body[BodyPart.Hip].BodyRigid.AddForce (Vector3.up * 2f, ForceMode.VelocityChange);
 
-            ApplyForceUtils.AlignToVector(
+            ApplyForceUtils.AlignToVector (
                 body[BodyPart.Torso], body[BodyPart.Torso].BodyTransform.up,
                 Vector3.up, 0.1f, 10f);
             ApplyForceUtils.AlignToVector (
                 body[BodyPart.Torso], body[BodyPart.Torso].BodyTransform.forward,
                 control.m_direction + Vector3.down, 0.1f, 10f);
-            ApplyForceUtils.AlignToVector(
+            ApplyForceUtils.AlignToVector (
                 body[BodyPart.Hip], body[BodyPart.Hip].BodyTransform.up,
                 Vector3.up, 0.1f, 10f);
             ApplyForceUtils.AlignToVector (
@@ -305,23 +302,82 @@ public class MoveSystem : MonoBehaviour
                 0.1f, 4f);
 
             ApplyForceUtils.AlignToVector (
-                body[BodyPart.RightArm], body[BodyPart.RightArm].BodyTransform.up, 
-                -body[BodyPart.Torso].BodyTransform.right + body[BodyPart.Torso].BodyTransform.forward,
+                body[BodyPart.RightArm], body[BodyPart.RightArm].BodyTransform.up, -body[BodyPart.Torso].BodyTransform.right + body[BodyPart.Torso].BodyTransform.forward,
                 0.1f, 4f);
             ApplyForceUtils.AlignToVector (
-                body[BodyPart.RightElbow], body[BodyPart.RightElbow].BodyTransform.up, 
-                -body[BodyPart.Torso].BodyTransform.right - body[BodyPart.Torso].BodyTransform.forward,
+                body[BodyPart.RightElbow], body[BodyPart.RightElbow].BodyTransform.up, -body[BodyPart.Torso].BodyTransform.right - body[BodyPart.Torso].BodyTransform.forward,
                 0.1f, 4f);
 
-            ApplyForceUtils.AlignToVector(
+            ApplyForceUtils.AlignToVector (
                 body[BodyPart.LeftLeg], body[BodyPart.LeftLeg].BodyTransform.up,
                 body[BodyPart.Hip].BodyTransform.up - body[BodyPart.Hip].BodyTransform.forward,
                 0.1f, 4f);
-            ApplyForceUtils.AlignToVector(
+            ApplyForceUtils.AlignToVector (
                 body[BodyPart.RightLeg], body[BodyPart.RightLeg].BodyTransform.up,
                 body[BodyPart.Hip].BodyTransform.up - body[BodyPart.Hip].BodyTransform.forward,
                 0.1f, 4f);
-            
         }
+    }
+
+    private void Fall (MoveSystemNeededProperty entity)
+    {
+        var body = entity.m_bodyProperty;
+        var control = entity.m_controlProperty;
+
+        ApplyForceUtils.AlignToVector (body[BodyPart.Head], body[BodyPart.Head].BodyTransform.forward,
+            control.m_lookDirection, 0.1f, 20f);
+
+        ApplyForceUtils.AlignToVector (body[BodyPart.Torso], body[BodyPart.Torso].BodyTransform.up,
+            Vector3.up, 0.1f, 40f);
+        ApplyForceUtils.AlignToVector (body[BodyPart.Torso], body[BodyPart.Torso].BodyTransform.forward,
+            control.m_direction, 0.1f, 40f);
+
+        ApplyForceUtils.AlignToVector (body[BodyPart.Hip], body[BodyPart.Hip].BodyTransform.up,
+            Vector3.up, 0.1f, 20f);
+        ApplyForceUtils.AlignToVector (body[BodyPart.Hip], body[BodyPart.Hip].BodyTransform.forward,
+            control.m_direction, 0.1f, 20f);
+
+        ApplyForceUtils.AlignToVector (body[BodyPart.LeftLeg], body[BodyPart.LeftLeg].BodyTransform.up,
+            body[BodyPart.Hip].BodyTransform.up, 0.1f, 20f);
+        ApplyForceUtils.AlignToVector (body[BodyPart.RightLeg], body[BodyPart.RightLeg].BodyTransform.up,
+            body[BodyPart.Hip].BodyTransform.up, 0.1f, 20f);
+
+        if (InputUtils.ValidMove (new Vector2 (control.m_rawDirection.x, control.m_rawDirection.z)))
+        {
+            body[BodyPart.Torso].BodyRigid.AddForce (control.m_direction * 0.2f, ForceMode.VelocityChange);
+        }
+    }
+
+    private void Stand (MoveSystemNeededProperty entity)
+    {
+        var body = entity.m_bodyProperty;
+        var control = entity.m_controlProperty;
+        var state = entity.m_stateProperty;
+
+        ApplyForceUtils.AlignToVector (body[BodyPart.Head], body[BodyPart.Head].BodyTransform.forward,
+            control.m_lookDirection, 0.1f, 20f * control.m_applyForce, true);
+        ApplyForceUtils.AlignToVector (body[BodyPart.Head], body[BodyPart.Head].BodyTransform.up,
+            Vector3.up, 0.1f, 20f * control.m_applyForce, true);
+
+        ApplyForceUtils.AlignToVector (body[BodyPart.Torso], body[BodyPart.Torso].BodyTransform.forward,
+            control.m_direction, 0.1f, 40f * control.m_applyForce, true);
+        ApplyForceUtils.AlignToVector (body[BodyPart.Torso], body[BodyPart.Torso].BodyTransform.up,
+            Vector3.up, 0.1f, 40f * control.m_applyForce, true);
+
+        ApplyForceUtils.AlignToVector (body[BodyPart.Hip], body[BodyPart.Hip].BodyTransform.forward,
+            control.m_direction, 0.1f, 40f * control.m_applyForce, true);
+        ApplyForceUtils.AlignToVector (body[BodyPart.Hip], body[BodyPart.Hip].BodyTransform.up,
+            Vector3.up, 0.1f, 30f * control.m_applyForce, true);
+
+        ApplyForceUtils.AlignToVector(body[BodyPart.LeftLeg], body[BodyPart.LeftLeg].BodyTransform.up,
+            body[BodyPart.Hip].BodyTransform.up, 0.1f, 30f * control.m_applyForce);
+        ApplyForceUtils.AlignToVector(body[BodyPart.RightLeg], body[BodyPart.RightLeg].BodyTransform.up,
+            body[BodyPart.Hip].BodyTransform.up, 0.1f, 30f * control.m_applyForce);    
+
+
+        body[BodyPart.Torso].BodyRigid.AddForce (new Vector3 (0, 4, 0) * control.m_applyForce, ForceMode.VelocityChange);
+        body[BodyPart.Hip].BodyRigid.AddForce (new Vector3 (0, -3.5f, 0) * control.m_applyForce, ForceMode.VelocityChange);
+
+        body[BodyPart.Anchor].BodyRigid.angularVelocity = Vector3.zero;
     }
 }

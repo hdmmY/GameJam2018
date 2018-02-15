@@ -4,15 +4,13 @@ using UnityEngine;
 [System.Serializable]
 public struct GravitySystemNeededProperty
 {
-    public StateProperty m_stateProperty;
-
     public BodyProperty m_bodyProperty;
 
     public GravityProperty m_gravityProperty;
 
     public bool Valid ()
     {
-        return m_stateProperty && m_bodyProperty && m_gravityProperty;
+        return m_bodyProperty && m_gravityProperty;
     }
 }
 
@@ -36,7 +34,6 @@ public class GravitySystem : MonoBehaviour
 
     private void ApplyGravity (GravitySystemNeededProperty neededProperty)
     {
-        var state = neededProperty.m_stateProperty;
         var bodies = neededProperty.m_bodyProperty;
         var gravity = neededProperty.m_gravityProperty.m_gravity;
 

@@ -23,7 +23,6 @@ public class StateUpdateSystem : MonoBehaviour
             yield return new WaitForFixedUpdate();
             foreach(var state in m_stateProperties)
             {
-                state.m_stateChanged = state.m_lastState != state.m_state;
                 state.m_lastState = state.m_state;
             }
         }
