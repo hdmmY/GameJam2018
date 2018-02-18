@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using Sirenix.OdinInspector;
 
-
 public class Grabber : MonoBehaviour
 {
     public ItemProperty m_grabItem;

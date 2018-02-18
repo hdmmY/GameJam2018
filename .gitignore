@@ -32,3 +32,8 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+
+# Plugins
+**/Sirenix/Demos
+**/Sirenix/Source
+**/Trinary Software/MoT Demos

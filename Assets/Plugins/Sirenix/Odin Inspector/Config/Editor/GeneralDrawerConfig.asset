@@ -23,3 +23,6 @@ MonoBehaviour:
   quaternionDrawMode: 0
   showPrefabModificationsDisabledMessage: 1
   maxRecursiveDrawDepth: 10
+  showIndexLabels: 0
+  squareUnityObjectFieldHeight: 50
+  squareUnityObjectAlignment: 2
