@@ -22,13 +22,9 @@ namespace PlayerCore
 
         public State m_lastState;
 
-        /// <summary>
-        /// LateUpdate is called every frame, if the Behaviour is enabled.
-        /// It is called after all Update functions have been called.
-        /// </summary>
-        void LateUpdate()
+        public bool HasState(State state)
         {
-            m_lastState = m_state;
+            return (m_state & state) == state; 
         }
     }
 }
