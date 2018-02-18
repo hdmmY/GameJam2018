@@ -5,6 +5,8 @@ namespace PlayerCore
 {
     public class PlayerInput : MonoBehaviour
     {
+        public bool m_useKeyBoard = true;
+
         private CharacterActions _action;
 
         /// <summary>
@@ -13,7 +15,14 @@ namespace PlayerCore
         /// </summary>
         private void Start ()
         {
-            _action = CharacterActions.CreateWithKeyboardBindings ();
+            if (m_useKeyBoard)
+            {
+                _action = CharacterActions.CreateWithKeyboardBindings ();
+            }
+            else
+            {
+                _action = CharacterActions.CreateWithControllerBindings ();
+            }
         }
 
         [ShowInInspector, ReadOnly]
