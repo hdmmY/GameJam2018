@@ -38,16 +38,10 @@ namespace PlayerCore
 
         public float m_groundCheckDelay = 0.1f;
 
-        public float m_offGroundDelay = 0.2f;
-
         /// <summary>
         /// Base force that apply to body
         /// </summary>
         public float m_applyForce;
-
-        public bool m_run;
-
-        public float m_runTimer;
 
         public bool m_jump;
 
@@ -100,7 +94,8 @@ namespace PlayerCore
             {
                 RunCheck ();
             }
-            JumpRunCheck ();
+
+            JumpCheck ();
         }
 
         private void UpdateApplyForce ()
@@ -205,11 +200,6 @@ namespace PlayerCore
                             Random.Range (-1, 1), Random.Range (-0.2f, 1), Random.Range (-1, 1)).normalized;
                     }
                 }
-
-                if (m_idleTimer >= 20)
-                {
-                    m_run = true;
-                }
             }
         }
 
@@ -232,18 +222,11 @@ namespace PlayerCore
             }
         }
 
-        private void JumpRunCheck ()
+        private void JumpCheck ()
         {
             if (m_jumpDelay > 0f)
             {
                 m_jumpDelay -= Time.deltaTime;
-            }
-
-            if (_state.m_lastState == State.Stand &&
-                !InputUtils.ValidMove (new Vector2 (m_rawDirection.x, m_rawDirection.z)) &&
-                !m_idle)
-            {
-                m_run = false;
             }
 
             if (_input.JumpWasPressed)
@@ -253,27 +236,7 @@ namespace PlayerCore
 
             if (_input.Jump)
             {
-                if (m_jumpTimer > 0.4f)
-                {
-                    m_run = true;
-                    m_runTimer = 1f;
-                }
                 m_jumpTimer += Time.deltaTime;
-            }
-            else
-            {
-                if (m_runTimer >= 0)
-                {
-                    m_runTimer -= Time.deltaTime;
-                }
-                else
-                {
-                    m_runTimer = 0;
-                    if (!m_idle)
-                    {
-                        m_run = false;
-                    }
-                }
             }
 
             if (_input.JumpWasReleaseed)
