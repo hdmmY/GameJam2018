@@ -36,14 +36,26 @@
 
 Player Prefab 存放地址 : Assets/04.Characters/Prefabs/Player
 
+通过 Player Prefab 中的 *PlayerInput* 脚本中的 *Use Key Board* 来选择是否使用鼠标或手柄操纵。
+
 键盘：
 
 + WASD 控制移动。
 + 空格键 跳跃。
-+ 按住空格键同时移动为加速。
++ 鼠标右键点击拾取物品，鼠标左键点击丢弃物品
 
-手柄：
+手柄(以 XBOX 为例，PS4 也差不多)：
 
 + 左摇杆控制移动。
 + A 键跳跃。
-+ 按住 A 键同时移动为加速。
++ X 键拾取物品，B 键丢弃物品。
+
+### 制作可拾取的物品
+
+1. 在场景中导入 3D 模型，添加相应的碰撞体。碰撞体可以是这个 3D 模型的子物体。
+2. 为 3D 模型添加 Rigidbody 和 Item Info 组件。
+3. 将这个 3D 模型作为 Player/Rigidbodies/Torso 的子物体，调整它的位置到你认为应该抓取时物体的摆放位置。
+4. 记录这个 3D 模型当前的 Transform.position，将其 Item Info 组件的 GrabPosOffset 属性设置刚刚记录下来的坐标的负值。
+5. 将这个 3D 模型从 Player/Rigidbodies/Torso 的子物体放回至世界坐标的子物体，并放在任何你想要的放置的位置。
+6. 将做好的这个可拾取的物品放在 Assets/03.Environment/Prefabs/Dragable Items 文件夹下。
+7. 完成！
