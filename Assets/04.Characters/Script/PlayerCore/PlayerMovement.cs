@@ -327,9 +327,9 @@ namespace PlayerCore
 				Vector3.up, 0.1f, 80f * _control.m_applyForce, true);
 
 			ApplyForceUtils.AlignToVector (_body[BodyPart.LeftLeg], _body[BodyPart.LeftLeg].BodyTransform.up,
-				_body[BodyPart.Hip].BodyTransform.up, 0.1f, 50f * _control.m_applyForce);
+				_body[BodyPart.Hip].BodyTransform.up, 0.1f, 10f * _control.m_applyForce);
 			ApplyForceUtils.AlignToVector (_body[BodyPart.RightLeg], _body[BodyPart.RightLeg].BodyTransform.up,
-				_body[BodyPart.Hip].BodyTransform.up, 0.1f, 50f * _control.m_applyForce);
+				_body[BodyPart.Hip].BodyTransform.up, 0.1f, 10f * _control.m_applyForce);
 
 			ApplyForceUtils.Straighten (_body[BodyPart.Torso], _body[BodyPart.Hip],
 				Vector3.up, 4 * _control.m_applyForce, ForceMode.VelocityChange);

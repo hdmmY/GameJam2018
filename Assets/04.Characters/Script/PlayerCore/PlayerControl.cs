@@ -54,6 +54,10 @@ namespace PlayerCore
 
         public float m_fallTimer;
 
+        public bool m_grabSomething;
+
+        public float m_grabTimer;
+
         #endregion
 
         private PlayerInput _input;
@@ -61,6 +65,8 @@ namespace PlayerCore
         private PlayerBody _body;
 
         private PlayerState _state;
+
+        private PlayerGrabber _grab;
 
         /// <summary>
         /// Start is called on the frame when a script is enabled just before
@@ -71,6 +77,7 @@ namespace PlayerCore
             _input = GetComponent<PlayerInput> ();
             _body = GetComponent<PlayerBody> ();
             _state = GetComponent<PlayerState> ();
+            _grab = GetComponent<PlayerGrabber> ();
         }
 
         /// <summary>
@@ -89,6 +96,7 @@ namespace PlayerCore
             GroundCheck ();
             FallCheck ();
             IdleCheck ();
+            GrabCheck ();
 
             if (m_ground)
             {
@@ -201,6 +209,22 @@ namespace PlayerCore
                     }
                 }
             }
+        }
+
+        private void GrabCheck ()
+        {
+            foreach (var grabber in _grab.m_grabbers)
+            {
+                if (grabber.m_item != null)
+                {
+                    m_grabSomething = true;
+                    m_grabTimer += Time.deltaTime;
+                    return;
+                }
+            }
+
+            m_grabSomething = false;
+            m_grabTimer = 0f;
         }
 
         private void RunCheck ()

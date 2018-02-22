@@ -1,6 +1,6 @@
 using System.Collections.Generic;
-using UnityEngine;
 using Sirenix.OdinInspector;
+using UnityEngine;
 
 namespace PlayerCore
 {
@@ -82,6 +82,25 @@ namespace PlayerCore
                     return m_bodyInfo[bodyPart];
                 }
                 return null;
+            }
+        }
+
+        /// <summary>
+        /// Awake is called when the script instance is being loaded.
+        /// </summary>
+        private void Awake ()
+        {
+            BodyInfo[] bodys = new BodyInfo[m_bodyInfo.Count];
+            m_bodyInfo.Values.CopyTo (bodys, 0);
+
+            for (int i = 0; i < bodys.Length; i++)
+            {
+                for (int j = i + 1; j < bodys.Length; j++)
+                {
+                    Physics.IgnoreCollision (
+                        bodys[i].BodyTransform.GetComponent<Collider> (),
+                        bodys[j].BodyTransform.GetComponent<Collider> ());
+                }
             }
         }
     }
