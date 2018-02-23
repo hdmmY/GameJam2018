@@ -39,10 +39,15 @@ public class PlayerBodyPicker : MonoBehaviour
             return;
         }
 
-        if (other.gameObject.GetComponentInParent<ItemInfo> ())
+        var item = other.gameObject.GetComponentInParent<ItemInfo> ();
+        if (item != null)
         {
+            Debug.Log("Here!");
             _pickJoint = gameObject.AddComponent<FixedJoint> ();
             _pickJoint.connectedBody = other.rigidbody;
+            _pickJoint.breakForce = item.m_breakForce;
+            _pickJoint.breakTorque = item.m_breakTorque;
+
         }
     }
 
@@ -50,6 +55,7 @@ public class PlayerBodyPicker : MonoBehaviour
     {
         if(_pickJoint != null)
         {
+            _pickJoint.breakForce = 0f;
             Destroy(_pickJoint);
         }
     }

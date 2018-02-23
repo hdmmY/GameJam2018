@@ -10,6 +10,10 @@ public class ItemInfo : MonoBehaviour
 
     public Vector3 m_grabTarget;
 
+    public float m_breakForce = 10f;
+
+    public float m_breakTorque = 10f;
+
     /// <summary>
     /// Callback to draw gizmos only if the object is selected.
     /// </summary>
