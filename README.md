@@ -58,8 +58,6 @@ Player Prefab 存放地址 : Assets/04.Characters/Prefabs/Player
 
 1. 在场景中导入 3D 模型，添加相应的碰撞体。碰撞体可以是这个 3D 模型的子物体。
 2. 为 3D 模型添加 Rigidbody 和 Item Info 组件。
-3. 将这个 3D 模型作为 Player/Rigidbodies/Torso 的子物体，调整它的位置到你认为应该抓取时物体的摆放位置。
-4. 记录这个 3D 模型当前的 Transform.position，将其 Item Info 组件的 GrabPosOffset 属性设置刚刚记录下来的坐标的负值。
-5. 将这个 3D 模型从 Player/Rigidbodies/Torso 的子物体放回至世界坐标的子物体，并放在任何你想要的放置的位置。
-6. 将做好的这个可拾取的物品放在 Assets/03.Environment/Prefabs/Dragable Items 文件夹下。
-7. 完成！
+3. 设置这个物体的 breakForce 和 breakTorqu。 
+4. 将做好的这个可拾取的物品放在 Assets/03.Environment/Prefabs/Dragable Items 文件夹下。
+5. 完成！

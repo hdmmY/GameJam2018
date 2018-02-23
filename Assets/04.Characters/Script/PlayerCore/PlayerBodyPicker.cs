@@ -42,7 +42,6 @@ public class PlayerBodyPicker : MonoBehaviour
         var item = other.gameObject.GetComponentInParent<ItemInfo> ();
         if (item != null)
         {
-            Debug.Log("Here!");
             _pickJoint = gameObject.AddComponent<FixedJoint> ();
             _pickJoint.connectedBody = other.rigidbody;
             _pickJoint.breakForce = item.m_breakForce;
