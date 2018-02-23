@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 
 namespace PlayerCore
@@ -54,9 +55,9 @@ namespace PlayerCore
 
         public float m_fallTimer;
 
-        public bool m_grabSomething;
+        public bool m_pickSomething;
 
-        public float m_grabTimer;
+        public float m_pickCooldownTimer;
 
         #endregion
 
@@ -65,8 +66,6 @@ namespace PlayerCore
         private PlayerBody _body;
 
         private PlayerState _state;
-
-        private PlayerGrabber _grab;
 
         /// <summary>
         /// Start is called on the frame when a script is enabled just before
@@ -77,7 +76,6 @@ namespace PlayerCore
             _input = GetComponent<PlayerInput> ();
             _body = GetComponent<PlayerBody> ();
             _state = GetComponent<PlayerState> ();
-            _grab = GetComponent<PlayerGrabber> ();
         }
 
         /// <summary>
@@ -213,18 +211,41 @@ namespace PlayerCore
 
         private void GrabCheck ()
         {
-            foreach (var grabber in _grab.m_grabbers)
+            var pickers = _body.m_bodyInfo.Values
+                .Where (x => x.BodyPicker != null)
+                .Select (x => x.BodyPicker);
+
+            m_pickSomething = false;
+            m_pickCooldownTimer -= Time.deltaTime;
+
+            foreach (var picker in pickers)
             {
-                if (grabber.m_item != null)
+                if (picker.PickSomething)
                 {
-                    m_grabSomething = true;
-                    m_grabTimer += Time.deltaTime;
-                    return;
+                    m_pickSomething = true;
                 }
             }
 
-            m_grabSomething = false;
-            m_grabTimer = 0f;
+            if (_input.PickWasPressed && m_pickCooldownTimer < 0f)
+            {
+                m_pickCooldownTimer = 0.5f;
+                Pick ();
+            }
+
+            if (_input.ThrowWasPressed && m_pickSomething)
+            {
+                foreach (var picker in pickers) Throw (picker);
+            }
+        }
+
+        private void Pick ()
+        {
+            Debug.Log ("Pick " + Time.time);
+        }
+
+        private void Throw (PlayerBodyPicker picker)
+        {
+            Debug.Log ("Throw " + Time.time);
         }
 
         private void RunCheck ()

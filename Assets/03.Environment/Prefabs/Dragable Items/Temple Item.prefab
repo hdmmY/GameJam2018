@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 54328085731138648}
   - component: {fileID: 114460871483382890}
   m_Layer: 0
-  m_Name: Item_01
+  m_Name: Temple Item
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

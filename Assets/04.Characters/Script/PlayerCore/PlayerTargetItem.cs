@@ -1,3 +1,4 @@
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 [RequireComponent (typeof (Rigidbody))]
@@ -7,6 +8,7 @@ public class PlayerTargetItem : MonoBehaviour
 
     public bool m_attached = false;
 
+    
     private Rigidbody _rig;
 
     /// <summary>

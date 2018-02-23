@@ -38,25 +38,47 @@ namespace PlayerCore
     {
         [SerializeField]
         private Transform _bodyTransform;
-
         public Transform BodyTransform
         {
             get { return _bodyTransform; }
         }
 
+        private Rigidbody _bodyRigid;
         public Rigidbody BodyRigid
         {
             get
             {
-                return _bodyTransform.GetComponent<Rigidbody> ();
+                if (_bodyRigid == null)
+                {
+                    _bodyRigid = _bodyTransform.GetComponent<Rigidbody> ();
+                }
+                return _bodyRigid;
             }
         }
 
+        private PlayerBodyCollider _bodyCollider;
         public PlayerBodyCollider BodyCollider
         {
             get
             {
-                return _bodyTransform.GetComponent<PlayerBodyCollider> ();
+                if (_bodyCollider == null)
+                {
+                    _bodyCollider = _bodyTransform.GetComponent<PlayerBodyCollider> ();
+                }
+                return _bodyCollider;
+            }
+        }
+
+        private PlayerBodyPicker _bodyPicker;
+        public PlayerBodyPicker BodyPicker
+        {
+            get
+            {
+                if (_bodyPicker == null)
+                {
+                    _bodyPicker = _bodyTransform.GetComponent<PlayerBodyPicker> ();
+                }
+                return _bodyPicker;
             }
         }
 
