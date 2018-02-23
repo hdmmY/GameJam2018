@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Linq;
 using UnityEngine;
 
 namespace PlayerCore
@@ -38,16 +40,10 @@ namespace PlayerCore
 
         public float m_groundCheckDelay = 0.1f;
 
-        public float m_offGroundDelay = 0.2f;
-
         /// <summary>
         /// Base force that apply to body
         /// </summary>
         public float m_applyForce;
-
-        public bool m_run;
-
-        public float m_runTimer;
 
         public bool m_jump;
 
@@ -59,6 +55,14 @@ namespace PlayerCore
         public float m_jumpDelay = 0.8f;
 
         public float m_fallTimer;
+
+        public bool m_tryToPick;
+
+        public bool m_pickSomething;
+
+        public float m_pickCooldownTimer;
+
+        public float m_pickTimer;
 
         #endregion
 
@@ -95,12 +99,14 @@ namespace PlayerCore
             GroundCheck ();
             FallCheck ();
             IdleCheck ();
+            PickCheck ();
 
             if (m_ground)
             {
                 RunCheck ();
             }
-            JumpRunCheck ();
+
+            JumpCheck ();
         }
 
         private void UpdateApplyForce ()
@@ -205,11 +211,113 @@ namespace PlayerCore
                             Random.Range (-1, 1), Random.Range (-0.2f, 1), Random.Range (-1, 1)).normalized;
                     }
                 }
+            }
+        }
 
-                if (m_idleTimer >= 20)
+        private void PickCheck ()
+        {
+            var pickers = _body.m_bodyInfo.Values
+                .Where (x => x.BodyPicker != null)
+                .Select (x => x.BodyPicker);
+
+            m_pickSomething = false;
+            m_pickCooldownTimer -= Time.deltaTime;
+
+            foreach (var picker in pickers)
+            {
+                if (picker.PickSomething)
                 {
-                    m_run = true;
+                    m_pickSomething = true;
                 }
+            }
+            if (!m_pickSomething)
+            {
+                m_tryToPick = false;
+            }
+
+            if (_input.PickWasPress && m_pickCooldownTimer < 0f && !m_pickSomething)
+            {
+                m_pickTimer = 0f;
+
+                foreach (var picker in pickers) picker.TryToPick = true;
+            }
+
+            if (_input.Pick && m_pickCooldownTimer < 0f)
+            {
+                m_pickTimer += Time.deltaTime;
+
+                if (m_pickTimer < 3f && !m_pickSomething)
+                {
+                    m_tryToPick = true;
+                    Pick ();
+                }
+                else
+                {
+                    m_pickCooldownTimer = 1f;
+
+                    foreach (var picker in pickers) picker.TryToPick = false;
+                }
+            }
+
+            m_pickCooldownTimer -= Time.deltaTime;
+
+            if (_input.ThrowWasPressed && m_pickSomething)
+            {
+                Throw ();
+            }
+        }
+
+        private void Pick ()
+        {
+            Vector3 leftArmDir = (_body[BodyPart.Torso].BodyTransform.right * 2 +
+                _body[BodyPart.Torso].BodyTransform.forward).normalized;
+            Vector3 leftDelt = (_body[BodyPart.Torso].BodyTransform.right -
+                _body[BodyPart.Torso].BodyTransform.forward).normalized * 0.75f;
+
+            ApplyForceUtils.AlignToVector (_body[BodyPart.LeftArm],
+                _body[BodyPart.LeftArm].BodyTransform.up, Vector3.up, 1f, 10f);
+            ApplyForceUtils.AlignToVector (_body[BodyPart.LeftElbow],
+                _body[BodyPart.LeftElbow].BodyTransform.up, Vector3.up, 1f, 10f);
+            ApplyForceUtils.AlignToVector (_body[BodyPart.LeftHand],
+                _body[BodyPart.LeftHand].BodyTransform.up, Vector3.up, 1f, 5f);
+
+            ApplyForceUtils.AlignToVector (_body[BodyPart.RightArm],
+                _body[BodyPart.RightArm].BodyTransform.up, Vector3.up, 1f, 10f);
+            ApplyForceUtils.AlignToVector (_body[BodyPart.RightElbow],
+                _body[BodyPart.RightElbow].BodyTransform.up, Vector3.up, 1f, 10f);
+            ApplyForceUtils.AlignToVector (_body[BodyPart.RightHand],
+                _body[BodyPart.RightHand].BodyTransform.up, Vector3.up, 1f, 5f);
+
+            ApplyForceUtils.AlignToVector (_body[BodyPart.LeftArm],
+                _body[BodyPart.LeftArm].BodyTransform.forward, leftArmDir, 1f, 1f);
+            ApplyForceUtils.AlignToVector (_body[BodyPart.RightArm],
+                _body[BodyPart.RightArm].BodyTransform.forward, -leftArmDir, 1f, 1f);
+
+            ApplyForceUtils.AlignToVector (_body[BodyPart.LeftElbow],
+                _body[BodyPart.LeftElbow].BodyTransform.forward, leftArmDir + leftDelt, 1f, 1f);
+            ApplyForceUtils.AlignToVector (_body[BodyPart.RightElbow],
+                _body[BodyPart.RightElbow].BodyTransform.forward, -leftArmDir - leftDelt, 1f, 1f);
+
+            ApplyForceUtils.AlignToVector (_body[BodyPart.LeftHand],
+                _body[BodyPart.LeftHand].BodyTransform.forward, leftArmDir + 2 * leftDelt, 1f, 1f);
+            ApplyForceUtils.AlignToVector (_body[BodyPart.RightHand],
+                _body[BodyPart.RightHand].BodyTransform.forward, -leftArmDir - 2 * leftDelt, 1f, 1f);
+
+            _body[BodyPart.LeftHand].BodyRigid.AddForce (
+                Vector3.up + leftArmDir + 2 * leftDelt, ForceMode.Force);
+            _body[BodyPart.RightHand].BodyRigid.AddForce (
+                Vector3.up - leftArmDir - 2 * leftDelt, ForceMode.Force);
+        }
+
+        private void Throw ()
+        {
+            var pickers = _body.m_bodyInfo.Values
+                .Where (x => x.BodyPicker != null)
+                .Select (x => x.BodyPicker);
+
+            foreach(var picker in pickers)
+            {
+                picker.Deconnected();
             }
         }
 
@@ -232,18 +340,11 @@ namespace PlayerCore
             }
         }
 
-        private void JumpRunCheck ()
+        private void JumpCheck ()
         {
             if (m_jumpDelay > 0f)
             {
                 m_jumpDelay -= Time.deltaTime;
-            }
-
-            if (_state.m_lastState == State.Stand &&
-                !InputUtils.ValidMove (new Vector2 (m_rawDirection.x, m_rawDirection.z)) &&
-                !m_idle)
-            {
-                m_run = false;
             }
 
             if (_input.JumpWasPressed)
@@ -253,27 +354,7 @@ namespace PlayerCore
 
             if (_input.Jump)
             {
-                if (m_jumpTimer > 0.4f)
-                {
-                    m_run = true;
-                    m_runTimer = 1f;
-                }
                 m_jumpTimer += Time.deltaTime;
-            }
-            else
-            {
-                if (m_runTimer >= 0)
-                {
-                    m_runTimer -= Time.deltaTime;
-                }
-                else
-                {
-                    m_runTimer = 0;
-                    if (!m_idle)
-                    {
-                        m_run = false;
-                    }
-                }
             }
 
             if (_input.JumpWasReleaseed)

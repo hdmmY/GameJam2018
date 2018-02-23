@@ -65,7 +65,20 @@ namespace PlayerCore
         }
 
         [ShowInInspector, ReadOnly]
-        public bool PickWasPressed
+        public bool Pick
+        {
+            get
+            {
+                if (_action != null)
+                {
+                    return _action.Pick;
+                }
+                return false;
+            }
+        }
+
+        [ShowInInspector, ReadOnly]
+        public bool PickWasPress
         {
             get
             {
@@ -109,7 +122,9 @@ namespace PlayerCore
             {
                 if (_action != null)
                 {
-                    return Attack || JumpWasPressed || PickWasPressed ||
+                    return Attack ||
+                        JumpWasPressed || JumpWasReleaseed || Jump ||
+                        Pick || PickWasPress ||
                         ThrowWasPressed || InputUtils.ValidMove (Move);
                 }
                 return false;

@@ -31,8 +31,6 @@ namespace PlayerCore
 
 		public Pose m_rightArmPose = Pose.Straight;
 
-		public float m_runForce;
-
 		public static Vector3 RunVecForce10 = new Vector3 (0, 10, 0);
 
 		public static Vector3 RunVecForce5 = new Vector3 (0, 5, 0);
@@ -65,20 +63,13 @@ namespace PlayerCore
 			if (_state.HasState (State.Jump)) Jump ();
 			if (_state.HasState (State.Fall)) Fall ();
 			if (_state.HasState (State.Stand)) Stand ();
-		
+
 			_state.m_lastState = _state.m_state;
 		}
 
 		private void Run ()
 		{
-			if (_control.m_run)
-			{
-				m_cycleSpeed = 0.18f;
-			}
-			else
-			{
-				m_cycleSpeed = 0.23f;
-			}
+			m_cycleSpeed = 0.18f;
 
 			if (_state.m_state != _state.m_lastState)
 			{
@@ -136,45 +127,24 @@ namespace PlayerCore
 
 			Vector3 dir = new Vector3 (_control.m_direction.z, 0, -_control.m_direction.x);
 
-			if (!_control.m_run)
+			if (_body[BodyPart.Anchor].BodyRigid.velocity.magnitude < 3 * _control.m_applyForce)
 			{
-				if (_body[BodyPart.Anchor].BodyRigid.velocity.magnitude < 3 * _control.m_applyForce)
-				{
-					_body[BodyPart.Anchor].BodyRigid.maxAngularVelocity = 20;
-					_body[BodyPart.Anchor].BodyRigid.angularVelocity = dir * 20f;
-				}
-			}
-			else
-			{
-				if (_body[BodyPart.Anchor].BodyRigid.velocity.magnitude < 4 * _control.m_applyForce)
-				{
-					_body[BodyPart.Anchor].BodyRigid.maxAngularVelocity = 60f;
-					_body[BodyPart.Anchor].BodyRigid.angularVelocity = dir * 60f;
-				}
+				_body[BodyPart.Anchor].BodyRigid.maxAngularVelocity = 20;
+				_body[BodyPart.Anchor].BodyRigid.angularVelocity = dir * 20f;
 			}
 		}
 
 		private void RunCycleMainBody ()
 		{
-			if (_control.m_run)
-			{
-				m_runForce = Mathf.Clamp (m_runForce + Time.fixedDeltaTime, 0f, 1f);
-			}
-			else
-			{
-				m_runForce = Mathf.Clamp (m_runForce - Time.fixedDeltaTime, 0f, 1f);
-			}
-
 			_body[BodyPart.Torso].BodyRigid.AddForce (
-				(RunVecForce10 + 0.3f * _control.m_direction * m_runForce) * _control.m_applyForce,
+				(RunVecForce10 + 0.6f * _control.m_direction) * _control.m_applyForce,
 				ForceMode.VelocityChange);
 			_body[BodyPart.Hip].BodyRigid.AddForce (
-				(-RunVecForce5 + 0.3f * _control.m_direction * m_runForce) * _control.m_applyForce,
+				(-RunVecForce5 + 0.5f * _control.m_direction) * _control.m_applyForce,
 				ForceMode.VelocityChange);
-			_body[BodyPart.Anchor].BodyRigid.AddForce (-RunVecForce5 * _control.m_applyForce, ForceMode.VelocityChange);
-
 			_body[BodyPart.Anchor].BodyRigid.AddForce (
-				_control.m_direction * _control.m_applyForce, ForceMode.VelocityChange);
+				(-RunVecForce5 + 0.6f * _control.m_direction) * _control.m_applyForce,
+				ForceMode.VelocityChange);
 
 			ApplyForceUtils.AlignToVector (_body[BodyPart.Head], _body[BodyPart.Head].BodyTransform.forward,
 				_control.m_lookDirection, 0.1f, 5f * _control.m_applyForce);
@@ -227,18 +197,9 @@ namespace PlayerCore
 					ApplyForceUtils.AlignToVector (sideLegRig, -sideLeg.up, _control.m_direction, 0.1f, 4f * _control.m_applyForce);
 					break;
 				case Pose.Forward:
-					if (_control.m_run)
-					{
-						ApplyForceUtils.AlignToVector (sideLegRig, -sideLeg.up, _control.m_direction, 0.1f, 4f * _control.m_applyForce);
-						sideLegRig.AddForce (-_control.m_direction * 2f * _control.m_applyForce);
-						sideKneeRig.AddForce (_control.m_direction * 2f * _control.m_applyForce);
-					}
-					else
-					{
-						ApplyForceUtils.AlignToVector (sideLegRig, -sideLeg.up, _control.m_direction - hip.up / 2, 0.1f, 4f * _control.m_applyForce);
-						sideLegRig.AddForce (-_control.m_direction * 2f, ForceMode.VelocityChange);
-						sideKneeRig.AddForce (_control.m_direction * 2f, ForceMode.VelocityChange);
-					}
+					ApplyForceUtils.AlignToVector (sideLegRig, -sideLeg.up, _control.m_direction - hip.up / 2, 0.1f, 4f * _control.m_applyForce);
+					sideLegRig.AddForce (-_control.m_direction * 2f, ForceMode.VelocityChange);
+					sideKneeRig.AddForce (_control.m_direction * 2f, ForceMode.VelocityChange);
 					break;
 				case Pose.Straight:
 					ApplyForceUtils.AlignToVector (sideLegRig, sideLeg.up, Vector3.up, 0.1f, 4f * _control.m_applyForce);
@@ -246,17 +207,7 @@ namespace PlayerCore
 					sideKneeRig.AddForce (-hip.up * 2f * _control.m_applyForce);
 					break;
 				case Pose.Behind:
-					if (_control.m_run)
-					{
-						ApplyForceUtils.AlignToVector (sideLegRig, sideLeg.up, _control.m_direction * 2f, 0.1f, 4f * _control.m_applyForce);
-						_body[BodyPart.Hip].BodyRigid.AddForce (RunVecForce2 * _control.m_applyForce, ForceMode.VelocityChange);
-						_body[BodyPart.Anchor].BodyRigid.AddForce (-RunVecForce2 * _control.m_applyForce, ForceMode.VelocityChange);
-						sideKneeRig.AddForce (-_body[BodyPart.Hip].BodyTransform.forward, ForceMode.VelocityChange);
-					}
-					else
-					{
-						ApplyForceUtils.AlignToVector (sideLegRig, sideLeg.up, _control.m_direction * 2f, 0.1f, 4f * _control.m_applyForce);
-					}
+					ApplyForceUtils.AlignToVector (sideLegRig, sideLeg.up, _control.m_direction * 2f, 0.1f, 4f * _control.m_applyForce);
 					break;
 			}
 		}
@@ -264,28 +215,26 @@ namespace PlayerCore
 		{
 			if (_state.m_state != _state.m_lastState)
 			{
-				float runFactor = _control.m_run ? 0.4f : 0.2f;
-
 				if (_control.m_jump)
 				{
 					Vector3 hipVelocity = _body[BodyPart.Hip].BodyRigid.velocity;
 					if (hipVelocity.y < 2f)
 					{
-						_body[BodyPart.Torso].BodyRigid.AddForce (_control.m_direction * runFactor, ForceMode.VelocityChange);
-						_body[BodyPart.Hip].BodyRigid.AddForce (_control.m_direction * runFactor, ForceMode.VelocityChange);
+						_body[BodyPart.Torso].BodyRigid.AddForce (_control.m_direction * 0.5f, ForceMode.VelocityChange);
+						_body[BodyPart.Hip].BodyRigid.AddForce (_control.m_direction * 0.5f, ForceMode.VelocityChange);
 
 						float torsoY = _body[BodyPart.Torso].BodyTransform.position.y;
 						float hipY = _body[BodyPart.Hip].BodyTransform.position.y;
 
 						if (torsoY > hipY)
 						{
-							Vector3 jumpForce = Vector3.up * 30f;
+							Vector3 jumpForce = Vector3.up * 20f;
 							_body[BodyPart.Torso].BodyRigid.AddForce (jumpForce, ForceMode.VelocityChange);
 							_body[BodyPart.Hip].BodyRigid.AddForce (jumpForce, ForceMode.VelocityChange);
 						}
 						else
 						{
-							Vector3 jumpForce = Vector3.up * 15f;
+							Vector3 jumpForce = Vector3.up * 10f;
 							_body[BodyPart.Torso].BodyRigid.AddForce (jumpForce, ForceMode.VelocityChange);
 							_body[BodyPart.Hip].BodyRigid.AddForce (jumpForce, ForceMode.VelocityChange);
 						}
@@ -300,14 +249,8 @@ namespace PlayerCore
 				_body[BodyPart.Hip].BodyRigid.AddForce (Vector3.up * 2f, ForceMode.VelocityChange);
 
 				ApplyForceUtils.AlignToVector (
-					_body[BodyPart.Torso], _body[BodyPart.Torso].BodyTransform.up,
-					Vector3.up, 0.1f, 10f);
-				ApplyForceUtils.AlignToVector (
 					_body[BodyPart.Torso], _body[BodyPart.Torso].BodyTransform.forward,
 					_control.m_direction + Vector3.down, 0.1f, 10f);
-				ApplyForceUtils.AlignToVector (
-					_body[BodyPart.Hip], _body[BodyPart.Hip].BodyTransform.up,
-					Vector3.up, 0.1f, 10f);
 				ApplyForceUtils.AlignToVector (
 					_body[BodyPart.Hip], _body[BodyPart.Hip].BodyTransform.forward,
 					_control.m_direction + Vector3.up, 0.1f, 10f);
@@ -341,28 +284,31 @@ namespace PlayerCore
 
 		private void Fall ()
 		{
+			ApplyForceUtils.AlignToVector (_body[BodyPart.Head], _body[BodyPart.Head].BodyTransform.up,
+				Vector3.up, 0.1f, 20f);
 			ApplyForceUtils.AlignToVector (_body[BodyPart.Head], _body[BodyPart.Head].BodyTransform.forward,
 				_control.m_lookDirection, 0.1f, 20f);
 
 			ApplyForceUtils.AlignToVector (_body[BodyPart.Torso], _body[BodyPart.Torso].BodyTransform.up,
-				Vector3.up, 0.1f, 40f);
-			ApplyForceUtils.AlignToVector (_body[BodyPart.Torso], _body[BodyPart.Torso].BodyTransform.forward,
-				_control.m_direction, 0.1f, 40f);
-
-			ApplyForceUtils.AlignToVector (_body[BodyPart.Hip], _body[BodyPart.Hip].BodyTransform.up,
 				Vector3.up, 0.1f, 20f);
-			ApplyForceUtils.AlignToVector (_body[BodyPart.Hip], _body[BodyPart.Hip].BodyTransform.forward,
-				_control.m_direction, 0.1f, 20f);
+			ApplyForceUtils.AlignToVector (_body[BodyPart.Torso], _body[BodyPart.Torso].BodyTransform.forward,
+				_control.m_direction + Vector3.down, 0.1f, 10f);
 
-			ApplyForceUtils.AlignToVector (_body[BodyPart.LeftLeg], _body[BodyPart.LeftLeg].BodyTransform.up,
-				_body[BodyPart.Hip].BodyTransform.up, 0.1f, 20f);
-			ApplyForceUtils.AlignToVector (_body[BodyPart.RightLeg], _body[BodyPart.RightLeg].BodyTransform.up,
-				_body[BodyPart.Hip].BodyTransform.up, 0.1f, 20f);
+			ApplyForceUtils.AlignToVector (_body[BodyPart.Hip], _body[BodyPart.Hip].BodyTransform.forward,
+				_control.m_direction + Vector3.up, 0.1f, 20f);
+
+			ApplyForceUtils.AlignToVector (_body[BodyPart.LeftLeg], _body[BodyPart.LeftLeg].BodyTransform.forward,
+				_body[BodyPart.Hip].BodyTransform.forward + Vector3.down * 0.3f, 0.1f, 20f);
+			ApplyForceUtils.AlignToVector (_body[BodyPart.RightLeg], _body[BodyPart.RightLeg].BodyTransform.forward,
+				_body[BodyPart.Hip].BodyTransform.forward + Vector3.down * 0.3f, 0.1f, 20f);
 
 			if (InputUtils.ValidMove (new Vector2 (_control.m_rawDirection.x, _control.m_rawDirection.z)))
 			{
-				_body[BodyPart.Torso].BodyRigid.AddForce (_control.m_direction * 0.2f, ForceMode.VelocityChange);
+				_body[BodyPart.Hip].BodyRigid.AddForce (
+					(_control.m_direction + Vector3.up) * 0.2f, ForceMode.VelocityChange);
 			}
+
+			_body[BodyPart.Anchor].BodyRigid.angularVelocity = Vector3.zero;
 		}
 
 		private void Stand ()
@@ -370,17 +316,17 @@ namespace PlayerCore
 			ApplyForceUtils.AlignToVector (_body[BodyPart.Head], _body[BodyPart.Head].BodyTransform.forward,
 				_control.m_lookDirection, 0.1f, 20f * _control.m_applyForce, true);
 			ApplyForceUtils.AlignToVector (_body[BodyPart.Head], _body[BodyPart.Head].BodyTransform.up,
-				Vector3.up, 0.1f, 20f * _control.m_applyForce, true);
+				Vector3.up, 0.1f, 10f * _control.m_applyForce, true);
 
 			ApplyForceUtils.AlignToVector (_body[BodyPart.Torso], _body[BodyPart.Torso].BodyTransform.forward,
-				_control.m_direction, 0.1f, 40f * _control.m_applyForce, true);
+				_control.m_direction, 0.1f, 10f * _control.m_applyForce, true);
 			ApplyForceUtils.AlignToVector (_body[BodyPart.Torso], _body[BodyPart.Torso].BodyTransform.up,
-				Vector3.up, 0.1f, 40f * _control.m_applyForce, true);
+				Vector3.up, 0.1f, 20f * _control.m_applyForce, true);
 
 			ApplyForceUtils.AlignToVector (_body[BodyPart.Hip], _body[BodyPart.Hip].BodyTransform.forward,
-				_control.m_direction, 0.1f, 40f * _control.m_applyForce, true);
+				_control.m_direction, 0.1f, 10f * _control.m_applyForce, true);
 			ApplyForceUtils.AlignToVector (_body[BodyPart.Hip], _body[BodyPart.Hip].BodyTransform.up,
-				Vector3.up, 0.1f, 30f * _control.m_applyForce, true);
+				Vector3.up, 0.1f, 20f * _control.m_applyForce, true);
 
 			ApplyForceUtils.AlignToVector (_body[BodyPart.LeftLeg], _body[BodyPart.LeftLeg].BodyTransform.up,
 				_body[BodyPart.Hip].BodyTransform.up, 0.1f, 30f * _control.m_applyForce);
@@ -389,8 +335,6 @@ namespace PlayerCore
 
 			ApplyForceUtils.Straighten (_body[BodyPart.Torso], _body[BodyPart.Hip],
 				Vector3.up, 4 * _control.m_applyForce, ForceMode.VelocityChange);
-
-			_body[BodyPart.Anchor].BodyRigid.angularVelocity = Vector3.zero;
 		}
 	}
 }

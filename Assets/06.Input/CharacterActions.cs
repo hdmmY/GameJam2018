@@ -41,8 +41,8 @@ public class CharacterActions : PlayerActionSet
 
         characterActions.Jump.AddDefaultBinding(InputControlType.Action1);
         characterActions.Attack.AddDefaultBinding(InputControlType.Action2);
+        characterActions.Throw.AddDefaultBinding(InputControlType.Action2);
         characterActions.Pick.AddDefaultBinding(InputControlType.Action3);
-        characterActions.Throw.AddDefaultBinding(InputControlType.Action3);
 
         characterActions.Forward.AddDefaultBinding(InputControlType.LeftStickUp);
         characterActions.Back.AddDefaultBinding(InputControlType.LeftStickDown);
@@ -59,8 +59,8 @@ public class CharacterActions : PlayerActionSet
 
         characterActions.Jump.AddDefaultBinding(Key.Space);
         characterActions.Attack.AddDefaultBinding(Mouse.LeftButton);
-        characterActions.Pick.AddDefaultBinding(Mouse.RightButton);
         characterActions.Throw.AddDefaultBinding(Mouse.LeftButton);
+        characterActions.Pick.AddDefaultBinding(Mouse.RightButton);
 
         characterActions.Forward.AddDefaultBinding(Key.W);
         characterActions.Back.AddDefaultBinding(Key.S);

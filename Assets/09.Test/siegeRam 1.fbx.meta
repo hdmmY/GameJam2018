@@ -1,62 +1,52 @@
 fileFormatVersion: 2
-guid: f7f17e3a09a8aef4083369eceef24094
-timeCreated: 1501093679
+guid: 791f35de6a0a16448be5389513f6477c
+timeCreated: 1501093674
 licenseType: Pro
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: body 9
-    100002: catapult 5
-    100004: flag 26
-    100006: flag 27
-    100008: //RootNode
-    100010: trebuchet 2
-    100012: weight 2
-    100014: wheelBackLeft 11
-    100016: wheelBackRight 11
-    100018: wheelFrontLeft 14
-    100020: wheelFrontRight 14
-    400000: body 9
-    400002: catapult 5
-    400004: flag 26
-    400006: flag 27
-    400008: //RootNode
-    400010: trebuchet 2
-    400012: weight 2
-    400014: wheelBackLeft 11
-    400016: wheelBackRight 11
-    400018: wheelFrontLeft 14
-    400020: wheelFrontRight 14
-    2300000: body 9
-    2300002: catapult 5
-    2300004: flag 26
-    2300006: flag 27
-    2300008: trebuchet 2
-    2300010: weight 2
-    2300012: wheelBackLeft 11
-    2300014: wheelBackRight 11
-    2300016: wheelFrontLeft 14
-    2300018: wheelFrontRight 14
-    3300000: body 9
-    3300002: catapult 5
-    3300004: flag 26
-    3300006: flag 27
-    3300008: trebuchet 2
-    3300010: weight 2
-    3300012: wheelBackLeft 11
-    3300014: wheelBackRight 11
-    3300016: wheelFrontLeft 14
-    3300018: wheelFrontRight 14
-    4300000: body 9
-    4300002: catapult 5
-    4300004: flag 26
-    4300006: flag 27
-    4300008: trebuchet 2
-    4300010: weight 2
-    4300012: wheelBackLeft 11
-    4300014: wheelBackRight 11
-    4300016: wheelFrontLeft 14
-    4300018: wheelFrontRight 14
+    100000: body 7
+    100002: ram 1
+    100004: //RootNode
+    100006: wheelBackLeft 9
+    100008: wheelBackRight 9
+    100010: wheelFrontLeft 12
+    100012: wheelFrontRight 12
+    100014: wheelMidLeft 2
+    100016: wheelMidRight 2
+    400000: body 7
+    400002: ram 1
+    400004: //RootNode
+    400006: wheelBackLeft 9
+    400008: wheelBackRight 9
+    400010: wheelFrontLeft 12
+    400012: wheelFrontRight 12
+    400014: wheelMidLeft 2
+    400016: wheelMidRight 2
+    2300000: body 7
+    2300002: ram 1
+    2300004: wheelBackLeft 9
+    2300006: wheelBackRight 9
+    2300008: wheelFrontLeft 12
+    2300010: wheelFrontRight 12
+    2300012: wheelMidLeft 2
+    2300014: wheelMidRight 2
+    3300000: body 7
+    3300002: ram 1
+    3300004: wheelBackLeft 9
+    3300006: wheelBackRight 9
+    3300008: wheelFrontLeft 12
+    3300010: wheelFrontRight 12
+    3300012: wheelMidLeft 2
+    3300014: wheelMidRight 2
+    4300000: body 7
+    4300002: ram 1
+    4300004: wheelBackLeft 9
+    4300006: wheelBackRight 9
+    4300008: wheelFrontLeft 12
+    4300010: wheelFrontRight 12
+    4300012: wheelMidLeft 2
+    4300014: wheelMidRight 2
   externalObjects:
   - first:
       type: UnityEngine:Material
@@ -107,7 +97,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 0.3
+    globalScale: 1
     meshCompression: 0
     addColliders: 0
     importVisibility: 0
