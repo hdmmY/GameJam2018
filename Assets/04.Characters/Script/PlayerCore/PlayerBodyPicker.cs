@@ -45,4 +45,12 @@ public class PlayerBodyPicker : MonoBehaviour
             _pickJoint.connectedBody = other.rigidbody;
         }
     }
+
+    public void Deconnected()
+    {
+        if(_pickJoint != null)
+        {
+            Destroy(_pickJoint);
+        }
+    }
 }

@@ -316,22 +316,22 @@ namespace PlayerCore
 			ApplyForceUtils.AlignToVector (_body[BodyPart.Head], _body[BodyPart.Head].BodyTransform.forward,
 				_control.m_lookDirection, 0.1f, 20f * _control.m_applyForce, true);
 			ApplyForceUtils.AlignToVector (_body[BodyPart.Head], _body[BodyPart.Head].BodyTransform.up,
-				Vector3.up, 0.1f, 30f * _control.m_applyForce, true);
+				Vector3.up, 0.1f, 10f * _control.m_applyForce, true);
 
 			ApplyForceUtils.AlignToVector (_body[BodyPart.Torso], _body[BodyPart.Torso].BodyTransform.forward,
-				_control.m_direction, 0.1f, 20f * _control.m_applyForce, true);
+				_control.m_direction, 0.1f, 10f * _control.m_applyForce, true);
 			ApplyForceUtils.AlignToVector (_body[BodyPart.Torso], _body[BodyPart.Torso].BodyTransform.up,
-				Vector3.up, 0.1f, 30f * _control.m_applyForce, true);
+				Vector3.up, 0.1f, 20f * _control.m_applyForce, true);
 
 			ApplyForceUtils.AlignToVector (_body[BodyPart.Hip], _body[BodyPart.Hip].BodyTransform.forward,
-				_control.m_direction, 0.1f, 20f * _control.m_applyForce, true);
+				_control.m_direction, 0.1f, 10f * _control.m_applyForce, true);
 			ApplyForceUtils.AlignToVector (_body[BodyPart.Hip], _body[BodyPart.Hip].BodyTransform.up,
-				Vector3.up, 0.1f, 30f * _control.m_applyForce, true);
+				Vector3.up, 0.1f, 20f * _control.m_applyForce, true);
 
 			ApplyForceUtils.AlignToVector (_body[BodyPart.LeftLeg], _body[BodyPart.LeftLeg].BodyTransform.up,
-				_body[BodyPart.Hip].BodyTransform.up, 0.1f, 80f * _control.m_applyForce);
+				_body[BodyPart.Hip].BodyTransform.up, 0.1f, 30f * _control.m_applyForce);
 			ApplyForceUtils.AlignToVector (_body[BodyPart.RightLeg], _body[BodyPart.RightLeg].BodyTransform.up,
-				_body[BodyPart.Hip].BodyTransform.up, 0.1f, 80f * _control.m_applyForce);
+				_body[BodyPart.Hip].BodyTransform.up, 0.1f, 30f * _control.m_applyForce);
 
 			ApplyForceUtils.Straighten (_body[BodyPart.Torso], _body[BodyPart.Hip],
 				Vector3.up, 4 * _control.m_applyForce, ForceMode.VelocityChange);

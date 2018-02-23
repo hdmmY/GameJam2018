@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Linq;
 using UnityEngine;
 
@@ -55,9 +56,13 @@ namespace PlayerCore
 
         public float m_fallTimer;
 
+        public bool m_tryToPick;
+
         public bool m_pickSomething;
 
         public float m_pickCooldownTimer;
+
+        public float m_pickTimer;
 
         #endregion
 
@@ -94,7 +99,7 @@ namespace PlayerCore
             GroundCheck ();
             FallCheck ();
             IdleCheck ();
-            GrabCheck ();
+            PickCheck ();
 
             if (m_ground)
             {
@@ -209,7 +214,7 @@ namespace PlayerCore
             }
         }
 
-        private void GrabCheck ()
+        private void PickCheck ()
         {
             var pickers = _body.m_bodyInfo.Values
                 .Where (x => x.BodyPicker != null)
@@ -225,27 +230,95 @@ namespace PlayerCore
                     m_pickSomething = true;
                 }
             }
-
-            if (_input.PickWasPressed && m_pickCooldownTimer < 0f)
+            if (!m_pickSomething)
             {
-                m_pickCooldownTimer = 0.5f;
-                Pick ();
+                m_tryToPick = false;
             }
+
+            if (_input.PickWasPress && m_pickCooldownTimer < 0f && !m_pickSomething)
+            {
+                m_pickTimer = 0f;
+
+                foreach (var picker in pickers) picker.TryToPick = true;
+            }
+
+            if (_input.Pick && m_pickCooldownTimer < 0f)
+            {
+                m_pickTimer += Time.deltaTime;
+
+                if (m_pickTimer < 3f && !m_pickSomething)
+                {
+                    m_tryToPick = true;
+                    Pick ();
+                }
+                else
+                {
+                    m_pickCooldownTimer = 1f;
+
+                    foreach (var picker in pickers) picker.TryToPick = false;
+                }
+            }
+
+            m_pickCooldownTimer -= Time.deltaTime;
 
             if (_input.ThrowWasPressed && m_pickSomething)
             {
-                foreach (var picker in pickers) Throw (picker);
+                Throw ();
             }
         }
 
         private void Pick ()
         {
-            Debug.Log ("Pick " + Time.time);
+            Vector3 leftArmDir = (_body[BodyPart.Torso].BodyTransform.right * 2 +
+                _body[BodyPart.Torso].BodyTransform.forward).normalized;
+            Vector3 leftDelt = (_body[BodyPart.Torso].BodyTransform.right -
+                _body[BodyPart.Torso].BodyTransform.forward).normalized * 0.75f;
+
+            ApplyForceUtils.AlignToVector (_body[BodyPart.LeftArm],
+                _body[BodyPart.LeftArm].BodyTransform.up, Vector3.up, 1f, 10f);
+            ApplyForceUtils.AlignToVector (_body[BodyPart.LeftElbow],
+                _body[BodyPart.LeftElbow].BodyTransform.up, Vector3.up, 1f, 10f);
+            ApplyForceUtils.AlignToVector (_body[BodyPart.LeftHand],
+                _body[BodyPart.LeftHand].BodyTransform.up, Vector3.up, 1f, 5f);
+
+            ApplyForceUtils.AlignToVector (_body[BodyPart.RightArm],
+                _body[BodyPart.RightArm].BodyTransform.up, Vector3.up, 1f, 10f);
+            ApplyForceUtils.AlignToVector (_body[BodyPart.RightElbow],
+                _body[BodyPart.RightElbow].BodyTransform.up, Vector3.up, 1f, 10f);
+            ApplyForceUtils.AlignToVector (_body[BodyPart.RightHand],
+                _body[BodyPart.RightHand].BodyTransform.up, Vector3.up, 1f, 5f);
+
+            ApplyForceUtils.AlignToVector (_body[BodyPart.LeftArm],
+                _body[BodyPart.LeftArm].BodyTransform.forward, leftArmDir, 1f, 1f);
+            ApplyForceUtils.AlignToVector (_body[BodyPart.RightArm],
+                _body[BodyPart.RightArm].BodyTransform.forward, -leftArmDir, 1f, 1f);
+
+            ApplyForceUtils.AlignToVector (_body[BodyPart.LeftElbow],
+                _body[BodyPart.LeftElbow].BodyTransform.forward, leftArmDir + leftDelt, 1f, 1f);
+            ApplyForceUtils.AlignToVector (_body[BodyPart.RightElbow],
+                _body[BodyPart.RightElbow].BodyTransform.forward, -leftArmDir - leftDelt, 1f, 1f);
+
+            ApplyForceUtils.AlignToVector (_body[BodyPart.LeftHand],
+                _body[BodyPart.LeftHand].BodyTransform.forward, leftArmDir + 2 * leftDelt, 1f, 1f);
+            ApplyForceUtils.AlignToVector (_body[BodyPart.RightHand],
+                _body[BodyPart.RightHand].BodyTransform.forward, -leftArmDir - 2 * leftDelt, 1f, 1f);
+
+            _body[BodyPart.LeftHand].BodyRigid.AddForce (
+                Vector3.up + leftArmDir + 2 * leftDelt, ForceMode.Force);
+            _body[BodyPart.RightHand].BodyRigid.AddForce (
+                Vector3.up - leftArmDir - 2 * leftDelt, ForceMode.Force);
         }
 
-        private void Throw (PlayerBodyPicker picker)
+        private void Throw ()
         {
-            Debug.Log ("Throw " + Time.time);
+            var pickers = _body.m_bodyInfo.Values
+                .Where (x => x.BodyPicker != null)
+                .Select (x => x.BodyPicker);
+
+            foreach(var picker in pickers)
+            {
+                picker.Deconnected();
+            }
         }
 
         private void RunCheck ()
