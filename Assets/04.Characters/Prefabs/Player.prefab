@@ -3134,7 +3134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a0dabd8aa4cd1043b4ad4ca2b485130, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_useKeyBoard: 0
+  m_useKeyBoard: 1
 --- !u!114 &114593586641579502
 MonoBehaviour:
   m_ObjectHideFlags: 1

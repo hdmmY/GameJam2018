@@ -61,3 +61,8 @@ Player Prefab 存放地址 : Assets/04.Characters/Prefabs/Player
 3. 设置这个物体的 breakForce 和 breakTorqu。 
 4. 将做好的这个可拾取的物品放在 Assets/03.Environment/Prefabs/Dragable Items 文件夹下。
 5. 完成！
+
+### 制作一个新场景
+
+1. 在 Assets/01 Scenes/Dev 里添加一个新 Scene。命名规则：dev_{标号}。
+2. 在这个新场景里添加一个新Gameobjec，命名为 InControl，给这个物体添加 InControlManager 脚本。

@@ -7,6 +7,7 @@ namespace PlayerCore
     {
         public bool m_useKeyBoard = true;
 
+        [ShowInInspector]
         private CharacterActions _action;
 
         /// <summary>
