@@ -31,6 +31,7 @@
   + Sirenix/Odin Inspector : 一个自定义编辑器 + 序列化插件。
   + TextMeshPro : 一个增强 Unity Text 等 UI 的插件。
   + Trinary Software/MoT : 一个类似 ITween 的自定义运动轨迹的插件。
+  + **说明：**收费插件需自行在 Unity Asset Store 上购买。
 
 ### 人物控制器使用说明
 

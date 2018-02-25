@@ -2372,7 +2372,7 @@ Prefab:
     - target: {fileID: 114557594822852470, guid: 5e80b17930a98b44aa26cca6f20a8416,
         type: 2}
       propertyPath: m_useKeyBoard
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114875819451620212, guid: 5e80b17930a98b44aa26cca6f20a8416,
         type: 2}
